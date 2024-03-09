@@ -1,7 +1,20 @@
-// Copyright 2022 UNN-CS
-#ifndef INCLUDE_CIRCLE_H_
-#define INCLUDE_CIRCLE_H_
-#include <cstdint>
+// Copyright 2024 Kiselev_IS
+#pragma once
+#include<cmath>
 
+class circle {
+private:
 
-#endif  // INCLUDE_CIRCLE_H_
+    double radius;
+    double ferense;
+    double area;
+public:
+
+    void setRadius(double rad);
+    void setFerense(double fer);
+    void setArea(double ar);
+    double getRadius();
+    double getFerense();
+    double getArea();
+};
+

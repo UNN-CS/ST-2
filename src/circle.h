@@ -3,13 +3,11 @@
 #include<cmath>
 
 class circle {
-
-private:
+ private:
     double radius;
     double ferense;
     double area;
-
-public:
+ public:
     void setRadius(double rad);
     void setFerense(double fer);
     void setArea(double ar);

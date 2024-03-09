@@ -3,8 +3,7 @@
 #include"circle.h"
 
 class tasks {
-
-public:
+ public:
     double earth();
     double pool();
 };

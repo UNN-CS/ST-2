@@ -1,5 +1,4 @@
 // Copyright 2024 Kiselev_IS
-#include "pch.h"
 #include "circle.h"
 
 double const PI = 3.14159265358979323846;
