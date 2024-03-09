@@ -1,12 +1,14 @@
+// Copyright 2024 Kiselev_IS
 #pragma once
 #include<cmath>
 
-class circle
-{
+class circle {
+
 private:
     double radius;
     double ferense;
     double area;
+
 public:
     void setRadius(double rad);
     void setFerense(double fer);
