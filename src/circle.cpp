@@ -2,8 +2,9 @@
 // Copyright 2024 Yurin Andrey
 //
 
-#include "circle.h"
 #include <cmath>
+#include <stdexcept>
+#include "circle.h"
 
 Circle::Circle(double radius) {
     SetRadius(radius);
