@@ -27,7 +27,7 @@ bool Circle::setArea(double newArea) {
         defalt();
         return false;
     }
-    return std::sqrt(newArea / PI);
+    return setRadius(std::sqrt(newArea / PI));
 }
 
 double Circle::getRadius() {

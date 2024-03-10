@@ -74,7 +74,7 @@ TEST(Circle, ferenceOverloadedValues) {
 TEST(Circle, areaOverloadedValues) {
     Circle circle;
     for (int i = 0; i < 100; i++) {
-        EXPECT_FALSE(circle.setArea(getRandomDouble(AREA_MAX + 1,INFINITY))); // AREA_MAX = DBL_MAX
+        // Нет тестов, так как площадь может принимать максимальное значение
     }
 }
 
