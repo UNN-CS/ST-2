@@ -175,7 +175,7 @@ TEST(Circle, ferenceProtectionAgainstOverloadedValues) {
 TEST(Circle, areaProtectionAgainstOverloadedValues) {
     Circle circle;
     for (int i = 0; i < 100; i++) {
-        // нет тестов так как Area может принимать все максимальные значения для double
+        // area может принимать любые значение double
     }
 }
 

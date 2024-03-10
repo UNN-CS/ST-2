@@ -7,7 +7,7 @@
 double taskEarthAndRope(
     double earthRadius,
     double extraRopeLength);
-    
+
 double taskSwimmingPool(
     double swimmingPoolRadius,
     double conreteWidht,

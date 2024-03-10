@@ -13,7 +13,7 @@ double taskEarthAndRope(double earthRadius, double extraRopeLength) {
 
 double taskSwimmingPool(
     double swimmingPoolRadius,
-    double conreteWidht, 
+    double conreteWidht,
     double concretePrice,
     double fencePrice) {
     double concreteArea;
