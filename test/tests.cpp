@@ -60,7 +60,7 @@ TEST(CircleSetFerense, CalcArea) {
 
 TEST(CircleSetFerense, NegativeThrow) {
     circle c;
-    ASSERT_ANY_THROW(c.setFerense(-1), "Trying to set negative Ferense");
+    ASSERT_ANY_THROW(c.setFerense(-1));
 }
 
 TEST(CircleSetArea, CalcRadius) {
@@ -79,7 +79,7 @@ TEST(CircleSetArea, CalcFerense) {
 
 TEST(CircleSetArea, NegativeThrow) {
     circle c;
-    ASSERT_ANY_THROW(c.setArea(-1), "Trying to set negative Area");
+    ASSERT_ANY_THROW(c.setArea(-1));
 }
 
 
