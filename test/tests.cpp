@@ -75,7 +75,7 @@ TEST(Circle, SetNegativeArea) {
 
 TEST(Circle, SetCorrectFerence) {
     Circle circle(1);
-    circle.SetAFerence(4 * M_PI);
+    circle.SetFerence(4 * M_PI);
     EXPECT_NEAR(circle.GetRadius(), 2, EPS);
     EXPECT_NEAR(circle.GetArea(), 4 * M_PI, EPS);
     EXPECT_NEAR(circle.GetFerence(), 4 * M_PI, EPS);
