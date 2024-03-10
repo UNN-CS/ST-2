@@ -12,10 +12,10 @@
 #define AREA_MAX PI * pow(RADIUS_MAX, 2)
 
 class Circle {
-private:
+ private:
     double radius, ference, area;
     void defalt();
-public:
+ public:
     Circle();
     bool setRadius(double newRadius);
     bool setFerence(double newFerence);
