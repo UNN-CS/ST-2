@@ -1,4 +1,5 @@
 // Copyright 2024 Kiselev_IS
+#include <gtest/gtest.h>
 #include "tasks.h"
 
 TEST(CircleGetters, GetRadius) {
