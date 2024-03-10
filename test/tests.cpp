@@ -1,9 +1,10 @@
 //
-// Created by Андрей Юрин on 08.03.2024.
+// Copyright 2024 Yurin Andrey
 //
 
 #include <gtest/gtest.h>
 #include <cstdint>
+#include <cmath>
 #include "circle.h"
 #include "tasks.h"
 
@@ -98,6 +99,5 @@ TEST(Tasks, PathAroundPoolAndFencePriceTask) {
     EXPECT_NEAR(
             PathAroundPoolAndFencePriceTask(3.0, 1.0, 1000.0, 2000.0),
             23000.0 * M_PI,
-            EPS
-    );
+            EPS);
 }

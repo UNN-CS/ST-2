@@ -1,9 +1,10 @@
 //
-// Created by Андрей Юрин on 08.03.2024.
+// Copyright 2024 Yurin Andrey
 //
 
-#ifndef ST_2_TASKS_H
-#define ST_2_TASKS_H
+
+#ifndef INCLUDE_TASKS_H_
+#define INCLUDE_TASKS_H_
 
 double RopeAroundPlanetTask(double planetRadius, double radiusIncrement);
 double PathAroundPoolAndFencePriceTask(
@@ -12,4 +13,4 @@ double PathAroundPoolAndFencePriceTask(
         double concretePrice,
         double fencePrice);
 
-#endif //ST_2_TASKS_H
+#endif //INCLUDE_TASKS_H_

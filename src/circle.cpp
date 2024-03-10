@@ -1,5 +1,5 @@
 //
-// Created by Андрей Юрин on 08.03.2024.
+// Copyright 2024 Yurin Andrey
 //
 
 #include "circle.h"
@@ -26,7 +26,6 @@ void Circle::SetRadius(double radius) {
     _radius = radius;
     _ference = 2.0 * M_PI * _radius;
     _area = M_PI * std::pow(_radius, 2);
-
 }
 
 void Circle::SetArea(double area) {
@@ -43,7 +42,9 @@ void Circle::SetFerence(double ference) {
     _area =  M_PI * std::pow(_radius, 2);
 }
 
-void Circle::ThrowErrorIfValueIsNotPositive(double value, const std::string& nameOfVariable) {
+void Circle::ThrowErrorIfValueIsNotPositive(
+        double value,
+        const std::string& nameOfVariable) {
     if (value <= 0.0) {
         throw std::invalid_argument(nameOfVariable + " must be positive");
     }

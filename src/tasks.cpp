@@ -1,17 +1,18 @@
 //
-// Created by Андрей Юрин on 08.03.2024.
+// Copyright 2024 Yurin Andrey
 //
 
+#include "tasks.h"
 #include "circle.h"
 
-double ropeAroundPlanetTask(double planetRadius, double radiusIncrement) {
+double RopeAroundPlanetTask(double planetRadius, double radiusIncrement) {
     Circle circle(planetRadius);
     circle.SetFerence(circle.GetFerence() + radiusIncrement);
 
     return circle.GetRadius() - planetRadius;
 }
 
-double pathAroundPoolAndFencePriceTask(
+double PathAroundPoolAndFencePriceTask(
         double poolRadius,
         double pathWidth,
         double concretePrice,
