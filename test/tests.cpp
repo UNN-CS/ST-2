@@ -10,8 +10,12 @@
 
 const double EPS = 1.0e-9;
 
-TEST(Circle, creatingCircleWithCorrectRadius) {
-    EXPECT_NO_THROW(Circle(10));
+TEST(Circle, creatingCircleWithCorrectIntRadius) {
+    EXPECT_NO_THROW(Circle(1));
+}
+
+TEST(Circle, creatingCircleWithCorrectDoubleRadius) {
+    EXPECT_NO_THROW(Circle(1.0));
 }
 
 TEST(Circle, creatingCircleWithZeroRadius) {
@@ -22,26 +26,36 @@ TEST(Circle, creatingCircleWithNegativeRadius) {
     EXPECT_ANY_THROW(Circle(-10));
 }
 
-TEST(Circle, getRadiusCorrect) {
+TEST(Circle, getCorrectRadius) {
     Circle circle(1);
     EXPECT_NEAR(circle.GetRadius(), 1, EPS);
 }
 
-TEST(Circle, getAreaCorrect) {
+TEST(Circle, getCorrectArea) {
     Circle circle(1);
-    EXPECT_NEAR(circle.GetRadius(), M_PI, EPS);
+    EXPECT_NEAR(circle.GetArea(), M_PI, EPS);
 }
 
-TEST(Circle, getFerenceCorrect) {
+TEST(Circle, getCorrectFerence) {
     Circle circle(1);
-    EXPECT_NEAR(circle.GetRadius(), 2 * M_PI, EPS);
+    EXPECT_NEAR(circle.GetFerence(), 2 * M_PI, EPS);
 }
 
 TEST(Circle, SetCorrectRadius) {
     Circle circle(1);
     circle.SetRadius(2);
     EXPECT_NEAR(circle.GetRadius(), 2, EPS);
+}
+
+TEST(Circle, SetCorrectRadiusCheckingArea) {
+    Circle circle(1);
+    circle.SetRadius(2);
     EXPECT_NEAR(circle.GetArea(), 4 * M_PI, EPS);
+}
+
+TEST(Circle, SetCorrectRadiusCheckingFerence) {
+    Circle circle(1);
+    circle.SetRadius(2);
     EXPECT_NEAR(circle.GetFerence(), 4 * M_PI, EPS);
 }
 
