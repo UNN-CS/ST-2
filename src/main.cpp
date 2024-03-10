@@ -1,5 +1,5 @@
-// Copyright 2022 UNN-CS
-#include "circle.h"
+// Copyright 2024 Khramov Ivan
+#include "../include/circle.h"
 
 int main() {
     return 0;
