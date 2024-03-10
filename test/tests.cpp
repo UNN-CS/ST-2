@@ -1,5 +1,4 @@
 // Copyright 2024 Kiselev_IS
-#include "pch.h"
 #include "tasks.h"
 
 TEST(CircleGetters, GetRadius) {
