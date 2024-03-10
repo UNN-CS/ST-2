@@ -94,18 +94,3 @@ TEST(Tasks, Pool) {
     EXPECT_DOUBLE_EQ(72256.6310325652426, t.pool());
     EXPECT_TRUE(true);
 }
-
-//-----------------------------------------------main
-
-int main(int argc, char** argv) {
-    int result_code = 0;
-
-    ::testing::TestEventListeners& listeners =
-        ::testing::UnitTest::GetInstance()->listeners();
-
-    testing::InitGoogleTest(&argc, argv);
-
-    result_code = RUN_ALL_TESTS();
-
-    return result_code;
-}
