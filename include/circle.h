@@ -8,8 +8,8 @@
 
 #define PI 3.14159
 #define RADIUS_MAX std::sqrt(DBL_MAX / PI)
-#define FERENCE_MAX pow(DBL_MAX / (PI * 2), 2) * PI
-#define AREA_MAX DBL_MAX
+#define FERENCE_MAX 2 * PI * RADIUS_MAX
+#define AREA_MAX PI * pow(RADIUS_MAX, 2)
 
 class Circle {
 private:
