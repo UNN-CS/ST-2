@@ -1,7 +1,22 @@
-// Copyright 2022 UNN-CS
-#ifndef INCLUDE_CIRCLE_H_
-#define INCLUDE_CIRCLE_H_
-#include <cstdint>
+// Copyright 2024 Smirnov Leonid
 
+#pragma once
 
-#endif  // INCLUDE_CIRCLE_H_
+class Circle {
+ private:
+    static const double PI;
+    double radius;
+    double ference;
+    double area;
+    static double CheckingTheInputData(double radius);
+
+ public:
+    explicit Circle(double raduisValue = 0);
+    double GetRadius() const;
+    double GetFerence() const;
+    double GetArea() const;
+
+    void SetRadius(double value);
+    void SetFerence(double value);
+    void SetArea(double value);
+};
