@@ -1,9 +1,10 @@
 // Copyright 2022 UNN-CS
 #include <cstdint>
-#include "circle.h"
 #include <cmath>
 
-const double PI = 3.14159265358979323846;
+#include "circle.h"
+
+constexpr double PI = 3.14159265358979323846;
 
 Circle::Circle(double radius) {
     setRadius(radius);

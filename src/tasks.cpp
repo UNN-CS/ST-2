@@ -1,3 +1,4 @@
+// Copyright 2025 Mikhail Burykin
 #include "tasks.h"
 #include "circle.h"
 
