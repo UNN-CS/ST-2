@@ -2,9 +2,9 @@
 #ifndef INCLUDE_CIRCLE_H_
 #define INCLUDE_CIRCLE_H_
 #include <assert.h>
+#include <numbers>
 #include <cstdint>
 #include <iostream>
-#include <numbers>
 
 enum class calculatings { Ference, Area };
 
@@ -27,6 +27,7 @@ class Circle {
   }
 
 public:
+
   Circle() = default;
   explicit Circle(double radius) noexcept {
     assert(radius > 0.0);

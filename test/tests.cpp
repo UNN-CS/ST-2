@@ -1,7 +1,7 @@
 // Copyright 2025 UNN-CS Team
 
-#include <cstdint>
 #include <gtest/gtest.h>
+#include <cstdint>
 
 #include "tasks.hpp"
 
@@ -83,4 +83,16 @@ TEST(circle_Task, testCircleCreate10) {
   Circle circle(kRadius);
   EXPECT_NEAR(kExpectedFence, circle.GetDence(), kEpsilon);
   EXPECT_NEAR(kExpectedArea, circle.GetArea(), kEpsilon);
+}
+
+TEST(circle_Task, testTask1) {
+  constexpr auto kEpsilon = 0.001;
+  auto kExpectedNumber = 0.1591;
+  EXPECT_NEAR(kExpectedNumber, GetGap(), kEpsilon);
+}
+
+TEST(circle_Task, testTask2) {
+  constexpr auto kEpsilon = 0.001;
+  auto kExpectedNumber = 72256.6;
+  EXPECT_NEAR(kExpectedNumber, GetSwimingPoolBuildingCost(), kEpsilon);
 }
