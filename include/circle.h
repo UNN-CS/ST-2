@@ -2,9 +2,9 @@
 #ifndef INCLUDE_CIRCLE_H_
 #define INCLUDE_CIRCLE_H_
 #include <assert.h>
+#include <math.h>
 #include <cstdint>
 #include <iostream>
-#include <math.h>
 enum class calculatings { Ference, Area };
 
 class Circle {
