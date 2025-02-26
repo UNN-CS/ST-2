@@ -2,24 +2,23 @@
 #ifndef INCLUDE_CIRCLE_H_
 #define INCLUDE_CIRCLE_H_
 #include <assert.h>
-#include <numbers>
 #include <cstdint>
 #include <iostream>
-
 enum class calculatings { Ference, Area };
 
 class Circle {
   double m_radius = 0.0;
   double m_ference = 0.0;
   double m_area = 0.0;
+  double constexpr pi = 3.1415926;
 
   void Calculate(calculatings calculating) noexcept {
     switch (calculating) {
     case calculatings::Ference:
-      m_ference = 2 * std::numbers::pi * m_radius;
+      m_ference = 2 * pi * m_radius;
       break;
     case calculatings::Area:
-      m_area = std::numbers::pi * m_radius * m_radius;
+      m_area = pi * m_radius * m_radius;
       break;
     default:
       break;
@@ -27,7 +26,6 @@ class Circle {
   }
 
 public:
-
   Circle() = default;
   explicit Circle(double radius) noexcept {
     assert(radius > 0.0);
@@ -47,7 +45,7 @@ public:
   bool SetFerence(double ference) noexcept {
     if (ference > 0.0) {
       m_ference = ference;
-      m_radius = m_ference / (2 * std::numbers::pi);
+      m_radius = m_ference / (2 * pi);
       Calculate(calculatings::Area);
       return true;
     }
@@ -57,7 +55,7 @@ public:
   bool SetArea(double area) noexcept {
     if (area > 0.0) {
       m_area = area;
-      m_radius = std::sqrt(m_area / std::numbers::pi);
+      m_radius = std::sqrt(m_area / pi);
       Calculate(calculatings::Ference);
       return true;
     }
