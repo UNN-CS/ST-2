@@ -59,7 +59,7 @@ TEST(circle_Task, testCircleCreate9) {
   constexpr auto kEpsilon = 0.001;
   constexpr auto kRadius = 0.1;
   constexpr auto kExpectedFence = 0.6283;
-  constexpr auto kExpectedArea = 0.31415;
+  constexpr auto kExpectedArea = 0.031415;
   Circle circle(kRadius);
   EXPECT_NEAR(kExpectedFence, circle.GetFerence(), kEpsilon);
   EXPECT_NEAR(kExpectedArea, circle.GetArea(), kEpsilon);
