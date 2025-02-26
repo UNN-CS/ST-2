@@ -4,13 +4,14 @@
 #include <assert.h>
 #include <cstdint>
 #include <iostream>
+#include <math.h>
 enum class calculatings { Ference, Area };
 
 class Circle {
   double m_radius = 0.0;
   double m_ference = 0.0;
   double m_area = 0.0;
-  double constexpr pi = 3.1415926;
+  static constexpr double pi = 3.1415926;
 
   void Calculate(calculatings calculating) noexcept {
     switch (calculating) {
@@ -25,7 +26,7 @@ class Circle {
     }
   }
 
-public:
+ public:
   Circle() = default;
   explicit Circle(double radius) noexcept {
     assert(radius > 0.0);
