@@ -7,13 +7,14 @@ private:
   double radius;
   double ference;
   double area;
+
   void updateFromRadius();
   void updateFromFerence();
   void updateFromArea();
 public:
-  Circle(double r);
+  explicit Circle(double r);
   void setRadius(double r);
-  void setFerence(double f);
+  void setFerence(double f);	
   void setArea(double a);
   double getRadius();
   double getFerence();

@@ -1,16 +1,14 @@
 // Copyright 2022 UNN-CS
-#include "circle.h"
 #include "../include/task.h"
+#include "circle.h"
 #include <cmath>
 
 const double PI = 3.141592653589793;
-// Функция для задачи "Земля и верёвка"
 double calculateRopeGap(double earthRadius, double ropeIncrease) {
     double newRadius = earthRadius + (ropeIncrease / (2 * PI));
     return newRadius - earthRadius;
 }
 
-// Функция для задачи "Бассейн"
 double calculatePoolCost(double poolRadius, double pathWidth,
     double concreteCost, double fenceCost) {
     Circle pool(poolRadius);
