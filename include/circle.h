@@ -20,7 +20,7 @@ class Circle {
   }
 
  public:
-  Circle(double r) {
+  explicit Circle(double r) {
     if (r <= 0) throw std::invalid_argument("Radius must be positive");
     radius = r;
     updateFerence();
