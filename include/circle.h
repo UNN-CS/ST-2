@@ -1,8 +1,8 @@
-// Copyright 2022 UNN-CS
-#ifndef INCLUDE_CIRCLE_H_
-#define INCLUDE_CIRCLE_H_
-#include <cstdint>
+#ifndef CIRCLE_H
+#define CIRCLE_H
+
 #include <cmath>
+#include <stdexcept>
 
 class Circle {
 private:
@@ -11,34 +11,39 @@ private:
   double area;
 
   void updateFerence() {
-    ference = 2 * 3.14159265358979323846 * radius;
+    ference = 2 * M_PI * radius;
   }
 
   void updateArea() {
-    area = 3.14159265358979323846 * radius * radius;
+    area = M_PI * radius * radius;
   }
 
 public:
-  Circle(double r) : radius(r) {
+  Circle(double r) {
+    if (r <= 0) throw std::invalid_argument("Radius must be positive");
+    radius = r;
     updateFerence();
     updateArea();
   }
 
   void setRadius(double r) {
+    if (r <= 0) throw std::invalid_argument("Radius must be positive");
     radius = r;
     updateFerence();
     updateArea();
   }
 
   void setFerence(double f) {
+    if (f <= 0) throw std::invalid_argument("Ference must be positive");
     ference = f;
-    radius = f / (2 * 3.14159265358979323846);
+    radius = f / (2 * M_PI);
     updateArea();
   }
 
   void setArea(double a) {
+    if (a <= 0) throw std::invalid_argument("Area must be positive");
     area = a;
-    radius = sqrt(a / 3.14159265358979323846);
+    radius = sqrt(a / M_PI);
     updateFerence();
   }
 
@@ -55,4 +60,4 @@ public:
   }
 };
 
-#endif  // INCLUDE_CIRCLE_H_
+#endif // CIRCLE_H
