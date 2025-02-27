@@ -1,10 +1,12 @@
 // Copyright 2025 UNN-CS Team
 
-#include <gtest/gtest.h>
-#include <cstdint>
 #include "circle.h"
 #include "../include/task.h"
+
 #include <cmath>
+#include <cstdint>
+
+#include <gtest/gtest.h>
 
 const double PI = 3.141592653589793;
 TEST(CircleTest, RadiusInitialization) {
