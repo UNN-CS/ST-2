@@ -6,58 +6,120 @@
 #include "tasks.h"
 #include <cassert>
 
-void testCircle() {
-	Circle c(5);
-	assert(c.getRadius() == 5);
-	assert(c.getFerence() == 2 * 3.14159265358979323846 * 5);
-	assert(c.getArea() == 3.14159265358979323846 * 5 * 5);
+#include "tasks.h"
 
-	c.setRadius(10);
-	assert(c.getRadius() == 10);
-	assert(c.getFerence() == 2 * 3.14159265358979323846 * 10);
-	assert(c.getArea() == 3.14159265358979323846 * 10 * 10);
-
-	c.setFerence(62.831853);
-	assert(c.getRadius() == 10);
-
-	c.setArea(314.159265);
-	assert(c.getRadius() == 10);
-
-	c.setRadius(0);
-	assert(c.getRadius() == 0);
-	assert(c.getFerence() == 0);
-	assert(c.getArea() == 0);
-
-	c.setRadius(1);
-	assert(c.getFerence() == 2 * 3.14159265358979323846 * 1);
-	assert(c.getArea() == 3.14159265358979323846 * 1 * 1);
-
-	c.setFerence(6.283185307179586);
-	assert(c.getRadius() == 1);
-
-	c.setArea(3.14159265358979323846);
-	assert(c.getRadius() == 1);
-
-	c.setFerence(12.566370614359172);
-	assert(c.getRadius() == 2);
-
-	c.setArea(12.566370614359172);
-	assert(c.getRadius() == 2);
+TEST(circle, constructor_with_positive_radius) {
+	Circle c(10);
+	EXPECT_FLOAT_EQ(c.getRadius(), 10);
+	EXPECT_FLOAT_EQ(c.getFerence(), 62.831853);
+	EXPECT_FLOAT_EQ(c.getArea(), 314.159265);
 }
 
-void testTasks() {
-	assert(calculateGap(1) > 0);
-	assert(calculatePoolCost(3, 1) > 0);
+TEST(circle, set_radius_updates_properties) {
+	Circle c(2);
+	c.setRadius(8);
+	EXPECT_FLOAT_EQ(c.getRadius(), 8);
+	EXPECT_FLOAT_EQ(c.getFerence(), 50.265482);
+	EXPECT_FLOAT_EQ(c.getArea(), 201.06193);
+}
 
-	assert(calculateGap(0) == 0);
-	assert(calculatePoolCost(0, 1) == 2000);
+TEST(circle, set_ference_updates_radius_and_area) {
+	Circle c(3);
+	c.setFerence(37.699111);
+	EXPECT_FLOAT_EQ(c.getRadius(), 6);
+	EXPECT_FLOAT_EQ(c.getFerence(), 37.699111);
+	EXPECT_FLOAT_EQ(c.getArea(), 113.097336);
+}
 
-	assert(calculatePoolCost(3, 0) == 6000);
-	assert(calculatePoolCost(5, 1) > 0);
+TEST(circle, set_area_updates_radius_and_ference) {
+	Circle c(1);
+	c.setArea(50.265482);
+	EXPECT_FLOAT_EQ(c.getRadius(), 4);
+	EXPECT_FLOAT_EQ(c.getFerence(), 25.132742);
+	EXPECT_FLOAT_EQ(c.getArea(), 50.265482);
+}
 
-	assert(calculatePoolCost(100, 10) > 0);
-	assert(calculateGap(10) > 0);
+TEST(circle, constructor_with_large_radius) {
+	Circle c(100);
+	EXPECT_FLOAT_EQ(c.getRadius(), 100);
+	EXPECT_FLOAT_EQ(c.getFerence(), 628.318530);
+	EXPECT_FLOAT_EQ(c.getArea(), 31415.92654);
+}
 
-	assert(calculatePoolCost(0.1, 0.1) > 0);
-	assert(calculateGap(0.1) > 0);
+TEST(circle, set_radius_large_value) {
+	Circle c(5);
+	c.setRadius(100);
+	EXPECT_FLOAT_EQ(c.getRadius(), 100);
+	EXPECT_FLOAT_EQ(c.getFerence(), 628.318530);
+	EXPECT_FLOAT_EQ(c.getArea(), 31415.92654);
+}
+
+TEST(circle, set_ference_large_value) {
+	Circle c(1);
+	c.setFerence(628.318530);
+	EXPECT_FLOAT_EQ(c.getRadius(), 100);
+	EXPECT_FLOAT_EQ(c.getFerence(), 628.318530);
+	EXPECT_FLOAT_EQ(c.getArea(), 31415.92654);
+}
+
+TEST(circle, set_area_large_value) {
+	Circle c(1);
+	c.setArea(31415.92654);
+	EXPECT_FLOAT_EQ(c.getRadius(), 100);
+	EXPECT_FLOAT_EQ(c.getFerence(), 628.318530);
+	EXPECT_FLOAT_EQ(c.getArea(), 31415.92654);
+}
+
+TEST(circle, constructor_throws_on_negative_radius) {
+	EXPECT_THROW(Circle(-10), std::invalid_argument);
+}
+
+TEST(circle, set_radius_throws_on_negative_value) {
+	Circle c(1);
+	EXPECT_THROW(c.setRadius(-10), std::invalid_argument);
+}
+
+TEST(circle, set_ference_throws_on_negative_value) {
+	Circle c(1);
+	EXPECT_THROW(c.setFerence(-10), std::invalid_argument);
+}
+
+TEST(circle, set_area_throws_on_negative_value) {
+	Circle c(1);
+	EXPECT_THROW(c.setArea(-10), std::invalid_argument);
+}
+
+TEST(circle, constructor_throws_on_zero_radius) {
+	EXPECT_THROW(Circle(0), std::invalid_argument);
+}
+
+TEST(circle, set_radius_throws_on_zero_value) {
+	Circle c(1);
+	EXPECT_THROW(c.setRadius(0), std::invalid_argument);
+}
+
+TEST(circle, set_ference_throws_on_zero_value) {
+	Circle c(1);
+	EXPECT_THROW(c.setFerence(0), std::invalid_argument);
+}
+
+TEST(circle, set_area_throws_on_zero_value) {
+	Circle c(1);
+	EXPECT_THROW(c.setArea(0), std::invalid_argument);
+}
+
+TEST(task1, calculates_gap_correctly) {
+	EXPECT_FLOAT_EQ(calculateGap(1), 0.15915494309189535);
+}
+
+TEST(task1, calculates_gap_for_large_length) {
+	EXPECT_FLOAT_EQ(calculateGap(100), 15.915494309189533);
+}
+
+TEST(task2, calculates_pool_cost_correctly) {
+	EXPECT_FLOAT_EQ(calculatePoolCost(5, 2), 7854.000000);
+}
+
+TEST(task2, calculates_pool_cost_with_different_dimensions) {
+	EXPECT_FLOAT_EQ(calculatePoolCost(15, 3), 11309.733552);
 }
