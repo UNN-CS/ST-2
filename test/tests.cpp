@@ -6,8 +6,6 @@
 #include "tasks.h"
 #include <cassert>
 
-#include "tasks.h"
-
 TEST(cir, constructor_with_positive_radius) {
   Circle c(10);
   EXPECT_FLOAT_EQ(c.getRadius(), 10);
