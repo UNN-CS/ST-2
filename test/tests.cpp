@@ -1,8 +1,7 @@
 // Copyright 2025 UNN-CS Team
-
-#include <gtest/gtest.h>
 #include "tasks.h"
 #include "circle.h"
+#include <gtest/gtest.h>
 #include <cstdint>
 #include <cassert>
 
