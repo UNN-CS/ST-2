@@ -1,3 +1,4 @@
+// Copyright 2025 UNN-CS Team
 #ifndef INCLUDE_CIRCLE_H_
 #define INCLUDE_CIRCLE_H_
 #include <cstdint>
