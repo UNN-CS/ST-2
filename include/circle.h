@@ -1,11 +1,12 @@
-#ifndef CIRCLE_H
-#define CIRCLE_H
+// Copyright 2022 UNN-CS
+#ifndef INCLUDE_CIRCLE_H_
+#define INCLUDE_CIRCLE_H_
 
 #include <cmath>
 #include <stdexcept>
 
 class Circle {
-private:
+ private:
   double radius;
   double ference;
   double area;
@@ -18,7 +19,7 @@ private:
     area = M_PI * radius * radius;
   }
 
-public:
+ public:
   Circle(double r) {
     if (r <= 0) throw std::invalid_argument("Radius must be positive");
     radius = r;
@@ -60,4 +61,4 @@ public:
   }
 };
 
-#endif // CIRCLE_H
+#endif // INCLUDE_CIRCLE_H_
