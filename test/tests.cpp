@@ -1,9 +1,10 @@
 // Copyright 2025 UNN-CS Team
-#include "tasks.h"
-#include "circle.h"
+
 #include <gtest/gtest.h>
 #include <cstdint>
 #include <cassert>
+#include "tasks.h"
+#include "circle.h"
 
 TEST(cir, constructor_with_positive_radius) {
   Circle c(10);
