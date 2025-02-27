@@ -2,7 +2,7 @@ set(header_path "${${PROJECT_NAME}_SOURCE_DIR}/include")
 set(header ${header_path}/circle.h)
 set(src circle.cpp)
 
-set(header ${header_path}/tasks.hpp)
+set(header ${header_path}/tasks.h)
 set(src tasks.cpp)
 
 add_library(${PROJECT_NAME} SHARED
