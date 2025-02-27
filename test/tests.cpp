@@ -11,7 +11,7 @@
 TEST(cir, constructor_with_positive_radius) {
   Circle c(10);
   EXPECT_FLOAT_EQ(c.getRadius(), 10);
-  PECT_FLOAT_EQ(c.getFerence(), 62.831853);
+  EXPECT_FLOAT_EQ(c.getFerence(), 62.831853);
   EXPECT_FLOAT_EQ(c.getArea(), 314.159265);
 }
 
