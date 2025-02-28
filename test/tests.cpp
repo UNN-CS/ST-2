@@ -63,3 +63,34 @@ TEST(korablev_v_circle_test, LargeRadius) {
   EXPECT_NEAR(c.getFerence(), 2.0 * pi * 1e6, 1e-5);
   EXPECT_NEAR(c.getArea(), pi * 1e12, 1e4);
 }
+TEST(korablev_v_tasks_test, RopeTaskPositive) {
+  double gap = ropeTask();
+  EXPECT_GT(gap, 0.0);
+}
+
+TEST(korablev_v_tasks_test, RopeTaskTheoretical) {
+  double gap = ropeTask();
+  double expected = 1.0 / (2.0 * pi);
+  EXPECT_NEAR(gap, expected, 1e-7);
+}
+
+TEST(korablev_v_tasks_test, RopeTaskApprox) {
+  double gap = ropeTask();
+  EXPECT_NEAR(gap, 0.15915, 1e-5);
+}
+
+TEST(korablev_v_tasks_test, PoolCostPositive) {
+  double cost = poolCost();
+  EXPECT_GT(cost, 0.0);
+}
+
+TEST(korablev_v_tasks_test, PoolCostTheoretical) {
+  double cost = poolCost();
+  double expected = 23.0 * pi * 1000.0;
+  EXPECT_NEAR(cost, expected, 1e-7);
+}
+
+TEST(korablev_v_tasks_test, PoolCostApprox) {
+  double cost = poolCost();
+  EXPECT_NEAR(cost, 72382.4, 1e-1);
+}
