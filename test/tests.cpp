@@ -11,6 +11,7 @@ TEST(korablev_v_circle_test, Constructor) {
   EXPECT_NEAR(c.getFerence(), 4.0 * pi, 1e-7);
   EXPECT_NEAR(c.getArea(), 4.0 * pi, 1e-7);
 }
+
 TEST(korablev_v_circle_test, SetRadius) {
   Circle c(1.0);
   c.setRadius(3.0);
@@ -18,6 +19,7 @@ TEST(korablev_v_circle_test, SetRadius) {
   EXPECT_NEAR(c.getFerence(), 6.0 * pi, 1e-7);
   EXPECT_NEAR(c.getArea(), 9.0 * pi, 1e-7);
 }
+
 TEST(korablev_v_circle_test, SetFerence) {
   Circle c(1.0);
   c.setFerence(10.0);
@@ -26,6 +28,7 @@ TEST(korablev_v_circle_test, SetFerence) {
   EXPECT_NEAR(c.getRadius(), r, 1e-7);
   EXPECT_NEAR(c.getArea(), a, 1e-7);
 }
+
 TEST(korablev_v_circle_test, SetArea) {
   Circle c(2.0);
   c.setArea(25.0);
@@ -35,18 +38,21 @@ TEST(korablev_v_circle_test, SetArea) {
   EXPECT_NEAR(c.getFerence(), f, 1e-7);
   EXPECT_NEAR(c.getArea(), 25.0, 1e-7);
 }
+
 TEST(korablev_v_circle_test, ZeroRadius) {
   Circle c(0.0);
   EXPECT_DOUBLE_EQ(c.getRadius(), 0.0);
   EXPECT_DOUBLE_EQ(c.getFerence(), 0.0);
   EXPECT_DOUBLE_EQ(c.getArea(), 0.0);
 }
+
 TEST(korablev_v_circle_test, NegativeRadius) {
   Circle c(-1.0);
   EXPECT_NEAR(c.getRadius(), -1.0, 1e-7);
   EXPECT_NEAR(c.getFerence(), -2.0 * pi, 1e-7);
   EXPECT_NEAR(c.getArea(), pi, 1e-7);
 }
+
 TEST(korablev_v_circle_test, MultipleSetters) {
   Circle c(1.0);
   c.setRadius(2.0);
@@ -56,6 +62,7 @@ TEST(korablev_v_circle_test, MultipleSetters) {
   EXPECT_NEAR(c.getFerence(), 12.0 * pi, 1e-7);
   EXPECT_NEAR(c.getArea(), 36.0 * pi, 1e-7);
 }
+
 TEST(korablev_v_circle_test, LargeRadius) {
   Circle c(1e6);
   EXPECT_DOUBLE_EQ(c.getRadius(), 1e6);
