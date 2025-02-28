@@ -3,6 +3,7 @@
 #include <cmath>
 #include <cstdint>
 #include "circle.h"
+#include "tasks.h"
 
 static const double pi = std::acos(-1.0);
 
