@@ -1,7 +1,9 @@
+// Copyright 2025 Sotskov Andrey
 #include "tasks.h"
-#include <cstdint>
 #include "circle.h"
+#include <cstdint>
 #include <cmath>
+#include <algorithm>
 
 const double PI = 3.141592653589793;
 
@@ -18,7 +20,8 @@ double ropeGap(double earthRadius) {
     return earth.getRadius() - earthRadius;
 }
 
-double poolCost(double poolRadius, double pathWidth, double concreteCost, double fenceCost) {
+double poolCost(double poolRadius, double pathWidth, 
+                double concreteCost, double fenceCost) {
     if (poolRadius < 0 || pathWidth < 0) {
         return 0;
     }

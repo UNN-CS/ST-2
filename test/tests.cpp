@@ -82,14 +82,15 @@ TEST(TaskTest, RopeGap) {
 
 TEST(TaskTest, PoolCost) {
     double cost = poolCost(3, 1, 1000, 2000);
-    double expected_cost = (M_PI * (16 - 9) * 1000) + (8 * M_PI * 2000);
+    double expected_cost = (M_PI * (16 - 9) * 1000) + 
+                           (8 * M_PI * 2000);
     EXPECT_NEAR(cost, expected_cost, EPSILON);
 }
 
-
 TEST(TaskTest, PoolCostZeroRadius) {
     double cost = poolCost(0, 1, 1000, 2000);
-    double expected_cost = (M_PI * (1) * 1000) + (2 * M_PI * 1 * 2000);
+    double expected_cost = (M_PI * (1) * 1000) + 
+                           (2 * M_PI * 1 * 2000);
     EXPECT_NEAR(cost, expected_cost, EPSILON);
 }
 
@@ -116,6 +117,7 @@ TEST(TaskTest, PoolCostAllZero) {
     double expected_cost = 0;
     EXPECT_NEAR(cost, expected_cost, EPSILON);
 }
+
 TEST(TaskTest, RopeGapZeroRadius) {
     double gap = ropeGap(0);
     EXPECT_NEAR(gap, 1 / (2 * M_PI), EPSILON); 
@@ -136,34 +138,35 @@ TEST(TaskTest, RopeGapNegativeRadius) {
     EXPECT_NEAR(gap, 1 / (2 * M_PI), EPSILON);
 }
 
-
 TEST(TaskTest, PoolCostLargeValues) {
     double cost = poolCost(1e6, 1e5, 5000, 3000);
-    double expected_cost = (M_PI * ((1.1e6) * (1.1e6) - 1e6 * 1e6) * 5000) + (2 * M_PI * 1.1e6 * 3000);
+    double expected_cost = (M_PI * ((1.1e6) * (1.1e6) - 1e6 * 1e6) * 5000) + 
+                           (2 * M_PI * 1.1e6 * 3000);
     EXPECT_NEAR(cost, expected_cost, 1.0); 
 }
-
 
 TEST(TaskTest, RopeGapTinyRadius) {
     double gap = ropeGap(1e-6);
     EXPECT_NEAR(gap, 1 / (2 * M_PI), EPSILON);
 }
 
-
 TEST(TaskTest, PoolCostSmallValues) {
     double cost = poolCost(0.01, 0.005, 200, 100);
-    double expected_cost = (M_PI * (0.015 * 0.015 - 0.01 * 0.01) * 200) + (2 * M_PI * 0.015 * 100);
+    double expected_cost = (M_PI * (0.015 * 0.015 - 0.01 * 0.01) * 200) + 
+                           (2 * M_PI * 0.015 * 100);
     EXPECT_NEAR(cost, expected_cost, EPSILON);
 }
 
 TEST(TaskTest, PoolCostExtremeConcreteCost) {
     double cost = poolCost(10, 5, 1e9, 100);
-    double expected_cost = (M_PI * (15 * 15 - 10 * 10) * 1e9) + (2 * M_PI * 15 * 100);
+    double expected_cost = (M_PI * (15 * 15 - 10 * 10) * 1e9) + 
+                           (2 * M_PI * 15 * 100);
     EXPECT_NEAR(cost, expected_cost, EPSILON);
 }
 
 TEST(TaskTest, PoolCostExtremeFenceCost) {
     double cost = poolCost(10, 5, 100, 1e9);
-    double expected_cost = (M_PI * (15 * 15 - 10 * 10) * 100) + (2 * M_PI * 15 * 1e9);
+    double expected_cost = (M_PI * (15 * 15 - 10 * 10) * 100) + 
+                           (2 * M_PI * 15 * 1e9);
     EXPECT_NEAR(cost, expected_cost, EPSILON);
 }
