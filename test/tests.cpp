@@ -90,8 +90,3 @@ TEST(korablev_v_tasks_test, PoolCostTheoretical) {
   double expected = 23.0 * pi * 1000.0;
   EXPECT_NEAR(cost, expected, 1e-7);
 }
-
-TEST(korablev_v_tasks_test, PoolCostApprox) {
-  double cost = poolCost();
-  EXPECT_NEAR(cost, 72382.4, 1e-1);
-}
