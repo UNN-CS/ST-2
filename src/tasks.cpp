@@ -3,10 +3,11 @@
 #define _USE_MATH_DEFINES
 #endif
 
-#include "tasks.h"
-#include "circle.h"
 #include <cmath>
 #include <cstdint>
+
+#include "tasks.h"
+#include "circle.h"
 
 double ropeGapTask() {
   const double earthKm = 6378.1;
