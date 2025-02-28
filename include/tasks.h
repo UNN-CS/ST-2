@@ -4,7 +4,7 @@
 
 double ropeGap(double earthRadius);
 
-double poolCost(double poolRadius, double pathWidth, 
+double poolCost(double poolRadius, double pathWidth,
                 double concreteCost, double fenceCost);
 
 #endif  // INCLUDE_TASKS_H_
