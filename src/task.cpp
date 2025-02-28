@@ -1,6 +1,5 @@
 // Copyright 2025 Vladlen Korablev
 #include "tasks.h"
-#include "circle.h"
 
 static const double pi = std::acos(-1.0);
 

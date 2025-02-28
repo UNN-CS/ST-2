@@ -5,6 +5,8 @@
 #include <cmath>
 #include <cstdint>
 
+#include "circle.h"
+
 double ropeTask();
 double poolCost();
 
