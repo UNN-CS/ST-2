@@ -1,8 +1,8 @@
 // Copyright 2025 Vladlen Korablev
-#ifndef TASKS_H
-#define TASKS_H
+#ifndef INCLUDE_TASKS_H_
+#define INCLUDE_TASKS_H_
 
 double ropeTask();
 double poolCost();
 
-#endif
+#endif  // INCLUDE_TASKS_H_

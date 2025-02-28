@@ -1,7 +1,10 @@
 // Copyright 2025 Vladlen Korablev
 #include "tasks.h"
 #include "circle.h"
+
 #include <cmath>
+#include <cstdint>
+
 static const double pi = std::acos(-1.0);
 
 double ropeTask() {
@@ -25,3 +28,4 @@ double poolCost() {
   double totalCost = concreteCost + fenceCost;
   return totalCost;
 }
+
