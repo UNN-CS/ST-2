@@ -1,7 +1,6 @@
 // Copyright 2022 UNN-CS
-#include <cstdint>
-
 #include "circle.h"
+#include <cstdint>
 #include <cmath>
 
 const double PI = 3.141592653589793;

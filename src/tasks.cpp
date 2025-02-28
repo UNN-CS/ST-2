@@ -1,9 +1,10 @@
 // Copyright 2025 Sotskov Andrey
+
 #include "tasks.h"
-#include "circle.h"
-#include <cstdint>
-#include <cmath>
 #include <algorithm>
+#include <cmath>
+#include <cstdint>
+#include "circle.h"
 
 const double PI = 3.141592653589793;
 
@@ -20,8 +21,8 @@ double ropeGap(double earthRadius) {
     return earth.getRadius() - earthRadius;
 }
 
-double poolCost(double poolRadius, double pathWidth, 
-                double concreteCost, double fenceCost) {
+double poolCost(double poolRadius, double pathWidth, double concreteCost,
+                double fenceCost) {
     if (poolRadius < 0 || pathWidth < 0) {
         return 0;
     }
@@ -29,7 +30,8 @@ double poolCost(double poolRadius, double pathWidth,
     Circle pool(std::max(poolRadius, 0.0));
     Circle outer(poolRadius + pathWidth);
 
-    double totalConcreteCost = (outer.getArea() - pool.getArea()) * concreteCost;
+    double totalConcreteCost = (outer.getArea() - pool.getArea()) *
+                               concreteCost;
     double totalFenceCost = outer.getFerence() * fenceCost;
 
     return totalConcreteCost + totalFenceCost;
