@@ -12,7 +12,7 @@ class Circle {
   double radius, ference, area;
 
  public:
-  Circle(double radius) { this->setRadius(radius); };
+  explicit Circle(double radius) { this->setRadius(radius); }
 
   void setRadius(double r);
   void setFerence(double f);
