@@ -109,7 +109,8 @@ TEST(TaskTest, TestCostForDifferentPoolRadius) {
   Circle pool(poolRadius);
   double outerRadius = poolRadius + 1.0;
   pool.setRadius(outerRadius);
-  double roadArea = pool.getArea() - 3.141592653589793 * poolRadius * poolRadius;
+  const double PI = 3.141592653589793;
+  double roadArea = pool.getArea() - PI * poolRadius * poolRadius;
   double roadCost = roadArea * 1000;
   double fenceLength = pool.getFerence();
   double fenceCost = fenceLength * 2000;
@@ -121,7 +122,8 @@ TEST(TaskTest, TestCostForSmallPoolRadius) {
   Circle pool(poolRadius);
   double outerRadius = poolRadius + 1.0;
   pool.setRadius(outerRadius);
-  double roadArea = pool.getArea() - 3.141592653589793 * poolRadius * poolRadius;
+  const double PI = 3.141592653589793;
+  double roadArea = pool.getArea() - PI * poolRadius * poolRadius;
   double roadCost = roadArea * 1000;
   double fenceLength = pool.getFerence();
   double fenceCost = fenceLength * 2000;
@@ -133,7 +135,8 @@ TEST(TaskTest, TestPoolCostForRadius3) {
   Circle pool(poolRadius);
   double outerRadius = poolRadius + 1.0;
   pool.setRadius(outerRadius);
-  double roadArea = pool.getArea() - 3.141592653589793 * poolRadius * poolRadius;
+  const double PI = 3.141592653589793;
+  double roadArea = pool.getArea() - PI * poolRadius * poolRadius;
   double roadCost = roadArea * 1000;
   double fenceLength = pool.getFerence();
   double fenceCost = fenceLength * 2000;
@@ -145,7 +148,8 @@ TEST(TaskTest, TestCostForLargePool) {
   Circle pool(poolRadius);
   double outerRadius = poolRadius + 2.0;
   pool.setRadius(outerRadius);
-  double roadArea = pool.getArea() - 3.141592653589793 * poolRadius * poolRadius;
+  const double PI = 3.141592653589793;
+  double roadArea = pool.getArea() - PI * poolRadius * poolRadius;
   double roadCost = roadArea * 1000;
   double fenceLength = pool.getFerence();
   double fenceCost = fenceLength * 2000;
