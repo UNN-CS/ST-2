@@ -9,11 +9,11 @@ Circle::Circle(double r) {
 }
 
 void Circle::updateFerence() {
-    ference = 2 * PI * radius;
+    ference = 2 * M_PI * radius;
 }
 
 void Circle::updateArea() {
-    area = PI * radius * radius;
+    area = M_PI * radius * radius;
 }
 
 void Circle::setRadius(double r) {
