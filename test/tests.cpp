@@ -1,5 +1,5 @@
 // Copyright 2025 UNN-CS Team
-#include "gtest/gtest.h"
+#include <gtest/gtest.h>
 #include "tasks.h"
 #include "circle.h"
 #include <cstdint>
@@ -60,7 +60,7 @@ TEST(class_circle, can_create_with_large_rad) {
     c.setRadius(100000);
     EXPECT_DOUBLE_EQ(c.getRadius(), 100000);
     EXPECT_NEAR(c.getFerence(), 628318.5307179, 1e-6);
-    EXPECT_NEAR(c.getArea(), 31415926535.8979324, 1e-6);
+    EXPECT_NEAR(c.getArea(), 31415926535.897932, 1e-6);
 }
 TEST(test_task_1, earth_and_roop) {
     double out = Earth_Roop();

@@ -11,13 +11,13 @@ void Circle::setRadius(double _r) {
 void Circle::setFerence(double _f) {
     ference = _f;
     radius = ference / 2 / PI;
-    area = PI * radius * radius;
+    area = ference * ference / 4 / PI;
 }
 
 void Circle::setArea(double _a) {
     area = _a;
     radius = sqrt(area / PI);
-    ference = 2 * PI * radius;
+    ference = 2 * sqrt(PI * area);
 }
 
 double Circle::getRadius() {
