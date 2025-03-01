@@ -85,6 +85,76 @@ TEST(circle_Task, testCircleCreate11) {
   EXPECT_NEAR(kExpectedArea, circle.GetArea(), kEpsilon);
 }
 
+TEST(circle_Task, testCircleCreate12) {
+  constexpr auto kEpsilon = 0.001;
+  constexpr auto kRadius = 2.0;
+  constexpr auto kExpectedFence = 18.8496;
+  constexpr auto kExpectedArea = 28.2743;
+  Circle circle(kRadius);
+  EXPECT_NEAR(kExpectedFence, circle.GetFerence(), kEpsilon);
+  EXPECT_NEAR(kExpectedArea, circle.GetArea(), kEpsilon);
+}
+
+TEST(circle_Task, testCircleCreate13) {
+  constexpr auto kEpsilon = 0.001;
+  constexpr auto kRadius = 10.0;
+  constexpr auto kExpectedFence = 62.8319;
+  constexpr auto kExpectedArea = 314.159;
+  Circle circle(kRadius);
+  EXPECT_NEAR(kExpectedFence, circle.GetFerence(), kEpsilon);
+  EXPECT_NEAR(kExpectedArea, circle.GetArea(), kEpsilon);
+}
+
+TEST(circle_Task, testCircleCreate14) {
+  constexpr auto kEpsilon = 0.001;
+  constexpr auto kRadius = 100.0;
+  constexpr auto kExpectedFence = 628.319;
+  constexpr auto kExpectedArea = 31415.9;
+  Circle circle(kRadius);
+  EXPECT_NEAR(kExpectedFence, circle.GetFerence(), kEpsilon);
+  EXPECT_NEAR(kExpectedArea, circle.GetArea(), kEpsilon);
+}
+
+TEST(circle_Task, testCircleCreate15) {
+  constexpr auto kEpsilon = 0.001;
+  constexpr auto kRadius = 20.0;
+  constexpr auto kExpectedFence = 125.664;
+  constexpr auto kExpectedArea = 1256.64;
+  Circle circle(kRadius);
+  EXPECT_NEAR(kExpectedFence, circle.GetFerence(), kEpsilon);
+  EXPECT_NEAR(kExpectedArea, circle.GetArea(), kEpsilon);
+}
+
+TEST(circle_Task, testCircleCreate16) {
+  constexpr auto kEpsilon = 0.001;
+  constexpr auto kRadius = 200.0;
+  constexpr auto kExpectedFence = 1256.64;
+  constexpr auto kExpectedArea = 125664.0;
+  Circle circle(kRadius);
+  EXPECT_NEAR(kExpectedFence, circle.GetFerence(), kEpsilon);
+  EXPECT_NEAR(kExpectedArea, circle.GetArea(), kEpsilon);
+}
+
+TEST(circle_Task, testCircleCreate17) {
+  constexpr auto kEpsilon = 0.001;
+  constexpr auto kRadius = 1.0;
+  constexpr auto kExpectedFence = 3.14159;
+  constexpr auto kExpectedArea = 6.28319;
+  Circle circle(kRadius);
+  EXPECT_NEAR(kExpectedFence, circle.GetFerence(), kEpsilon);
+  EXPECT_NEAR(kExpectedArea, circle.GetArea(), kEpsilon);
+}
+
+TEST(circle_Task, testCircleCreate18) {
+  constexpr auto kEpsilon = 0.001;
+  constexpr auto kRadius = 2.0;
+  constexpr auto kExpectedFence = 12.5664;
+  constexpr auto kExpectedArea = 12.5664;
+  Circle circle(kRadius);
+  EXPECT_NEAR(kExpectedFence, circle.GetFerence(), kEpsilon);
+  EXPECT_NEAR(kExpectedArea, circle.GetArea(), kEpsilon);
+}
+
 TEST(circle_Task, testTask1) {
   constexpr auto kEpsilon = 0.001;
   auto kExpectedNumber = 0.1591;
