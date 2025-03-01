@@ -1,3 +1,4 @@
+// Copyright 2022 UNN-CS
 #include <gtest/gtest.h>
 #include <cstdint>
 #include <cmath>

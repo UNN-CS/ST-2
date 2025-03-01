@@ -6,7 +6,6 @@
 
 double CalculateRopeGap(double earthRadius, double ropeIncrease);
 
-double CalculatePoolCost(double poolRadius, double pathWidth,
-												 double concreteCost, double fenceCost);
+double CalculatePoolCost(double poolRadius, double pathWidth, double concreteCost, double fenceCost);
 
 #endif // INCLUDE_TASK_H_
