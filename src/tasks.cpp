@@ -4,7 +4,6 @@
 
 double calculateGap() {
     double earthRadius = 6378.1;
-  
     Circle earth(earthRadius);
 
     double ropeLength = earth.getFerence() + 0.01;
