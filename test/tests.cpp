@@ -1,8 +1,8 @@
 // Copyright 2025 UNN-CS Team
 
 #include "gtest/gtest.h"
-#include "circle.h"
 #include "tasks.h"
+#include "circle.h"
 #include <cstdint>
 
 
@@ -38,14 +38,14 @@ TEST(class_circle, can_set_ference) {
     Circle c;
     c.setFerence(9.0);
     EXPECT_NEAR(c.getRadius(), 1.4323944, 1e-6);
-    EXPECT_NEAR(c.getArea(), 9.2328928, 1e-6)
+    EXPECT_NEAR(c.getArea(), 9.2328928, 1e-6);
 }
 
 TEST(class_circle, can_set_area) {
     Circle c;
     c.setArea(9.0);
     EXPECT_NEAR(c.getRadius(), 1.69256875, 1e-6);
-    EXPECT_NEAR(c.getFerence(), 10.6347231, 1e-6)
+    EXPECT_NEAR(c.getFerence(), 10.6347231, 1e-6);
 }
 
 TEST(class_circle, can_create_with_rad_0) {
@@ -68,6 +68,6 @@ TEST(test_task_1, earth_and_roop) {
     EXPECT_NEAR(out, 40074.7904909, 1e-6);
 }
 TEST(test_task_2, pool) {
-    double out = Pool(3.0, 1.0);
+    double out = Pool();
     EXPECT_NEAR(out, 72256.63, 1e-2);
 }
