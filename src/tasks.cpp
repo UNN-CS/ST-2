@@ -20,8 +20,8 @@ double calculatePoolCost() {
   double outerRadius = poolRadius + roadWidth;
 
   pool.setRadius(outerRadius);
-  double roadArea = pool.getArea() - 3.141592653589793 * poolRadius * poolRadius;
-
+  const double PI = 3.141592653589793;
+  double roadArea = pool.getArea() - PI * poolRadius * poolRadius;
   double roadCost = roadArea * 1000;
 
   pool.setRadius(outerRadius);
