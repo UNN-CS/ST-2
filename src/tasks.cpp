@@ -1,15 +1,16 @@
+// Copyright 2022 UNN-CS
 #include "circle.h"
 
 double Earth_Roop() {
     Circle roop;
-    
+
     double earth_rad = 6378.1;
     roop.setRadius(earth_rad + 0.001);
 
     return roop.getFerence();
 }
 
-double Pool(){
+double Pool() {
     Circle pool;
     pool.setRadius(3.0);
     double track_ext_rad = pool.getRadius() + 1.0;
@@ -21,5 +22,4 @@ double Pool(){
     double bound_cost = bound.getFerence() * 2000;
 
     return track_cost + bound_cost;
-
 }
