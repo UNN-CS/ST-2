@@ -1,5 +1,6 @@
 // Copyright 2022 UNN-CS
 #include <cstdint>
+#include <cmath>
 #include "circle.h"
 
 Circle::Circle(double r) {
