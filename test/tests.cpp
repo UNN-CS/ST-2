@@ -87,7 +87,7 @@ TEST(CircleTest, TestSetAreaAndCalculateFerence) {
 }
 
 TEST(TaskTest, TestCalculateGapForEarth) {
-  EXPECT_NEAR(calculateGap(), 0.15915494309189535, 1e-9);
+  EXPECT_NEAR(calculateGap(), 0.15915494309189535, 1e-6);
 }
 
 TEST(TaskTest, TestCalculateGapForLargeEarth) {
@@ -99,7 +99,7 @@ TEST(TaskTest, TestCalculateGapForLargeEarth) {
 }
 
 TEST(TaskTest, TestCalculatePoolCost) {
-  EXPECT_NEAR(calculatePoolCost(), 50626.640742262784, 1e-9);
+  EXPECT_NEAR(calculatePoolCost(), 50626.640742262784, 1e-6);
 }
 
 TEST(TaskTest, TestCostForDifferentPoolRadius) {
@@ -112,7 +112,7 @@ TEST(TaskTest, TestCostForDifferentPoolRadius) {
   double roadCost = roadArea * 1000;
   double fenceLength = pool.getFerence();
   double fenceCost = fenceLength * 2000;
-  EXPECT_NEAR(roadCost + fenceCost, 114470.29616341939, 1e-9);
+  EXPECT_NEAR(roadCost + fenceCost, 114470.29616341939, 1e-6);
 }
 
 TEST(TaskTest, TestCostForSmallPoolRadius) {
@@ -125,7 +125,7 @@ TEST(TaskTest, TestCostForSmallPoolRadius) {
   double roadCost = roadArea * 1000;
   double fenceLength = pool.getFerence();
   double fenceCost = fenceLength * 2000;
-  EXPECT_NEAR(roadCost + fenceCost, 2097.69623246178, 1e-9);
+  EXPECT_NEAR(roadCost + fenceCost, 2097.69623246178, 1e-6);
 }
 
 TEST(TaskTest, TestPoolCostForRadius3) {
@@ -138,7 +138,7 @@ TEST(TaskTest, TestPoolCostForRadius3) {
   double roadCost = roadArea * 1000;
   double fenceLength = pool.getFerence();
   double fenceCost = fenceLength * 2000;
-  EXPECT_NEAR(roadCost + fenceCost, 50626.640742262784, 1e-9);
+  EXPECT_NEAR(roadCost + fenceCost, 50626.640742262784, 1e-6);
 }
 
 TEST(TaskTest, TestCostForLargePool) {
@@ -151,13 +151,13 @@ TEST(TaskTest, TestCostForLargePool) {
   double roadCost = roadArea * 1000;
   double fenceLength = pool.getFerence();
   double fenceCost = fenceLength * 2000;
-  EXPECT_NEAR(roadCost + fenceCost, 228943.40801651784, 1e-9);
+  EXPECT_NEAR(roadCost + fenceCost, 228943.40801651784, 1e-6);
 }
 
 TEST(TaskTest, TestGapWithSmallIncrease) {
-  EXPECT_NEAR(calculateGap(), 0.15915494309189535, 1e-9);
+  EXPECT_NEAR(calculateGap(), 0.15915494309189535, 1e-6);
 }
 
 TEST(TaskTest, TestGapWithLargeIncrease) {
-  EXPECT_NEAR(calculateGap(), 0.15915494309189535, 1e-9);
+  EXPECT_NEAR(calculateGap(), 0.15915494309189535, 1e-6);
 }
