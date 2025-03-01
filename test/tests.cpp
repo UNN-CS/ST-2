@@ -2,6 +2,7 @@
 
 #include <gtest/gtest.h>
 #include <cstdint>
+#include "tasks.h"
 #include "circle.h"
 
 TEST(CircleTest, TestConstructor) {
@@ -21,7 +22,7 @@ TEST(CircleTest, TestSetRadius) {
 
 TEST(CircleTest, TestSetFerence) {
   Circle c(5);
-  c.setFerence(31.41592653589793);  // 2 * pi * 5
+  c.setFerence(31.41592653589793);
   EXPECT_DOUBLE_EQ(c.getFerence(), 31.41592653589793);
   EXPECT_DOUBLE_EQ(c.getRadius(), 5);
   EXPECT_DOUBLE_EQ(c.getArea(), 3.141592653589793 * 5 * 5);
@@ -35,9 +36,6 @@ TEST(CircleTest, TestSetArea) {
   EXPECT_DOUBLE_EQ(c.getFerence(), 2 * 3.141592653589793 * 5);
 }
 
-#### Тесты для граничных значений:
-
-```cpp
 TEST(CircleTest, TestZeroRadius) {
   Circle c(0);
   EXPECT_DOUBLE_EQ(c.getRadius(), 0);
