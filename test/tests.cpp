@@ -1,4 +1,4 @@
-// Copyright 2025 UNN-CS Team
+// Copyright 2025 Mikhail Burykin
 
 #include <gtest/gtest.h>
 #include <cstdint>

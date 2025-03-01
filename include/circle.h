@@ -1,4 +1,4 @@
-// Copyright 2022 UNN-CS
+// Copyright 2025 Mikhail Burykin
 #ifndef INCLUDE_CIRCLE_H_
 #define INCLUDE_CIRCLE_H_
 

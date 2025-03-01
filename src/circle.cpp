@@ -1,4 +1,4 @@
-// Copyright 2022 UNN-CS
+// Copyright 2025 Mikhail Burykin
 #include <cstdint>
 #include <cmath>
 #include <stdexcept>
