@@ -1,8 +1,8 @@
 // Copyright 2022 UNN-CS
 
 #include <stdexcept>
-#include "include/tasks.h"
-#include "include/circle.h"
+#include "tasks.h"
+#include "circle.h"
 
 double calculateGap(double earthRadius, double addedLength) {
   if (earthRadius <= 0 || addedLength < 0) {

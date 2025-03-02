@@ -3,8 +3,8 @@
 #include <gtest/gtest.h>
 #include <cstdint>
 #include <iostream>
-#include "include/circle.h"
-#include "include/tasks.h"
+#include "circle.h"
+#include "tasks.h"
 
 TEST(CircleTest, RadiusTest) {
   Circle c(10);

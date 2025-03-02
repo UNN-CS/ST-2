@@ -1,4 +1,6 @@
 // Copyright 2022 UNN-CS
-#include "include/circle.h"
+#include "circle.h"
 
-int main() { return 0; }
+int main() {
+    return 0;
+}

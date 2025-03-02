@@ -1,8 +1,8 @@
 // Copyright 2022 UNN-CS
-#include "include/circle.h"
 #include <cmath>
 #include <cstdint>
 #include <stdexcept>
+#include "circle.h"
 
 Circle::Circle(double r) : radius(r) {
   calculateFerence();
