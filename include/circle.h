@@ -11,7 +11,7 @@ class Circle {
   double radius;
   double ference;
   double area;
-   
+
  public:
   void setRadius(double r);
   void setFerence(double c);
