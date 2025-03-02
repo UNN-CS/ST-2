@@ -55,10 +55,9 @@ TEST(CircleTest, ZeroRadius) {
 }
 
 TEST(CircleTest, NegativeRadius) {
-  Circle c(-5.0);
-  EXPECT_DOUBLE_EQ(c.getRadius(), -5.0);
-  EXPECT_DOUBLE_EQ(c.getFerence(), 2 * PI * -5.0);
-  EXPECT_DOUBLE_EQ(c.getArea(), PI * -5.0 * -5.0);
+  EXPECT_THROW({
+    Circle c(-5.0);
+  }, std::invalid_argument);
 }
 
 TEST(CircleTest, LargeRadius) {
@@ -86,13 +85,17 @@ TEST(CircleTest, ZeroFerence) {
 }
 
 TEST(CircleTest, NegativeArea) {
-  Circle c(-5.0);
-  EXPECT_DOUBLE_EQ(c.getArea(), PI * 25.0);
+  Circle c(5.0);
+  EXPECT_THROW({
+    c.setArea(-100.0);
+  }, std::invalid_argument);
 }
 
 TEST(CircleTest, NegativeFerence) {
-  Circle c(-5.0);
-  EXPECT_DOUBLE_EQ(c.getFerence(), 2 * PI * 5.0);
+  Circle c(5.0);
+  EXPECT_THROW({
+    c.setFerence(-10.0);
+  }, std::invalid_argument);
 }
 
 TEST(CircleTest, LargeArea) {
@@ -107,17 +110,17 @@ TEST(CircleTest, LargeFerence) {
 
 TEST(EarthRopeTest, CalculateGap) {
   double gap = calculateGap();
-  EXPECT_NEAR(gap, 0.159154943, 1e-6);
+  EXPECT_NEAR(gap, 0.000159154943, 1e-9);
 }
 
 TEST(EarthRopeTest, GapWithIncreasedRope) {
   double earthRadius = 6378.1;
   Circle earth(earthRadius);
-  double ropeLength = earth.getFerence() + 0.01;
+  double ropeLength = earth.getFerence() + 0.001;
   earth.setFerence(ropeLength);
   double newRadius = earth.getRadius();
   double gap = newRadius - earthRadius;
-  EXPECT_NEAR(gap, 0.159154943, 1e-6);
+  EXPECT_NEAR(gap, 0.000159154943, 1e-9);
 }
 
 TEST(PoolTest, CalculatePoolCost) {
