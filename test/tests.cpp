@@ -1,8 +1,8 @@
 // Copyright 2025 UNN-CS Team
 #include <gtest/gtest.h>
-#include "tasks.h"
-#include "circle.h"
 #include <cstdint>
+#include "tasks.h"
+
 
 
 TEST(class_circle, can_create_with_rad_1) {
