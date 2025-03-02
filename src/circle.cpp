@@ -1,4 +1,5 @@
 // Copyright 2022 UNN-CS
+#define _USE_MATH_DEFINES
 #include <cmath>
 #include <cstdint>
 #include <stdexcept>
