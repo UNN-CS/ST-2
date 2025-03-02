@@ -3,16 +3,16 @@
 #include "circle.h"
 
 double calculateGap() {
-    double earthRadius = 6378.1;
-    Circle earth(earthRadius);
+  double earthRadius = 6378.1;
+  Circle earth(earthRadius);
 
-    double ropeLength = earth.getFerence() + 0.01;
-    earth.setFerence(ropeLength);
+  double ropeLength = earth.getFerence() + 0.001;
+  earth.setFerence(ropeLength);
 
-    double newRadius = earth.getRadius();
-    double gap = newRadius - earthRadius;
+  double newRadius = earth.getRadius();
+  double gap = newRadius - earthRadius;
 
-    return gap;
+  return gap;
 }
 
 double calculatePoolCost() {
