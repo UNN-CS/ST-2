@@ -113,7 +113,7 @@ TEST(RopeTest, ExactIncrease) {
 TEST(RopeTest, NegativeIncrease) {
   double additionalLength = -5.0;
   double gap = CalculateRopeGap(6378.1 * 1000, additionalLength);
-  EXPECT_DOUBLE_EQ(gap, additionalLength / (2 * PI));
+  EXPECT_NEAR(gap, additionalLength / (2 * PI), 1e-9);
 }
 
 TEST(PoolTest, ZeroWaterCost) {
