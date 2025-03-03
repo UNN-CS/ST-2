@@ -4,6 +4,6 @@
 
 double calculateGap();
 double calculatePoolCost(double poolRadius, double pathWidth,
-                         double concreteCostPerSquareMeter, double fenceCostPerMeter);
+double concreteCostPerSquareMeter, double fenceCostPerMeter);
 
 #endif // INCLUDE_TASKS_H_
