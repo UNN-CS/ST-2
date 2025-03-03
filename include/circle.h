@@ -10,7 +10,6 @@ class Circle {
 
     void updateFerence();
     void updateArea();
-    void updateRadius();
 
  public:
     explicit Circle(double r);

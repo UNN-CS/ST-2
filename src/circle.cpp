@@ -9,21 +9,33 @@ Circle::Circle(double r) {
 }
 
 void Circle::setRadius(double r) {
+    if (r < 0) {
+        r = 0;
+    }
+
+    radius = r;
     radius = r;
     updateFerence();
     updateArea();
 }
 
 void Circle::setFerence(double f) {
-    ference = f;
-    updateRadius();
+    if (f < 0) {
+        f = 0;
+    }
+
+    radius = f / (2 * PI);
+    updateFerence();
     updateArea();
 }
 
 void Circle::setArea(double a) {
-    area = a;
-    updateRadius();
+    if (a < 0) {
+        a = 0;
+    }
+    radius = sqrt(a / PI);
     updateFerence();
+    updateArea();
 }
 
 double Circle::getRadius() const {
@@ -44,13 +56,4 @@ void Circle::updateFerence() {
 
 void Circle::updateArea() {
     area = PI * radius * radius;
-}
-
-void Circle::updateRadius() {
-    if (area >= 0) {
-        radius = sqrt(area / PI);
-    }
-    else {
-        radius = -sqrt(-area / PI);
-    }
 }
