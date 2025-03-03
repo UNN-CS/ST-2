@@ -1,8 +1,8 @@
+// Copyright 2022 UNN-CS
 #include "tasks.h"
 #include "circle.h"
 
-double calculateGap()
-{
+double calculateGap() {
     double earthRadius = 6378100;
     Circle earth(earthRadius);
     double originalFerence = earth.getFerence();
@@ -12,8 +12,7 @@ double calculateGap()
     return newRadius - earthRadius;
 }
 
-double calculatePoolCost()
-{
+double calculatePoolCost() {
     double poolRadius = 3;
     double pathWidth = 1;
     double concreteCostPerSquareMeter = 1000;
