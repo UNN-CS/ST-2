@@ -47,5 +47,10 @@ void Circle::updateArea() {
 }
 
 void Circle::updateRadius() {
-    radius = ference / (2 * PI);
+    if (area >= 0) {
+        radius = sqrt(area / PI);
+    }
+    else {
+        radius = -sqrt(-area / PI);
+    }
 }
