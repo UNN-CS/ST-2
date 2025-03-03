@@ -6,43 +6,43 @@
 
 
 Circle::Circle(double r) {
-	setRadius(r);
+ setRadius(r);
 }
 
 void Circle::setRadius(double r) {
-	radius = r;
-	updateFerence();
-	updateArea();
+ radius = r;
+ updateFerence();
+ updateArea();
 }
 
 void Circle::setFerence(double f) {
-	ference = f;
-	radius = f / (2 * M_PI);
-	updateArea();
+ ference = f;
+ radius = f / (2 * M_PI);
+ updateArea();
 }
 
 void Circle::setArea(double a) {
-	area = a;
-	radius = sqrt(a / M_PI);
-	updateFerence();
+ area = a;
+ radius = sqrt(a / M_PI);
+ updateFerence();
 }
 
 double Circle::getRadius() const {
-	return radius;
+ return radius;
 }
 
 double Circle::getFerence() const {
-	return ference;
+ return ference;
 }
 
 double Circle::getArea() const {
-	return area;
+ return area;
 }
 
 void Circle::updateFerence() {
-	ference = 2 * M_PI * radius;
+ ference = 2 * M_PI * radius;
 }
 
 void Circle::updateArea() {
-	area = M_PI * radius * radius;
+ area = M_PI * radius * radius;
 }
