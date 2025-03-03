@@ -4,6 +4,6 @@
 
 double calculateGapAfterAddingRope(double initialRadius, double addedLength);
 double calculateCostForPool(double poolRadius,
-	double pathWidth, double concreteCost, double fenceCost);
+    double pathWidth, double concreteCost, double fenceCost);
 
 #endif  // INCLUDE_TASKS_H_
