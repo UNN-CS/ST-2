@@ -133,7 +133,8 @@ TEST(PoolTaskTest, CorrectPoolCostCalculation) {
     double concreteCostPerSquareMeter = 1000;
     double fenceCostPerMeter = 2000;
     double outerRadius = poolRadius + pathWidth;
-    double expectedPathArea = M_PI * (outerRadius * outerRadius - poolRadius * poolRadius);
+    double expectedPathArea = M_PI * (outerRadius * outerRadius -
+         poolRadius * poolRadius);
     double expectedFenceLength = 2 * M_PI * outerRadius;
     double expectedConcreteCost = expectedPathArea * concreteCostPerSquareMeter;
     double expectedFenceCost = expectedFenceLength * fenceCostPerMeter;
