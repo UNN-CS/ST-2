@@ -76,22 +76,25 @@ TEST(RopeTaskTest, CalculateGap) {
 }
 
 TEST(PoolTaskTest, CalculatePoolCost) {
-    double cost = calculatePoolCost();
+    double cost = calculatePoolCost(3, 1, 1000, 2000);
     EXPECT_GT(cost, 0);
 }
 
-TEST(PoolTaskTest, ZeroPathWidth) {
-    double cost = calculatePoolCost();
+TEST(PoolTaskTest, ZeroPathWidth)
+{
+    double cost = calculatePoolCost(3, 0, 1000, 2000);
     EXPECT_GT(cost, 0);
 }
 
-TEST(PoolTaskTest, LargePathWidth) {
-    double cost = calculatePoolCost();
+TEST(PoolTaskTest, LargePathWidth)
+{
+    double cost = calculatePoolCost(3, 100, 1000, 2000);
     EXPECT_GT(cost, 0);
 }
 
-TEST(PoolTaskTest, LargePoolRadius) {
-    double cost = calculatePoolCost();
+TEST(PoolTaskTest, LargePoolRadius)
+{
+    double cost = calculatePoolCost(100, 10, 1000, 2000);
     EXPECT_GT(cost, 0);
 }
 
@@ -113,22 +116,22 @@ TEST(CircleTest, NegativeArea) {
 }
 
 TEST(PoolTaskTest, ZeroPoolRadius) {
-    double cost = calculatePoolCost();
+    double cost = calculatePoolCost(0, 1, 1000, 2000);
     EXPECT_GT(cost, 0);
 }
 
 TEST(PoolTaskTest, NegativePoolRadius) {
-    double cost = calculatePoolCost();
+    double cost = calculatePoolCost(-3, 1, 1000, 2000);
     EXPECT_GT(cost, 0);
 }
 
 TEST(PoolTaskTest, ZeroMaterialCost) {
-    double cost = calculatePoolCost();
-    EXPECT_GT(cost, 0);
+    double cost = calculatePoolCost(3, 1, 0, 0);
+    EXPECT_EQ(cost, 0);
 }
 
 TEST(PoolTaskTest, NegativeMaterialCost) {
-    double cost = calculatePoolCost();
+    double cost = calculatePoolCost(3, 1, -1000, -2000);
     EXPECT_GT(cost, 0);
 }
 
