@@ -3,6 +3,7 @@
 #include "circle.h"
 #include "tasks.h"
 
+
 TEST(CircleTest, ConstructorAndGetters) {
     Circle c(5);
     EXPECT_DOUBLE_EQ(c.getRadius(), 5);
