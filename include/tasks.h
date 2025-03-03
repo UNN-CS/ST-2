@@ -3,6 +3,7 @@
 #define INCLUDE_TASKS_H_
 
 double calculateGap();
-double calculatePoolCost();
+double calculatePoolCost(double poolRadius, double pathWidth,
+                         double concreteCostPerSquareMeter, double fenceCostPerMeter);
 
 #endif // INCLUDE_TASKS_H_

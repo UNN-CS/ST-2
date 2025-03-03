@@ -158,6 +158,6 @@ TEST(PoolTaskTest, PoolCostWithDifferentParameters) {
     double expectedConcreteCost = expectedPathArea * concreteCostPerSquareMeter;
     double expectedFenceCost = expectedFenceLength * fenceCostPerMeter;
     double expectedTotalCost = expectedConcreteCost + expectedFenceCost;
-    double actualCost = calculatePoolCost();
+    double actualCost = calculatePoolCost(poolRadius, pathWidth, concreteCostPerSquareMeter, fenceCostPerMeter);
     EXPECT_NEAR(actualCost, expectedTotalCost, 1e-2);
 }
