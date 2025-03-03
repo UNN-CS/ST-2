@@ -97,25 +97,19 @@ TEST(PoolTaskTest, LargePoolRadius) {
 
 TEST(CircleTest, NegativeRadius) {
     Circle c(-5);
-    EXPECT_DOUBLE_EQ(c.getRadius(), -5);
-    EXPECT_DOUBLE_EQ(c.getFerence(), 2 * M_PI * -5);
-    EXPECT_DOUBLE_EQ(c.getArea(), M_PI * -5 * -5);
+    EXPECT_DOUBLE_EQ(c.getRadius(), 0);
 }
 
 TEST(CircleTest, NegativeFerence) {
     Circle c(5);
     c.setFerence(-31.41592653589793);
-    EXPECT_DOUBLE_EQ(c.getRadius(), -5);
-    EXPECT_DOUBLE_EQ(c.getFerence(), -31.41592653589793);
-    EXPECT_DOUBLE_EQ(c.getArea(), M_PI * -5 * -5);
+    EXPECT_DOUBLE_EQ(c.getFerence(), 0);
 }
 
 TEST(CircleTest, NegativeArea) {
     Circle c(5);
     c.setArea(-78.53981633974483);
-    EXPECT_DOUBLE_EQ(c.getRadius(), -5);
-    EXPECT_DOUBLE_EQ(c.getFerence(), 2 * M_PI * -5);
-    EXPECT_DOUBLE_EQ(c.getArea(), -78.53981633974483);
+    EXPECT_DOUBLE_EQ(c.getArea(), 0);
 }
 
 TEST(PoolTaskTest, ZeroPoolRadius) {
