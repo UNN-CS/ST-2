@@ -124,9 +124,9 @@ TEST(PoolTest, ZeroWaterCost) {
 
 TEST(PoolTest, MinimalPool) {
   double cost = CalculatePoolCost(1, 0.5, 100, 150);
-  double outerRad = 1 + 0.5;
-  double expCost = (PI * (outerRad * outerRad - 1 * 1) * 100) + (2 * PI * outerRad * 150);
-  EXPECT_NEAR(cost, expCost, 1e-6);
+  double r = 1 + 0.5;
+  double expectedCost = (PI * (r * r - 1 * 1) * 100) + (2 * PI * r * 150);
+  EXPECT_NEAR(cost, expectedCost, 1e-6);
 }
 
 TEST(PoolTest, ZeroCosts) {
