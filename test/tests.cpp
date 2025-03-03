@@ -1,3 +1,4 @@
+// Copyright 2025 Vladlen Korablev
 #include <gtest/gtest.h>
 #include <cmath>
 #include <cstdint>
