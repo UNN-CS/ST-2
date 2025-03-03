@@ -99,7 +99,8 @@ TEST(PoolTest, NoPath) {
 
 TEST(PoolTest, LargePool) {
   double cost = calculatePoolCost(100, 10, 500, 1500);
-  double expectedCost = (PI * (110 * 110 - 100 * 100) * 500) + (2 * PI * 110 * 1500);
+  double expectedCost =
+    (PI * (110 * 110 - 100 * 100) * 500) + (2 * PI * 110 * 1500);
   EXPECT_NEAR(cost, expectedCost, 1e-6);
 }
 
