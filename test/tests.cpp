@@ -131,3 +131,33 @@ TEST(PoolTaskTest, NegativeMaterialCost) {
     double cost = calculatePoolCost();
     EXPECT_GT(cost, 0);
 }
+
+TEST(PoolTaskTest, CorrectPoolCostCalculation) {
+    double poolRadius = 3;
+    double pathWidth = 1;
+    double concreteCostPerSquareMeter = 1000;
+    double fenceCostPerMeter = 2000;
+    double outerRadius = poolRadius + pathWidth;
+    double expectedPathArea = M_PI * (outerRadius * outerRadius - poolRadius * poolRadius);
+    double expectedFenceLength = 2 * M_PI * outerRadius;
+    double expectedConcreteCost = expectedPathArea * concreteCostPerSquareMeter;
+    double expectedFenceCost = expectedFenceLength * fenceCostPerMeter;
+    double expectedTotalCost = expectedConcreteCost + expectedFenceCost;
+    double actualCost = calculatePoolCost();
+    EXPECT_NEAR(actualCost, expectedTotalCost, 1e-2);
+}
+
+TEST(PoolTaskTest, PoolCostWithDifferentParameters) {
+    double poolRadius = 5;
+    double pathWidth = 2;
+    double concreteCostPerSquareMeter = 500;
+    double fenceCostPerMeter = 1500;
+    double outerRadius = poolRadius + pathWidth;
+    double expectedPathArea = M_PI * (outerRadius * outerRadius - poolRadius * poolRadius);
+    double expectedFenceLength = 2 * M_PI * outerRadius;
+    double expectedConcreteCost = expectedPathArea * concreteCostPerSquareMeter;
+    double expectedFenceCost = expectedFenceLength * fenceCostPerMeter;
+    double expectedTotalCost = expectedConcreteCost + expectedFenceCost;
+    double actualCost = calculatePoolCost();
+    EXPECT_NEAR(actualCost, expectedTotalCost, 1e-2);
+}
