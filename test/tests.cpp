@@ -90,7 +90,7 @@ TEST(CircleTest, DecimalRadius) {
 
 TEST(CircleTest, MultipleUpdates) {
   Circle c(5.0);
-  c.SetRadius(6.0);   
+  c.SetRadius(6.0);
   c.SetFerence(2 * PI * 7.0);
   c.SetArea(PI * 8.0 * 8.0);
   EXPECT_DOUBLE_EQ(c.GetRadius(), 8.0);
@@ -124,9 +124,9 @@ TEST(PoolTest, ZeroWaterCost) {
 
 TEST(PoolTest, MinimalPool) {
   double cost = CalculatePoolCost(1, 0.5, 100, 150);
-  double outerRadius = 1 + 0.5;
-  double expectedCost = (PI * (outerRadius * outerRadius - 1 * 1) * 100) + (2 * PI * outerRadius * 150);
-  EXPECT_NEAR(cost, expectedCost, 1e-6);
+  double outerRad = 1 + 0.5;
+  double expCost = (PI * (outerRad * outerRad - 1 * 1) * 100) + (2 * PI * outerRad * 150);
+  EXPECT_NEAR(cost, expCost, 1e-6);
 }
 
 TEST(PoolTest, ZeroCosts) {
