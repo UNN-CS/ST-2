@@ -81,3 +81,56 @@ TEST(PoolTest, ZeroRadius) {
   EXPECT_NEAR(cost, expectedCost, 1e-6);
 }
 
+TEST(CircleTest, DecimalRadius) {
+  Circle c(3.1415);
+  EXPECT_DOUBLE_EQ(c.GetRadius(), 3.1415);
+  EXPECT_DOUBLE_EQ(c.GetFerence(), 2 * PI * 3.1415);
+  EXPECT_DOUBLE_EQ(c.GetArea(), PI * 3.1415 * 3.1415);
+}
+
+TEST(CircleTest, MultipleUpdates) {
+  Circle c(5.0);
+  c.SetRadius(6.0);   
+  c.SetFerence(2 * PI * 7.0);
+  c.SetArea(PI * 8.0 * 8.0);
+  EXPECT_DOUBLE_EQ(c.GetRadius(), 8.0);
+  EXPECT_DOUBLE_EQ(c.GetFerence(), 2 * PI * 8.0);
+  EXPECT_DOUBLE_EQ(c.GetArea(), PI * 8.0 * 8.0);
+}
+
+TEST(RopeTest, LargeIncrease) {
+  double additionalLength = 1000;
+  double gap = CalculateRopeGap(6378.1 * 1000, additionalLength);
+  EXPECT_NEAR(gap, additionalLength / (2 * PI), 1e-6);
+}
+
+TEST(RopeTest, ExactIncrease) {
+  double additionalLength = 2 * PI;
+  double gap = CalculateRopeGap(6378.1 * 1000, additionalLength);
+  EXPECT_NEAR(gap, 1, 1e-6);
+}
+
+TEST(RopeTest, NegativeIncrease) {
+  double additionalLength = -5.0;
+  double gap = CalculateRopeGap(6378.1 * 1000, additionalLength);
+  EXPECT_DOUBLE_EQ(gap, additionalLength / (2 * PI));
+}
+
+TEST(PoolTest, ZeroWaterCost) {
+  double cost = CalculatePoolCost(3, 1, 0, 2000);
+  double expectedCost = 2 * PI * (3 + 1) * 2000;
+  EXPECT_NEAR(cost, expectedCost, 1e-6);
+}
+
+TEST(PoolTest, MinimalPool) {
+  double cost = CalculatePoolCost(1, 0.5, 100, 150);
+  double outerRadius = 1 + 0.5;
+  double expectedCost = (PI * (outerRadius * outerRadius - 1 * 1) * 100) + (2 * PI * outerRadius * 150);
+  EXPECT_NEAR(cost, expectedCost, 1e-6);
+}
+
+TEST(PoolTest, ZeroCosts) {
+  double cost = CalculatePoolCost(3, 1, 0, 0);
+  double expectedCost = 0;
+  EXPECT_DOUBLE_EQ(cost, expectedCost);
+}
