@@ -13,8 +13,7 @@ double calculateGap() {
 }
 
 double calculatePoolCost(double poolRadius, double pathWidth,
-double concreteCostPerSquareMeter, double fenceCostPerMeter)
-{
+double concreteCostPerSquareMeter, double fenceCostPerMeter) {
     Circle pool(poolRadius);
     Circle poolWithPath(poolRadius + pathWidth);
 
