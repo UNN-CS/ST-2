@@ -5,16 +5,18 @@
 #include <cstdint>
 
 class Circle {
+private:
   double radius;
   double ference;
   double area;
 
-public:  // Отступ перед public (+1 пробел)
+public:  
   Circle(double r, double f, double a) {
     radius = r;
-    ference = f;  // Исправил ошибку (ference = f)
+    ference = f;
     area = a;
   }
+  Circle();
 
   void setRadius(double r);
   void setFerence(double f);

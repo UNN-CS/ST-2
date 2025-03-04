@@ -22,3 +22,6 @@ double tasks::rope() {
   return C.getRadius() - 6378100;
 }
 
+tasks::tasks() {
+  
+}

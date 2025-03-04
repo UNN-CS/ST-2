@@ -2,16 +2,16 @@
 #ifndef INCLUDE_TASKS_H_
 #define INCLUDE_TASKS_H_
 
-#include "circle.h"  // Исправлено (добавил кавычки)
+#include "circle.h"
 
 class tasks {
+private:
   Circle C;
 
-public:  
+public:
   tasks();
   double pool();
   double rope();
 };
 
 #endif  // INCLUDE_TASKS_H_
-

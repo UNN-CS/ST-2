@@ -1,8 +1,8 @@
 // Copyright 2025 Odintsov
 
-#include "circle.h"  // Сначала идет include заголовочного файла
-#include <cstdint>    // Затем C system headers
-#include <cmath>      // Потом C++ system headers
+#include "circle.h"  // РЎРЅР°С‡Р°Р»Р° РёРґРµС‚ include Р·Р°РіРѕР»РѕРІРѕС‡РЅРѕРіРѕ С„Р°Р№Р»Р°
+#include <cstdint>    // Р—Р°С‚РµРј C system headers
+#include <cmath>      // РџРѕС‚РѕРј C++ system headers
 
 const double PI = 3.141592653589793;
 
