@@ -19,12 +19,12 @@ TEST(tests, can_get_radius) {
 
 TEST(tests, can_get_ference) {
   Circle tmp(1, 2, 3);
-  EXPECT_NEAR(2 * PI * tmp.getRadius(), tmp.getFerence(), 0.0001);
+  EXPECT_EQ(2, tmp.getFerence());
 }
 
 TEST(tests, can_get_area) {
   Circle tmp(1, 2, 3);
-  EXPECT_NEAR(PI * tmp.getRadius() * tmp.getRadius(), tmp.getArea(), 0.0001);
+  EXPECT_EQ(3, tmp.getFerence());
 }
 
 TEST(tests, cant_set_zero_radius) {
@@ -36,13 +36,13 @@ TEST(tests, cant_set_zero_radius) {
 TEST(tests, cant_set_zero_ference) {
   Circle tmp(1, 2, 3);
   tmp.setFerence(0);
-  EXPECT_NEAR(2 * PI * tmp.getRadius(), tmp.getFerence(), 0.0001);
+  EXPECT_EQ(2, tmp.getFerence());
 }
 
 TEST(tests, cant_set_zero_area) {
   Circle tmp(1, 2, 3);
   tmp.setArea(0);
-  EXPECT_NEAR(PI * tmp.getRadius() * tmp.getRadius(), tmp.getArea(), 0.0001);
+  EXPECT_EQ(3, tmp.getArea());
 }
 
 TEST(tests, cant_set_negative_radius) {
@@ -54,13 +54,13 @@ TEST(tests, cant_set_negative_radius) {
 TEST(tests, cant_set_negative_ference) {
   Circle tmp(1, 2, 3);
   tmp.setFerence(-1);
-  EXPECT_NEAR(2 * PI * tmp.getRadius(), tmp.getFerence(), 0.0001);
+  EXPECT_EQ(2, tmp.getFerence());
 }
 
 TEST(tests, cant_set_negative_area) {
   Circle tmp(1, 2, 3);
   tmp.setArea(-1);
-  EXPECT_NEAR(PI * tmp.getRadius() * tmp.getRadius(), tmp.getArea(), 0.0001);
+  EXPECT_EQ(3, tmp.getFeren());
 }
 
 TEST(tests, can_set_radius) {

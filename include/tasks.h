@@ -6,10 +6,10 @@
 #include "circle.h"
 
 class tasks {
-private:
+ private:
   Circle C;
 
-public:
+ public:
   tasks();
   double pool();
   double rope();

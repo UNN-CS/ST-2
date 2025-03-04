@@ -12,10 +12,8 @@ class Circle {
 
  public:
   Circle(double r, double f, double a) {
-    radius = r;
-    ference = f;
-    area = a;
-  };
+    setRadius(r);
+  }
   Circle();
 
   void setRadius(double r);
