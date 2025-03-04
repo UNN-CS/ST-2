@@ -99,33 +99,97 @@ TEST(TaskTest, TestCalculateGapForLargeEarth) {
 }
 
 TEST(TaskTest, TestCalculatePoolCost) {
-    double expectedCost = 50626.640742262784;
-    double calculatedCost = calculatePoolCost();
-    EXPECT_NEAR(calculatedCost, expectedCost, 1e-3);
+  double expectedCost = 50626.640742262784;
+  double calculatedCost = calculatePoolCost();
+  EXPECT_NEAR(calculatedCost, expectedCost, 1e-3);
 }
 
 TEST(TaskTest, TestCostForDifferentPoolRadius) {
-    double expectedCost = 114470.29616341939;
-    double totalCost = roadCost + fenceCost;
-    EXPECT_NEAR(totalCost, expectedCost, 1e-3);
+  double roadCost = 0;
+  double fenceCost = 0;
+  
+  Circle pool(3.0);
+  const double roadWidth = 1.0;
+  double outerRadius = pool.getRadius() + roadWidth;
+
+  pool.setRadius(outerRadius);
+  const double PI = 3.141592653589793;
+  double roadArea = pool.getArea() - PI * pool.getRadius() * pool.getRadius();
+  roadCost = roadArea * 1000;
+
+  pool.setRadius(outerRadius);
+  double fenceLength = pool.getFerence();
+  fenceCost = fenceLength * 2000;
+
+  double expectedCost = 114470.29616341939;
+  double totalCost = roadCost + fenceCost;
+  EXPECT_NEAR(totalCost, expectedCost, 1e-3);
 }
 
 TEST(TaskTest, TestCostForSmallPoolRadius) {
-    double expectedCost = 2097.69623246178;
-    double totalCost = roadCost + fenceCost;
-    EXPECT_NEAR(totalCost, expectedCost, 1e-3);
+  double roadCost = 0;
+  double fenceCost = 0;
+  
+  Circle pool(3.0);
+  const double roadWidth = 1.0;
+  double outerRadius = pool.getRadius() + roadWidth;
+
+  pool.setRadius(outerRadius);
+  const double PI = 3.141592653589793;
+  double roadArea = pool.getArea() - PI * pool.getRadius() * pool.getRadius();
+  roadCost = roadArea * 1000;
+
+  pool.setRadius(outerRadius);
+  double fenceLength = pool.getFerence();
+  fenceCost = fenceLength * 2000;
+
+  double expectedCost = 2097.69623246178;
+  double totalCost = roadCost + fenceCost;
+  EXPECT_NEAR(totalCost, expectedCost, 1e-3);
 }
 
 TEST(TaskTest, TestPoolCostForRadius3) {
-    double expectedCost = 50626.640742262784;
-    double totalCost = roadCost + fenceCost;
-    EXPECT_NEAR(totalCost, expectedCost, 1e-3);
+  double roadCost = 0;
+  double fenceCost = 0;
+  
+  Circle pool(3.0);
+  const double roadWidth = 1.0;
+  double outerRadius = pool.getRadius() + roadWidth;
+
+  pool.setRadius(outerRadius);
+  const double PI = 3.141592653589793;
+  double roadArea = pool.getArea() - PI * pool.getRadius() * pool.getRadius();
+  roadCost = roadArea * 1000;
+
+  pool.setRadius(outerRadius);
+  double fenceLength = pool.getFerence();
+  fenceCost = fenceLength * 2000;
+
+  double expectedCost = 50626.640742262784;
+  double totalCost = roadCost + fenceCost;
+  EXPECT_NEAR(totalCost, expectedCost, 1e-3);
 }
 
 TEST(TaskTest, TestCostForLargePool) {
-    double expectedCost = 228943.40801651784;
-    double totalCost = roadCost + fenceCost;
-    EXPECT_NEAR(totalCost, expectedCost, 1e-3);
+  double roadCost = 0;
+  double fenceCost = 0;
+  
+  Circle pool(3.0);
+  const double roadWidth = 1.0;
+  double outerRadius = pool.getRadius() + roadWidth;
+
+  pool.setRadius(outerRadius);
+  const double PI = 3.141592653589793;
+  double roadArea = pool.getArea() - PI * pool.getRadius() * pool.getRadius();
+  roadCost = roadArea * 1000;
+
+  pool.setRadius(outerRadius);
+  double fenceLength = pool.getFerence();
+  fenceCost = fenceLength * 2000;
+
+  double expectedCost = 228943.40801651784;
+  double totalCost = roadCost + fenceCost;
+  EXPECT_NEAR(totalCost, expectedCost, 1e-3);
 }
 
 TEST(TaskTest, TestGapWithSmallIncrease) {
