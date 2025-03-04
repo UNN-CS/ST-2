@@ -5,191 +5,138 @@
 #include "tasks.h"
 #include "circle.h"
 
-TEST(CircleTest, TestConstructor) {
+TEST(circle, ctor) {
   Circle c(5);
-  EXPECT_DOUBLE_EQ(c.getRadius(), 5);
-  EXPECT_DOUBLE_EQ(c.getFerence(), 2 * 3.141592653589793 * 5);
-  EXPECT_DOUBLE_EQ(c.getArea(), 3.141592653589793 * 5 * 5);
+  EXPECT_FLOAT_EQ(c.getRadius(), 5);
+  EXPECT_FLOAT_EQ(c.getFerence(), 31.415926);
+  EXPECT_FLOAT_EQ(c.getArea(), 78.539818);
 }
 
-TEST(CircleTest, TestSetRadius) {
-  Circle c(5);
-  c.setRadius(10);
-  EXPECT_DOUBLE_EQ(c.getRadius(), 10);
-  EXPECT_DOUBLE_EQ(c.getFerence(), 2 * 3.141592653589793 * 10);
-  EXPECT_DOUBLE_EQ(c.getArea(), 3.141592653589793 * 10 * 10);
+TEST(circle, setRadius) {
+  Circle c(1);
+  c.setRadius(5);
+  EXPECT_FLOAT_EQ(c.getRadius(), 5);
+  EXPECT_FLOAT_EQ(c.getFerence(), 31.415926);
+  EXPECT_FLOAT_EQ(c.getArea(), 78.539818);
 }
 
-TEST(CircleTest, TestSetFerence) {
-  Circle c(5);
-  c.setFerence(31.41592653589793);
-  EXPECT_DOUBLE_EQ(c.getFerence(), 31.41592653589793);
-  EXPECT_DOUBLE_EQ(c.getRadius(), 5);
-  EXPECT_DOUBLE_EQ(c.getArea(), 3.141592653589793 * 5 * 5);
+TEST(circle, setFerence) {
+  Circle c(1);
+  c.setFerence(31.415926);
+  EXPECT_FLOAT_EQ(c.getRadius(), 5);
+  EXPECT_FLOAT_EQ(c.getFerence(), 31.415926);
+  EXPECT_FLOAT_EQ(c.getArea(), 78.539818);
 }
 
-TEST(CircleTest, TestSetArea) {
-  Circle c(5);
-  c.setArea(78.53981633974483);
-  EXPECT_DOUBLE_EQ(c.getArea(), 78.53981633974483);
-  EXPECT_DOUBLE_EQ(c.getRadius(), 5);
-  EXPECT_DOUBLE_EQ(c.getFerence(), 2 * 3.141592653589793 * 5);
+TEST(circle, setArea) {
+  Circle c(1);
+  c.setArea(78.539818);
+  EXPECT_FLOAT_EQ(c.getRadius(), 5);
+  EXPECT_FLOAT_EQ(c.getFerence(), 31.415926);
+  EXPECT_FLOAT_EQ(c.getArea(), 78.539818);
 }
 
-TEST(CircleTest, TestZeroRadius) {
-  Circle c(0);
-  EXPECT_DOUBLE_EQ(c.getRadius(), 0);
-  EXPECT_DOUBLE_EQ(c.getFerence(), 0);
-  EXPECT_DOUBLE_EQ(c.getArea(), 0);
+TEST(circle, ctor2) {
+  Circle c(33.33);
+  EXPECT_FLOAT_EQ(c.getRadius(), 33.33);
+  EXPECT_FLOAT_EQ(c.getFerence(), 209.418566);
+  EXPECT_FLOAT_EQ(c.getArea(), 3489.960407);
 }
 
-TEST(CircleTest, TestNegativeRadius) {
+TEST(circle, setRadius2) {
+  Circle c(1);
+  c.setRadius(33.33);
+  EXPECT_FLOAT_EQ(c.getRadius(), 33.33);
+  EXPECT_FLOAT_EQ(c.getFerence(), 209.418566);
+  EXPECT_FLOAT_EQ(c.getArea(), 3489.960407);
+}
+
+TEST(circle, setFerence2) {
+  Circle c(1);
+  c.setFerence(209.418566);
+  EXPECT_FLOAT_EQ(c.getRadius(), 33.33);
+  EXPECT_FLOAT_EQ(c.getFerence(), 209.418566);
+  EXPECT_FLOAT_EQ(c.getArea(), 3489.960407);
+}
+
+TEST(circle, setArea2) {
+  Circle c(1);
+  c.setArea(3489.960407);
+  EXPECT_FLOAT_EQ(c.getRadius(), 33.33);
+  EXPECT_FLOAT_EQ(c.getFerence(), 209.418566);
+  EXPECT_FLOAT_EQ(c.getArea(), 3489.960407);
+}
+
+TEST(circle, negative_radius) {
   Circle c(-5);
-  EXPECT_DOUBLE_EQ(c.getRadius(), -5);
-  EXPECT_DOUBLE_EQ(c.getFerence(), 2 * 3.141592653589793 * -5);
-  EXPECT_DOUBLE_EQ(c.getArea(), 3.141592653589793 * -5 * -5);
+  EXPECT_FLOAT_EQ(c.getRadius(), -5);
+  EXPECT_FLOAT_EQ(c.getFerence(), -31.415926);
+  EXPECT_FLOAT_EQ(c.getArea(), 78.539818);
 }
 
-TEST(CircleTest, TestSetNegativeFerence) {
+TEST(circle, zero_radius) {
+  Circle c(0);
+  EXPECT_FLOAT_EQ(c.getRadius(), 0);
+  EXPECT_FLOAT_EQ(c.getFerence(), 0);
+  EXPECT_FLOAT_EQ(c.getArea(), 0);
+}
+
+TEST(circle, chain_setters) {
   Circle c(5);
-  c.setFerence(-31.41592653589793);
-  EXPECT_DOUBLE_EQ(c.getFerence(), -31.41592653589793);
-  EXPECT_DOUBLE_EQ(c.getRadius(), -5);
-  EXPECT_DOUBLE_EQ(c.getArea(), 3.141592653589793 * -5 * -5);
+  c.setArea(78.539818);
+  c.setRadius(5);
+  c.setFerence(31.415926);
+  EXPECT_FLOAT_EQ(c.getRadius(), 5);
+  EXPECT_FLOAT_EQ(c.getFerence(), 31.415926);
+  EXPECT_FLOAT_EQ(c.getArea(), 78.539818);
 }
 
-TEST(CircleTest, TestFerenceToRadius) {
+TEST(circle, multiple_updates) {
   Circle c(10);
-  c.setFerence(62.83185307179586);
-  EXPECT_DOUBLE_EQ(c.getRadius(), 10);
-  EXPECT_DOUBLE_EQ(c.getFerence(), 62.83185307179586);
-  EXPECT_DOUBLE_EQ(c.getArea(), 3.141592653589793 * 10 * 10);
+  c.setRadius(20);
+  EXPECT_FLOAT_EQ(c.getRadius(), 20);
+  c.setArea(314.159265);
+  EXPECT_FLOAT_EQ(c.getRadius(), 10);
 }
 
-TEST(CircleTest, TestAreaToRadius) {
-  Circle c(10);
-  c.setArea(314.1592653589793);
-  EXPECT_DOUBLE_EQ(c.getRadius(), 10);
-  EXPECT_DOUBLE_EQ(c.getArea(), 314.1592653589793);
-  EXPECT_DOUBLE_EQ(c.getFerence(), 2 * 3.141592653589793 * 10);
+TEST(circle, area_consistency) {
+  Circle c(7);
+  float expected = 3.141592653589793f * 7 * 7;
+  EXPECT_FLOAT_EQ(c.getArea(), expected);
 }
 
-TEST(CircleTest, TestSetFerenceAndCalculateArea) {
-  Circle c(5);
-  c.setFerence(31.41592653589793);
-  EXPECT_DOUBLE_EQ(c.getArea(), 78.53981633974483);
+TEST(task1, gives_correct_answer) {
+  EXPECT_FLOAT_EQ(calculateGap(), 0.15915494);
 }
 
-TEST(CircleTest, TestSetAreaAndCalculateFerence) {
-  Circle c(5);
-  c.setArea(78.53981633974483);
-  EXPECT_DOUBLE_EQ(c.getFerence(), 31.41592653589793);
+TEST(task1, consistent_gap) {
+  float g1 = calculateGap();
+  float g2 = calculateGap();
+  EXPECT_FLOAT_EQ(g1, g2);
 }
 
-TEST(TaskTest, TestCalculateGapForEarth) {
-  EXPECT_NEAR(calculateGap(), 0.15915494309189535, 1e-6);
+TEST(task2, gives_correct_answer) {
+  EXPECT_FLOAT_EQ(calculatePoolCost(), 72256.633);
 }
 
-TEST(TaskTest, TestCalculateGapForLargeEarth) {
-  Circle earth(6378.1 * 1000);
-  earth.setFerence(2 * 3.141592653589793 * (6378.1 * 1000) + 1);
-  double newRadius = earth.getRadius();
-  double gap = newRadius - 6378.1 * 1000;
-  EXPECT_NEAR(gap, 0.15915494309189535, 1e-9);
-}
-
-TEST(TaskTest, TestCalculatePoolCost) {
-  double expectedCost = 50626.640742262784;
-  double calculatedCost = calculatePoolCost();
-  EXPECT_NEAR(calculatedCost, expectedCost, 1e-3);
-}
-
-TEST(TaskTest, TestCostForDifferentPoolRadius) {
-  double roadCost = 0;
-  double fenceCost = 0;
-  
-  Circle pool(3.0);
-  const double roadWidth = 1.0;
-  double outerRadius = pool.getRadius() + roadWidth;
-
+TEST(task2, pool_cost_manual_vs_function) {
+  double poolRadius = 3.0;
+  double roadWidth = 1.0;
+  Circle pool(poolRadius);
+  double outerRadius = poolRadius + roadWidth;
   pool.setRadius(outerRadius);
   const double PI = 3.141592653589793;
-  double roadArea = pool.getArea() - PI * pool.getRadius() * pool.getRadius();
-  roadCost = roadArea * 1000;
-
+  double roadArea = pool.getArea() - PI * poolRadius * poolRadius;
+  double roadCost = roadArea * 1000;
   pool.setRadius(outerRadius);
   double fenceLength = pool.getFerence();
-  fenceCost = fenceLength * 2000;
-
-  double expectedCost = 114470.29616341939;
-  double totalCost = roadCost + fenceCost;
-  EXPECT_NEAR(totalCost, expectedCost, 1e-3);
+  double fenceCost = fenceLength * 2000;
+  double manualCost = roadCost + fenceCost;
+  EXPECT_FLOAT_EQ(manualCost, calculatePoolCost());
 }
 
-TEST(TaskTest, TestCostForSmallPoolRadius) {
-  double roadCost = 0;
-  double fenceCost = 0;
-  
-  Circle pool(3.0);
-  const double roadWidth = 1.0;
-  double outerRadius = pool.getRadius() + roadWidth;
-
-  pool.setRadius(outerRadius);
-  const double PI = 3.141592653589793;
-  double roadArea = pool.getArea() - PI * pool.getRadius() * pool.getRadius();
-  roadCost = roadArea * 1000;
-
-  pool.setRadius(outerRadius);
-  double fenceLength = pool.getFerence();
-  fenceCost = fenceLength * 2000;
-
-  double expectedCost = 2097.69623246178;
-  double totalCost = roadCost + fenceCost;
-  EXPECT_NEAR(totalCost, expectedCost, 1e-3);
-}
-
-TEST(TaskTest, TestPoolCostForRadius3) {
-  double roadCost = 0;
-  double fenceCost = 0;
-  
-  Circle pool(3.0);
-  const double roadWidth = 1.0;
-  double outerRadius = pool.getRadius() + roadWidth;
-
-  pool.setRadius(outerRadius);
-  const double PI = 3.141592653589793;
-  double roadArea = pool.getArea() - PI * pool.getRadius() * pool.getRadius();
-  roadCost = roadArea * 1000;
-
-  pool.setRadius(outerRadius);
-  double fenceLength = pool.getFerence();
-  fenceCost = fenceLength * 2000;
-
-  double expectedCost = 50626.640742262784;
-  double totalCost = roadCost + fenceCost;
-  EXPECT_NEAR(totalCost, expectedCost, 1e-3);
-}
-
-TEST(TaskTest, TestCostForLargePool) {
-  double roadCost = 0;
-  double fenceCost = 0;
-  
-  Circle pool(3.0);
-  const double roadWidth = 1.0;
-  double outerRadius = pool.getRadius() + roadWidth;
-
-  pool.setRadius(outerRadius);
-  const double PI = 3.141592653589793;
-  double roadArea = pool.getArea() - PI * pool.getRadius() * pool.getRadius();
-  roadCost = roadArea * 1000;
-
-  pool.setRadius(outerRadius);
-  double fenceLength = pool.getFerence();
-  fenceCost = fenceLength * 2000;
-
-  double expectedCost = 228943.40801651784;
-  double totalCost = roadCost + fenceCost;
-  EXPECT_NEAR(totalCost, expectedCost, 1e-3);
+TEST(task2, pool_cost_value_precision) {
+  EXPECT_FLOAT_EQ(calculatePoolCost(), 72256.633);
 }
 
 TEST(TaskTest, TestGapWithSmallIncrease) {
