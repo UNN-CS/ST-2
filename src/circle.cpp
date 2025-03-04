@@ -1,8 +1,8 @@
 // Copyright 2025 Odintsov
 
-#include "circle.h"  // Сначала идет include заголовочного файла
-#include <cstdint>    // Затем C system headers
-#include <cmath>      // Потом C++ system headers
+#include "circle.h"  
+#include <cstdint>   
+#include <cmath>     
 
 const double PI = 3.141592653589793;
 
@@ -37,10 +37,13 @@ double Circle::getRadius() {
   return radius;
 }
 
+double Circle::getFerence() {
+  return ference;
+}
+
 double Circle::getArea() {
   return area;
 }
 
-double Circle::getFerence() {
-  return ference;
+Circle::Circle() {
 }

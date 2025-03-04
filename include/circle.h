@@ -10,7 +10,7 @@ private:
   double ference;
   double area;
 
-public:  
+public:
   Circle(double r, double f, double a) {
     radius = r;
     ference = f;

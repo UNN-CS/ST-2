@@ -23,5 +23,4 @@ double tasks::rope() {
 }
 
 tasks::tasks() {
-  
 }
