@@ -21,6 +21,16 @@ TEST(CircleTest, Initialization3) {
     EXPECT_NEAR(c.getRadius(), 0, 1e-6);
 }
 
+TEST(CircleTest, Initialization4) {
+    Circle c(15);
+    EXPECT_NEAR(c.getRadius(), 15, 1e-6);
+}
+
+TEST(CircleTest, Initialization5) {
+    Circle c(20);
+    EXPECT_NEAR(c.getRadius(), 20, 1e-6);
+}
+
 TEST(CircleTest, SetRadius1) {
     Circle c(5);
     c.setRadius(10);
