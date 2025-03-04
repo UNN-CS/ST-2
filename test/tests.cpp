@@ -6,8 +6,7 @@
 
 const double PI = 4 * std::atan(1.0);
 
-TEST(Kalinin_Test_Circle, radius_constructor)
-{
+TEST(Kalinin_Test_Circle, radius_constructor) {
     Circle circle1(20);
     EXPECT_DOUBLE_EQ(20, circle1.getRadius());
     Circle circle2(15);
@@ -20,8 +19,7 @@ TEST(Kalinin_Test_Circle, radius_constructor)
     EXPECT_DOUBLE_EQ(1, circle5.getRadius());
 }
 
-TEST(Kalinin_Test_Circle, area_constructor)
-{
+TEST(Kalinin_Test_Circle, area_constructor) {
     Circle circle1(10);
     EXPECT_DOUBLE_EQ(10 * 10 * PI, circle1.getArea());
     Circle circle2(20);
@@ -34,8 +32,7 @@ TEST(Kalinin_Test_Circle, area_constructor)
     EXPECT_DOUBLE_EQ(0 * 0 * PI, circle5.getArea());
 }
 
-TEST(Kalinin_Test_Circle, ference_constructor)
-{
+TEST(Kalinin_Test_Circle, ference_constructor) {
     Circle circle1(10);
     EXPECT_DOUBLE_EQ(10 * 2 * PI, circle1.getFerence());
     Circle circle2(1);
@@ -48,8 +45,7 @@ TEST(Kalinin_Test_Circle, ference_constructor)
     EXPECT_DOUBLE_EQ(30 * 2 * PI, circle5.getFerence());
 }
 
-TEST(Kalinin_Test_Circle, radius_setter)
-{
+TEST(Kalinin_Test_Circle, radius_setter) {
     Circle circle1;
     Circle circle2;
     Circle circle3;
@@ -67,8 +63,7 @@ TEST(Kalinin_Test_Circle, radius_setter)
     EXPECT_DOUBLE_EQ(3, circle5.getRadius());
 }
 
-TEST(Kalinin_Test_Circle, area_setter)
-{
+TEST(Kalinin_Test_Circle, area_setter) {
     Circle circle1;
     Circle circle2;
     Circle circle3;
@@ -86,8 +81,7 @@ TEST(Kalinin_Test_Circle, area_setter)
     EXPECT_DOUBLE_EQ(3, circle5.getArea());
 }
 
-TEST(Kalinin_Test_Circle, ference_setter)
-{
+TEST(Kalinin_Test_Circle, ference_setter) {
     Circle circle1;
     Circle circle2;
     Circle circle3;
@@ -105,8 +99,7 @@ TEST(Kalinin_Test_Circle, ference_setter)
     EXPECT_DOUBLE_EQ(3, circle5.getFerence());
 }
 
-TEST(Kalinin_Test_Circle, check_area_after_setting_radius)
-{
+TEST(Kalinin_Test_Circle, check_area_after_setting_radius) {
     Circle circle1;
     circle1.setRadius(20);
     Circle circle2;
@@ -124,8 +117,7 @@ TEST(Kalinin_Test_Circle, check_area_after_setting_radius)
     EXPECT_DOUBLE_EQ(3 * 3 * PI, circle5.getArea());
 }
 
-TEST(Kalinin_Test_Circle, set_radius_check_ferecne)
-{
+TEST(Kalinin_Test_Circle, set_radius_check_ferecne) {
     Circle circle1;
     circle1.setRadius(20);
     Circle circle2;
@@ -143,8 +135,7 @@ TEST(Kalinin_Test_Circle, set_radius_check_ferecne)
     EXPECT_DOUBLE_EQ(3 * 2 * PI, circle5.getFerence());
 }
 
-TEST(Kalinin_Test_Circle, check_radius_after_settign_area)
-{
+TEST(Kalinin_Test_Circle, check_radius_after_settign_area) {
     Circle circle1;
     circle1.setArea(20);
     Circle circle2;
@@ -162,22 +153,22 @@ TEST(Kalinin_Test_Circle, check_radius_after_settign_area)
     EXPECT_DOUBLE_EQ(sqrt(3 / PI), circle5.getRadius());
 }
 
-TEST(Kalinin_Tasks, earth_and_rope_task)
-{
+TEST(Kalinin_Tasks, earth_and_rope_task) {
     double earthRadiusMeters = 6378.1 * 1e3;
     double startRopeMeters = earthRadiusMeters * 2 * PI;
-    double actualResultMeters = (startRopeMeters + 1) / 2 / PI - earthRadiusMeters;
+    double actualResultMeters = (startRopeMeters + 1)
+    / 2 / PI - earthRadiusMeters;
 
-    EXPECT_DOUBLE_EQ(EarthAndRopeTask(1), actualResultMeters);
+    EXPECT_DOUBLE_EQ(EarthAndRopeTask(1)
+    , actualResultMeters);
 }
 
-TEST(Kalinin_Tasks, swimming_pool)
-{
+TEST(Kalinin_Tasks, swimming_pool) {
     double fencePrice = 2 * PI * (3 + 1) * 2000;
-    double areaPrice = PI * 1 * (1 + 2 * 3) * 1000;
+    double areaPrice = PI * 1 * (1 + 2 * 3)
+        * 1000;
 
     ASSERT_DOUBLE_EQ(
         SwimmingPoolTask(3, 1, 1000,
-                         2000),
-        fencePrice + areaPrice);
+        2000), fencePrice + areaPrice);
 }
