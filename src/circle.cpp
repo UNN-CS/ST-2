@@ -5,37 +5,40 @@
 const double PI = 3.141592653589793;
 
 void Circle::setRadius(double r) {
-	if (r <= 0)
-		return;
-	radius = r;
-	ference = 2 * PI * radius;
-	area = PI * radius * radius;
+  if (r <= 0) {
+    return;
+  }
+  radius = r;
+  ference = 2 * PI * radius;
+  area = PI * radius * radius;
 }
 
 void Circle::setFerence(double f) {
-	if (f <= 0)
-		return;
-	ference = f;
-	radius = f / (2 * PI);
-	area = PI * radius * radius;
+  if (f <= 0) {
+    return;
+  }
+  ference = f;
+  radius = f / (2 * PI);
+  area = PI * radius * radius;
 }
 
 void Circle::setArea(double a) {
-	if (a <= 0)
-		return;
-	area = a;
-	radius = std::sqrt(a / PI);
-	ference = 2 * PI * radius;
+  if (a <= 0) {
+    return;
+  }
+  area = a;
+  radius = std::sqrt(a / PI);
+  ference = 2 * PI * radius;
 }
 
 double Circle::getRadius() {
-	return radius;
+  return radius;
 }
 
 double Circle::getArea() {
-	return area;
+  return area;
 }
 
 double Circle::getFerence() {
-	return ference;
+  return ference;
 }

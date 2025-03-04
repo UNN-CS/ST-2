@@ -1,13 +1,10 @@
 #include <circle.h>
 class tasks
 {
-	Circle C;
+  Circle C;
 public:
-	tasks();
-	double pool();
-	double rope();
-
-
-
+  tasks();
+  double pool();
+  double rope();
 };
 
