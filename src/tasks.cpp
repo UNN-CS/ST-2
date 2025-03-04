@@ -1,7 +1,8 @@
+// Copyright 2025 Odintsov
+
 #include "tasks.h"
 
-double tasks::pool()
-{
+double tasks::pool() {
   double cost = 0;
   C.setRadius(3);
   double pool_area = C.getArea();
@@ -13,10 +14,11 @@ double tasks::pool()
   cost += C.getFerence() * 2000;
   return cost;
 }
-double tasks::rope()
-{
+
+double tasks::rope() {
   C.setRadius(6378100);
   double new_ference = C.getFerence() + 1;
   C.setFerence(new_ference);
   return C.getRadius() - 6378100;
 }
+
