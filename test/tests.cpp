@@ -123,7 +123,7 @@ TEST(tests, can_create_Tasks) {
 
 TEST(tests, can_pool) {
   tasks tmp;
-  EXPECT_NEAR(72256.63103, tmp.pool(),0.001);
+  EXPECT_NEAR(72256.63103, tmp.pool(), 0.001);
 }
 
 TEST(tests, can_rope) {
