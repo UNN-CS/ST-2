@@ -2,6 +2,7 @@
 #include <cstdint>
 #include "circle.h"
 #include "tasks.h"
+#include <cmath> 
 
 const double PI = 3.141592653589793;
 
@@ -115,7 +116,7 @@ TEST(tests, set_area_change_ference) {
 }
 
 TEST(tests, can_create_Tasks) {
-  ASSERT_NO_THROW(tasks tmp());
+  ASSERT_NO_THROW(tasks tmp);
 }
 
 TEST(tests, can_pool) {

@@ -1,10 +1,13 @@
+// Copyright 2025 Odintsov
 #include <circle.h>
-class tasks
-{
+#ifndef INCLUDE_TASKS_H_
+#define INCLUDE_TASKS_H_
+class tasks {
   Circle C;
-public:
+public: 
   tasks();
   double pool();
   double rope();
 };
 
+#endif  // INCLUDE_CIRCLE_H_

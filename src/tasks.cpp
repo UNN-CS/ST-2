@@ -7,9 +7,9 @@ double tasks::pool()
   double pool_area = C.getArea();
   C.setRadius(4);
   double all_area = C.getArea();
-  // бетонная дорожка
+  // Р±РµС‚РѕРЅРЅР°СЏ РґРѕСЂРѕР¶РєР°
   cost += (all_area - pool_area) * 1000;
-  // забор
+  // Р·Р°Р±РѕСЂ
   cost += C.getFerence() * 2000;
   return cost;
 }
