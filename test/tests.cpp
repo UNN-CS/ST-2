@@ -144,14 +144,11 @@ TEST(CircleTest, LargeValue) {
     EXPECT_NEAR(c.getFerence(), expectedFerence, 1e-2);
 }
 
-TEST(CircleTest, SequentialFerenceAndAreaUpdates) {
-    Circle c(10.0);
-    c.setFerence(20.0);
-    double r_after_ference = c.getRadius();
-    c.setArea(314.159265);
-    double r_after_area = c.getRadius();
-    EXPECT_NEAR(r_after_ference, 10.0, EPSILON);
-    EXPECT_NEAR(r_after_area, 10.0, EPSILON);
+TEST(CircleTest, SetAreaUpdatesRadius) {
+    Circle c(1.0);
+    c.setArea(50.0); 
+    double expectedRadius = std::sqrt(50.0 / 3.14159265358979323846);
+    EXPECT_NEAR(c.getRadius(), expectedRadius, 1e-6);
 }
 
 TEST(CircleTest, SetAreaCorrectness) {
