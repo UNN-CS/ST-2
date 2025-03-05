@@ -36,7 +36,7 @@ TEST(CircleTest, SetFerenceUpdatesValues) {
     double newFerence = 15.707963;
     c.setFerence(newFerence);
     double expectedRadius = newFerence / (2 * 3.14159265358979323846);
-    double expectedArea = 3.14159265358979323846 
+    double expectedArea = 3.14159265358979323846
         * expectedRadius * expectedRadius;
     EXPECT_NEAR(c.getRadius(), expectedRadius, EPSILON);
     EXPECT_NEAR(c.getFerence(), newFerence, EPSILON);
@@ -93,7 +93,7 @@ TEST(CircleTest, NegativeFerence) {
     c.setFerence(negFerence);
     double expectedRadius = negFerence /
         (2 * 3.14159265358979323846);
-    double expectedArea = 3.14159265358979323846 
+    double expectedArea = 3.14159265358979323846
         * expectedRadius * expectedRadius;
     EXPECT_NEAR(c.getRadius(), expectedRadius, EPSILON);
     EXPECT_NEAR(c.getFerence(), negFerence, EPSILON);
@@ -108,14 +108,14 @@ TEST(TaskTest, RopeGapCalculation) {
 
 TEST(TaskTest, PoolConcreteCostCalculation) {
     double concreteCost = 0.0, fenceCost = 0.0;
-    calculatePoolCosts(concreteCost, fenceCost);
+    calculatePoolCosts(&concreteCost, &fenceCost);
     double expectedConcrete = 7 * 3.14159265358979323846 * 1000;
     EXPECT_NEAR(concreteCost, expectedConcrete, 1e-2);
 }
 
 TEST(TaskTest, PoolFenceCostCalculation) {
     double concreteCost = 0.0, fenceCost = 0.0;
-    calculatePoolCosts(concreteCost, fenceCost);
+    calculatePoolCosts(&concreteCost, &fenceCost);
     double expectedFence = 2 * 3.14159265358979323846 * 4 * 2000;
     EXPECT_NEAR(fenceCost, expectedFence, 1e-2);
 }
@@ -172,7 +172,7 @@ TEST(CircleTest, SetFerenceCorrectness) {
 
 TEST(TaskTest, PoolCostsNonNegative) {
     double concreteCost = 0.0, fenceCost = 0.0;
-    calculatePoolCosts(concreteCost, fenceCost);
+    calculatePoolCosts(&concreteCost, &fenceCost);
     EXPECT_GE(concreteCost, 0.0);
     EXPECT_GE(fenceCost, 0.0);
 }
