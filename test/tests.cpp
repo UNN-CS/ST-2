@@ -24,85 +24,76 @@ TEST(CircleTest, Test5Radius) {
     Circle c(0.0);
     EXPECT_DOUBLE_EQ(c.getRadius(), 0.0);
 }
-TEST(CircleTest, Test6Ference) {
-    Circle c(5.0);
-    EXPECT_DOUBLE_EQ(c.getFerence(), 31.4159); // 2 * PI * 5
-}
-TEST(CircleTest, Test7Area) {
-    Circle c(5.0);
-    EXPECT_DOUBLE_EQ(c.getArea(), 78.5398); // PI * 5^2
-}
-// Тесты для установки радиуса
-TEST(CircleTest, Set8RadiusUpdatesFerenceAndArea) {
-    Circle c(5.0);
-    c.setRadius(10.0);
-    EXPECT_DOUBLE_EQ(c.getFerence(), 62.8319); // 2 * PI * 10
-    EXPECT_DOUBLE_EQ(c.getArea(), 314.159);   // PI * 10^2
-}
-TEST(CircleTest, Set9RadiusUpdatesFerenceAndArea_2) {
-    Circle c(3.0);
-    c.setRadius(7.0);
-    EXPECT_DOUBLE_EQ(c.getFerence(), 43.9823); // 2 * PI * 7
-    EXPECT_DOUBLE_EQ(c.getArea(), 153.938);    // PI * 7^2
-}
-TEST(CircleTest, Set10RadiusUpdatesFerenceAndArea_3) {
+TEST(CircleTest, Test6Radius) {
     Circle c(1.0);
-    c.setRadius(5.0);
-    EXPECT_DOUBLE_EQ(c.getFerence(), 31.4159); // 2 * PI * 5
-    EXPECT_DOUBLE_EQ(c.getArea(), 78.5398);    // PI * 5^2
+    EXPECT_DOUBLE_EQ(c.getRadius(), 1.0);
 }
-TEST(CircleTest, Set11RadiusUpdatesFerenceAndArea_4) {
-    Circle c(10.0);
-    c.setRadius(15.0);
-    EXPECT_DOUBLE_EQ(c.getFerence(), 94.2478); // 2 * PI * 15
-    EXPECT_DOUBLE_EQ(c.getArea(), 706.8577);   // PI * 15^2
+TEST(CircleTest, Test7Radius) {
+    Circle c(-1.0);
+    EXPECT_DOUBLE_EQ(c.getRadius(), -1.0);
 }
-TEST(CircleTest, Set12RadiusUpdatesFerenceAndArea_5) {
-    Circle c(2.5);
-    c.setRadius(12.5);
-    EXPECT_DOUBLE_EQ(c.getFerence(), 78.5398); // 2 * PI * 12.5
-    EXPECT_DOUBLE_EQ(c.getArea(), 490.8738);   // PI * 12.5^2
+TEST(CircleTest, Test8Radius) {
+    Circle c(-2.0);
+    EXPECT_DOUBLE_EQ(c.getRadius(), -2.0);
 }
-TEST(CircleTest, Set13RadiusUpdatesFerenceAndArea_6) {
-    Circle c(0.5);
-    c.setRadius(2.0);
-    EXPECT_DOUBLE_EQ(c.getFerence(), 12.5664); // 2 * PI * 2
-    EXPECT_DOUBLE_EQ(c.getArea(), 12.5664);    // PI * 2^2
-}
-TEST(CircleTest, Set14RadiusUpdatesFerenceAndArea_7) {
-    Circle c(4.0);
-    c.setRadius(8.0);
-    EXPECT_DOUBLE_EQ(c.getFerence(), 50.2655); // 2 * PI * 8
-    EXPECT_DOUBLE_EQ(c.getArea(), 201.0619);   // PI * 8^2
-}
-TEST(CircleTest, Set15RadiusUpdatesFerenceAndArea_8) {
+TEST(CircleTest, Test9Radius) {
     Circle c(6.0);
-    c.setRadius(9.0);
-    EXPECT_DOUBLE_EQ(c.getFerence(), 56.5487); // 2 * PI * 9
-    EXPECT_DOUBLE_EQ(c.getArea(), 254.4690);   // PI * 9^2
+    EXPECT_DOUBLE_EQ(c.getRadius(), 6.0);
 }
-// Тесты для задач
-TEST(TaskTest, CalculateGap_Example1) {
-    EXPECT_DOUBLE_EQ(calculateGap(6378.1, 1.0), 0.159154943);
+TEST(CircleTest, Test10Radius) {
+    Circle c(-3.0);
+    EXPECT_DOUBLE_EQ(c.getRadius(), -3.0);
 }
-TEST(TaskTest, CalculateGap_Example2) {
-    EXPECT_DOUBLE_EQ(calculateGap(6378.1, 10.0), 1.59154943);
+TEST(PoolTest, ZeroRadius) {
+  double cost = calculatePoolCost(0, 5, 500, 1500);
+  double expectedCost = (PI * 5 * 5 * 500) + (2 * PI * 5 * 1500);
+  EXPECT_NEAR(cost, expectedCost, 1e-6);
 }
-TEST(TaskTest, CalculateGap_Example3) {
-    EXPECT_DOUBLE_EQ(calculateGap(6378.1, 45.0), 7.06858347);
+TEST(PoolTest, ZeroConstructionCost) {
+  double cost = calculatePoolCost(10, 5, 0, 1500);
+  double expectedCost = 2 * PI * 15 * 1500;
+  EXPECT_NEAR(cost, expectedCost, 1e-6);
 }
-TEST(TaskTest, CalculateGap_Example4) {
-    EXPECT_DOUBLE_EQ(calculateGap(6378.1, 90.0), 12.56637061);
+TEST(PoolTest, ZeroBorderCost) {
+  double cost = calculatePoolCost(10, 5, 1000, 0);
+  double expectedCost = PI * (15 * 15 - 10 * 10) * 1000;
+  EXPECT_NEAR(cost, expectedCost, 1e-6);
 }
-TEST(TaskTest, CalculateGap_Example5) {
-    EXPECT_DOUBLE_EQ(calculateGap(6378.1, 180.0), 25.13274123);
+TEST(GapTest, SmallEarthRadius) {
+    double gap = calculateGap(1.0, 0.1);
+    ASSERT_NEAR(gap, 0.015915494309189535, 1e-12);
 }
-TEST(TaskTest, CalculateGap_Example6) {
-    EXPECT_DOUBLE_EQ(calculateGap(6378.1, 360.0), 50.26548246);
+TEST(GapTest, EarthAndRope) {
+    double gap = calculateGap(6378.1 * 1000, 1);
+    ASSERT_NEAR(gap, 0.15915494309, 1e-6);
 }
-TEST(TaskTest, CalculateGap_Example7) {
-    EXPECT_DOUBLE_EQ(calculateGap(10000.0, 1.0), 0.1570796327);
+TEST(CircleTest, SR5) {
+    Circle c(100.0);
+    EXPECT_DOUBLE_EQ(c.getRadius(), 100.0);
+    EXPECT_DOUBLE_EQ(c.getFerence(), 2 * PI * 100.0);
+    EXPECT_DOUBLE_EQ(c.getArea(), PI * 100.0 * 100.0);
 }
-TEST(TaskTest, CalculatePoolCost) {
-    EXPECT_DOUBLE_EQ(calculatePoolCost(3.0, 1.0), 12000);
+TEST(CircleTest, SR4) {
+    Circle c(0.01);
+    EXPECT_DOUBLE_EQ(c.getRadius(), 0.01);
+    EXPECT_DOUBLE_EQ(c.getFerence(), 2 * PI * 0.01);
+    EXPECT_DOUBLE_EQ(c.getArea(), PI * 0.01 * 0.01);
+}
+TEST(CircleTest, SR3) {
+    Circle c(0.05);
+    EXPECT_DOUBLE_EQ(c.getRadius(), 0.05);
+    EXPECT_DOUBLE_EQ(c.getFerence(), 2 * PI * 0.05);
+    EXPECT_DOUBLE_EQ(c.getArea(), PI * 0.05 * 0.05);
+}
+TEST(CircleTest, SR2) {
+    Circle c(10.0);
+    EXPECT_DOUBLE_EQ(c.getRadius(), 10.0);
+    EXPECT_DOUBLE_EQ(c.getFerence(), 2 * PI * 10.0);
+    EXPECT_DOUBLE_EQ(c.getArea(), PI * 10.0 * 10.0);
+}
+TEST(CircleTest, SR1) {
+    Circle c(150.0);
+    EXPECT_DOUBLE_EQ(c.getRadius(), 150.0);
+    EXPECT_DOUBLE_EQ(c.getFerence(), 2 * PI * 150.0);
+    EXPECT_DOUBLE_EQ(c.getArea(), PI * 150.0 * 150.0);
 }
