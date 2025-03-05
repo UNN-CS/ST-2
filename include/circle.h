@@ -2,15 +2,16 @@
 #ifndef INCLUDE_CIRCLE_H_
 #define INCLUDE_CIRCLE_H_
 #include <cstdint>
+#include <cmath>
 class Circle {
-private:
+ private:
     double radius;
     double ference;
     double area;
     void calculateFerence();
     void calculateArea();
-public:
-    Circle(double r);
+ public:
+    explicit Circle(double r);
     void setRadius(double r);
     void setFerence(double f);
     void setArea(double a);
