@@ -150,8 +150,8 @@ TEST(CircleTest, SequentialFerenceAndAreaUpdates) {
     double r_after_ference = c.getRadius();
     c.setArea(314.159265);
     double r_after_area = c.getRadius();
-    EXPECT_FALSE(EXPECT_NEAR(r_after_ference, 10.0, EPSILON));
-    EXPECT_FALSE(EXPECT_NEAR(r_after_area, 10.0, EPSILON));
+    EXPECT_NEAR(r_after_ference, 10.0, EPSILON);
+    EXPECT_NEAR(r_after_area, 10.0, EPSILON);
 }
 
 TEST(CircleTest, SetAreaCorrectness) {
