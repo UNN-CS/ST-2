@@ -5,13 +5,13 @@
 #include <cmath>
 
 class Circle {
-private:
-    double radius;   
-    double ference;  
-    double area;     
+ private:
+    double radius;
+    double ference;
+    double area;
     static constexpr double PI = 3.14159265358979323846;
-public:
-    Circle(double r);
+ public:
+    explicit Circle(double r);
 
     void setRadius(double r);
     void setFerence(double f);
