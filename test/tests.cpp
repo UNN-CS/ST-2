@@ -83,26 +83,26 @@ TEST(CircleTest, Set15RadiusUpdatesFerenceAndArea_8) {
 }
 // Тесты для задач
 TEST(TaskTest, CalculateGap_Example1) {
-    EXPECT_DOUBLE_EQ(calculateGap(6378.1, 1.0), 0.159154943); // Примерный зазор
+    EXPECT_DOUBLE_EQ(calculateGap(6378.1, 1.0), 0.159154943);
 }
 TEST(TaskTest, CalculateGap_Example2) {
-    EXPECT_DOUBLE_EQ(calculateGap(6378.1, 10.0), 1.59154943); // Примерный зазор для угла 10.0 градусов
+    EXPECT_DOUBLE_EQ(calculateGap(6378.1, 10.0), 1.59154943);
 }
 TEST(TaskTest, CalculateGap_Example3) {
-    EXPECT_DOUBLE_EQ(calculateGap(6378.1, 45.0), 7.06858347); // Примерный зазор для угла 45.0 градусов
+    EXPECT_DOUBLE_EQ(calculateGap(6378.1, 45.0), 7.06858347);
 }
 TEST(TaskTest, CalculateGap_Example4) {
-    EXPECT_DOUBLE_EQ(calculateGap(6378.1, 90.0), 12.56637061); // Примерный зазор для угла 90.0 градусов
+    EXPECT_DOUBLE_EQ(calculateGap(6378.1, 90.0), 12.56637061);
 }
 TEST(TaskTest, CalculateGap_Example5) {
-    EXPECT_DOUBLE_EQ(calculateGap(6378.1, 180.0), 25.13274123); // Примерный зазор для угла 180.0 градусов
+    EXPECT_DOUBLE_EQ(calculateGap(6378.1, 180.0), 25.13274123);
 }
 TEST(TaskTest, CalculateGap_Example6) {
-    EXPECT_DOUBLE_EQ(calculateGap(6378.1, 360.0), 50.26548246); // Примерный зазор для угла 360.0 градусов
+    EXPECT_DOUBLE_EQ(calculateGap(6378.1, 360.0), 50.26548246);
 }
 TEST(TaskTest, CalculateGap_Example7) {
-    EXPECT_DOUBLE_EQ(calculateGap(10000.0, 1.0), 0.1570796327); // Примерный зазор для радиуса 10000 км и угла 1.0 градуса
+    EXPECT_DOUBLE_EQ(calculateGap(10000.0, 1.0), 0.1570796327);
 }
 TEST(TaskTest, CalculatePoolCost) {
-    EXPECT_DOUBLE_EQ(calculatePoolCost(3.0, 1.0), 12000); // Примерная стоимость
+    EXPECT_DOUBLE_EQ(calculatePoolCost(3.0, 1.0), 12000);
 }
