@@ -44,3 +44,23 @@ TEST(CircleTest, Test10Radius) {
     Circle c(-3.0);
     EXPECT_DOUBLE_EQ(c.getRadius(), -3.0);
 }
+TEST(CircleTest, Test1Ference) {
+    Circle c(-3.0);
+    EXPECT_DOUBLE_EQ(c.getFerence(), -3.0);
+}
+TEST(CircleTest, Test2Ference) {
+    Circle c(-1.0);
+    EXPECT_DOUBLE_EQ(c.getFerence(), -1.0);
+}
+TEST(CircleTest, Test3Ference) {
+    Circle c(0.0);
+    EXPECT_DOUBLE_EQ(c.getFerence(), 0.0);
+}
+TEST(CircleTest, Test4Ference) {
+    Circle c(1.0);
+    EXPECT_DOUBLE_EQ(c.getFerence(), 1.0);
+}
+TEST(CircleTest, Test5Ference) {
+    Circle c(5.0);
+    EXPECT_DOUBLE_EQ(c.getFerence(), 5.0);
+}
