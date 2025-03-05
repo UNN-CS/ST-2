@@ -2,7 +2,7 @@
 #include <gtest/gtest.h>
 #include <cstdint>
 #include "circle.h"
-#include "tasks.h"
+#include "task.h"
 // Тесты для класса Circle
 TEST(CircleTest, Test1Radius) {
     Circle c(5.0);
