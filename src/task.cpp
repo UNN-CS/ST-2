@@ -1,3 +1,4 @@
+// Copyright 2022 UNN-CS
 #include "tasks.h"
 #include "circle.h"
 double calculateGap(double earthRadius, double additionalLength) {
