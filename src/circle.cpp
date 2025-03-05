@@ -1,4 +1,4 @@
-// Copyright 2022 UNN-CS
+// Copyright 2025 UNN-CS
 #include "circle.h"
 #include <cmath>
 #include <cstdint>
@@ -12,49 +12,30 @@ Circle::Circle(double radius) {
 }
 
 void Circle::setRadius(double radius) {
-    try {
-        if (radius < 0.0) {
-            throw std::invalid_argument("Radius cannot be negative.");
-        }
-        this->radius = radius;
-        this->ference = 2 * PI * radius;
-        this->area = PI * radius * radius;
+    if (radius < 0.0) {
+        throw std::invalid_argument("Radius cannot be negative.");
     }
-    catch (const std::invalid_argument &e) {
-        std::cerr << "setRadius error: " << e.what() << std::endl;
-        throw;
-    }
+    this->radius = radius;
+    this->ference = 2 * PI * radius;
+    this->area = PI * radius * radius;
 }
 
 void Circle::setFerence(double ference) {
-    try {
-        if (radius < 0.0) {
-            throw std::invalid_argument("Radius cannot be negative.");
-        }
-        this->ference = ference;
-        this->radius = ference / (2 * PI);
-        this->area = PI * radius * radius;
+    if (ference < 0.0) {
+        throw std::invalid_argument("Ference cannot be negative.");
     }
-    catch (const std::invalid_argument &e) {
-        std::cerr << "setFerence error: " << e.what() << std::endl;
-        throw;
-    }
+    this->ference = ference;
+    this->radius = ference / (2 * PI);
+    this->area = PI * radius * radius;
 }
 
 void Circle::setArea(double area) {
-    try {
-        if (radius < 0.0) {
-            throw std::invalid_argument("Radius cannot be negative.");
-        }
-        this->area = area;
-        this->radius = sqrt(area / PI);
-        this->ference = 2 * PI * radius;
+    if (area < 0.0) {
+        throw std::invalid_argument("Area cannot be negative.");
     }
-    catch (const std::invalid_argument &e)
-    {
-        std::cerr << "setArea error: " << e.what() << std::endl;
-        throw;
-    }
+    this->area = area;
+    this->radius = sqrt(area / PI);
+    this->ference = 2 * PI * radius;
 }
 
 double Circle::getRadius() const { return radius; }

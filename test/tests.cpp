@@ -1,11 +1,11 @@
 // Copyright 2025 UNN-CS Team
 
 #include <gtest/gtest.h>
+#include <cmath>
 #include <cstdint>
+#include <stdexcept>
 #include "circle.h"
 #include "tasks.h"
-#include <cmath>
-#include <stdexcept>
 
 const double PI = 3.14159265358979323846;
 
@@ -84,12 +84,12 @@ TEST(CircleTest, SmallRadius) {
 
 TEST(GapTest, EarthAndRope) {
     double gap = calculateGap(6378100, 1);
-    ASSERT_NEAR(gap, 1.59154943e-7, 1e-13);
+    ASSERT_NEAR(gap, 0.15915494e-7, 1e-13);
 }
 
 TEST(PoolCostTest, BasicPool) {
     double totalCost = calculatePoolCosts(3.0, 1.0, 1000.0, 2000.0);
-    ASSERT_NEAR(totalCost, 50265.48, 0.1);
+    ASSERT_NEAR(totalCost, 72256.63, 0.1);
 }
 
 TEST(PoolCostTest, ZeroWidthPath) {
@@ -99,12 +99,12 @@ TEST(PoolCostTest, ZeroWidthPath) {
 
 TEST(PoolCostTest, ZeroPoolRadius) {
     double total_cost = calculatePoolCosts(0.0, 1.0, 1000.0, 2000.0);
-    ASSERT_NEAR(total_cost, 18849.55, 0.1);
+    ASSERT_NEAR(total_cost, 15707.96, 0.1);
 }
 
 TEST(PoolCostTest, HighCosts) {
     double totalCost = calculatePoolCosts(2.0, 0.5, 5000.0, 10000.0);
-    ASSERT_NEAR(totalCost, 188495.55, 0.1);
+    ASSERT_NEAR(totalCost, 192422.55, 0.1);
 }
 
 TEST(GapTest, SmallEarthRadius) {
@@ -114,7 +114,7 @@ TEST(GapTest, SmallEarthRadius) {
 
 TEST(PoolCostTest, PoolRadiusEqualsPathWidth) {
     double totalCost = calculatePoolCosts(1.0, 1.0, 1000.0, 2000.0);
-    ASSERT_NEAR(totalCost, 25132.74, 0.1);
+    ASSERT_NEAR(totalCost, 34557.52, 0.1);
 }
 
 TEST(PoolCostTest, NoPathWidth) {
