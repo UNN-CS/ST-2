@@ -1,10 +1,10 @@
 set(header_path "${${PROJECT_NAME}_SOURCE_DIR}/include")
-set(headers ${header_path}/circle.h 
+set(header ${header_path}/circle.h 
   ${header_path}/task.h)
 set(src circle.cpp task.cpp)
 
 add_library(${PROJECT_NAME} SHARED
-  ${headers}
+  ${header}
   ${src})
   
 target_include_directories(${PROJECT_NAME}
@@ -28,4 +28,4 @@ install(TARGETS ${PROJECT_NAME}
 install(TARGETS ${PROJECT_NAME}.info
         RUNTIME DESTINATION "${tool_dest}"
     COMPONENT library)
-install(FILES ${headers} DESTINATION "${include_dest}")
+install(FILES ${header} DESTINATION "${include_dest}")
