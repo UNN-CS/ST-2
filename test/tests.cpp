@@ -5,42 +5,43 @@
 const double EPS = 1e-6;
 const double PI = 3.14159;
 
-TEST(Circle, checkCreatingWithPositiveRadius) {
+TEST(Circle, checkCreating-1) {
     auto test = Circle(5.0);
     EXPECT_NEAR(test.getRadius(), 5.0, EPS);
 }
 
-TEST(Circle, checkCreatingWithZeroRadius) {
+TEST(Circle, checkCreating-2) {
     EXPECT_ANY_THROW(Circle(0.0));
 }
 
-TEST(Circle, checkCreatingWithZeroRadius) {
+TEST(Circle, checkCreating-3) {
     EXPECT_ANY_THROW(Circle(5.0));
 }
 
-TEST(Circle, checkCreatingWithZeroRadius) {
+TEST(Circle, checkCreating-4) {
+    
     EXPECT_ANY_THROW(Circle(-10.0));
 }
 
-TEST(Circle, checkCreatingWithZeroRadius) {
+TEST(Circle, checkCreatingWithZeroRadius-5) {
     EXPECT_ANY_THROW(Circle(10.0));
 }
 
-TEST(Circle, checkCreatingWithNegativeRadius) {
+TEST(Circle, checkCreatingWithNegativeRadius-6) {
     EXPECT_ANY_THROW(Circle(-5.0));
 }
 
-TEST(Circle, checkGettingArea) {
+TEST(Circle, checkGettingArea-7) {
     auto test = Circle(1.0);
     EXPECT_NEAR(test.getArea(), PI, EPS);
 }
 
-TEST(Circle, checkGettingFerence) {
+TEST(Circle, checkGettingFerence-8) {
     auto test = Circle(1.0);
     EXPECT_NEAR(test.getFerence(), 2 * PI, EPS);
 }
 
-TEST(Circle, checkSettingPositiveRadius) {
+TEST(Circle, checkSettingPositiveRadius-9) {
     auto test = Circle(1.0);
     test.setRadius(2.0);
     EXPECT_NEAR(test.getRadius(), 2.0, EPS);
@@ -48,17 +49,17 @@ TEST(Circle, checkSettingPositiveRadius) {
     EXPECT_NEAR(test.getFerence(), 4 * PI, EPS);
 }
 
-TEST(Circle, checkSettingZeroRadius) {
+TEST(Circle, checkSettingZeroRadius-10) {
     auto test = Circle(1.0);
     EXPECT_ANY_THROW(test.setRadius(0.0));
 }
 
-TEST(Circle, checkSettingNegativeRadius) {
+TEST(Circle, checkSettingNegativeRadius-11) {
     auto test = Circle(1.0);
     EXPECT_ANY_THROW(test.setRadius(-1.0));
 }
 
-TEST(Circle, checkSettingPositiveArea) {
+TEST(Circle, checkSettingPositiveArea-12) {
     auto test = Circle(1.0);
     test.setArea(4 * PI);
     EXPECT_NEAR(test.getRadius(), 2.0, EPS);
@@ -66,17 +67,17 @@ TEST(Circle, checkSettingPositiveArea) {
     EXPECT_NEAR(test.getFerence(), 4 * PI, EPS);
 }
 
-TEST(Circle, checkSettingZeroArea) {
+TEST(Circle, checkSettingZeroArea-13) {
     auto test = Circle(1.0);
     EXPECT_ANY_THROW(test.setArea(0.0));
 }
 
-TEST(Circle, checkSettingNegativeArea) {
+TEST(Circle, checkSettingNegativeArea-14) {
     auto test = Circle(1.0);
     EXPECT_ANY_THROW(test.setArea(-1.0));
 }
 
-TEST(Circle, checkSettingPositiveFerence) {
+TEST(Circle, checkSettingPositiveFerence-15) {
     auto test = Circle(1.0);
     test.setFerence(4 * PI);
     EXPECT_NEAR(test.getRadius(), 2.0, EPS);
@@ -84,17 +85,17 @@ TEST(Circle, checkSettingPositiveFerence) {
     EXPECT_NEAR(test.getFerence(), 4 * PI, EPS);
 }
 
-TEST(Circle, checkSettingZeroFerence) {
+TEST(Circle, checkSettingZeroFerence-16) {
     auto test = Circle(1.0);
     EXPECT_ANY_THROW(test.setFerence(0.0));
 }
 
-TEST(Circle, checkSettingNegativeFerence) {
+TEST(Circle, checkSettingNegativeFerence-17) {
     auto test = Circle(1.0);
     EXPECT_ANY_THROW(test.setFerence(-1.0));
 }
 
-TEST(Circle, checkSettingBigRadius) {
+TEST(Circle, checkSettingBigRadius-18) {
     auto test = Circle(1.0);
     test.setRadius(1500.0);
     EXPECT_NEAR(test.getRadius(), 1500.0, EPS);
@@ -102,7 +103,7 @@ TEST(Circle, checkSettingBigRadius) {
     EXPECT_NEAR(test.getFerence(), 2 * 1500 * PI, EPS);
 }
 
-TEST(Circle, checkSettingBigFerence) {
+TEST(Circle, checkSettingBigFerence-19) {
     auto c = Circle(1.0);
     c.setFerence(1000.0);
     EXPECT_NEAR(c.getFerence(), 1000.0, EPS);
@@ -110,7 +111,7 @@ TEST(Circle, checkSettingBigFerence) {
     EXPECT_NEAR(c.getArea(), 1000 * (1000 / (2 * PI)) / 2, EPS);
 }
 
-TEST(Circle, checkSettingBigArea) {
+TEST(Circle, checkSettingBigArea-20) {
     auto c = Circle(1.0);
     c.setArea(1000.0);
     EXPECT_NEAR(c.getArea(), 1000.0, EPS);
@@ -118,15 +119,15 @@ TEST(Circle, checkSettingBigArea) {
     EXPECT_NEAR(c.getFerence(), sqrt(1000 / PI) * 2 * PI, EPS);
 }
 
-TEST(Tasks, planetAndRopeSolve) {
+TEST(Tasks, planetAndRopeSolve-21) {
     EXPECT_NEAR(solvePlanetAndRopeTask(6378100.0, 1.0), M_1_PI * 0.5, EPS);
 }
 
-TEST(Tasks, littleDataPlanetAndRopeSolve) {
+TEST(Tasks, littleDataPlanetAndRopeSolve-22) {
     EXPECT_NEAR(solvePlanetAndRopeTask(1.0, 1.0), M_1_PI * 0.5, EPS);
 }
 
-TEST(Tasks, swimmingPoolSolve) {
+TEST(Tasks, swimmingPoolSolve-23) {
     EXPECT_NEAR(
             solveSwimmingPoolTask(3.0, 1.0, 1000, 2000),
             23000 * PI,
