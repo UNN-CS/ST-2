@@ -4,12 +4,12 @@
 #include <cstdint>
 #include <cmath>
 class Circle {
-     private:
+      private:
        double radius;
        double area;
        double ference;
        const double PI = 3.14159;
-     public:
+      public:
        explicit Circle(double radius);
        double getRadius() const;
        double getArea() const;
@@ -17,7 +17,7 @@ class Circle {
        void setRadius(double radius);
        void setArea(double area);
        void setFerence(double ference);
-     private:
+      private:
        void calculateArea();
        void calculateFerence();
 };
