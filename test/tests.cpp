@@ -82,11 +82,6 @@ TEST(CircleTest, SmallRadius) {
     EXPECT_DOUBLE_EQ(c.getArea(), PI * 0.001 * 0.001);
 }
 
-TEST(GapTest, EarthAndRope) {
-    double gap = calculateGap(6378100, 1);
-    ASSERT_NEAR(gap, 0.15915494e-7, 1e-13);
-}
-
 TEST(PoolCostTest, BasicPool) {
     double totalCost = calculatePoolCosts(3.0, 1.0, 1000.0, 2000.0);
     ASSERT_NEAR(totalCost, 72256.63, 0.1);
@@ -107,11 +102,6 @@ TEST(PoolCostTest, HighCosts) {
     ASSERT_NEAR(totalCost, 192422.55, 0.1);
 }
 
-TEST(GapTest, SmallEarthRadius) {
-    double gap = calculateGap(1.0, 0.1);
-    ASSERT_NEAR(gap, 0.015915494309189535, 1e-12);
-}
-
 TEST(PoolCostTest, PoolRadiusEqualsPathWidth) {
     double totalCost = calculatePoolCosts(1.0, 1.0, 1000.0, 2000.0);
     ASSERT_NEAR(totalCost, 34557.52, 0.1);
@@ -125,4 +115,14 @@ TEST(PoolCostTest, NoPathWidth) {
 TEST(GapTest, ZeroAddedLength) {
     double gap = calculateGap(5.0, 0.0);
     ASSERT_NEAR(gap, 0, 0.01);
+}
+
+TEST(GapTest, SmallEarthRadius) {
+    double gap = calculateGap(1.0, 0.1);
+    ASSERT_NEAR(gap, 0.015915494309189535, 1e-12);
+}
+
+TEST(GapTest, EarthAndRope) {
+    double gap = calculateGap(6378.1 * 1000, 1);
+    ASSERT_NEAR(gap, 0.15915494309, 1e-6);
 }

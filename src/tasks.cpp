@@ -3,14 +3,12 @@
 #include <cmath>
 #include <cstdint>
 
+const double PI = 3.14159265358979323846;
+
 double calculateGap(double earthRadius, double addedLength) {
-    Circle earth(earthRadius);
-    double originalFerence = earth.getFerence();
-    earth.setFerence(originalFerence + addedLength);
-    double newRadius = earth.getRadius();
+    double newRadius = earthRadius + (addedLength / (2 * PI));
     return newRadius - earthRadius;
 }
-
 double calculatePoolCosts(double poolRadius, double pathWidth,
     double concreteCostPerSqMeter, double fenceCostPerMeter) {
     Circle pool(poolRadius);
