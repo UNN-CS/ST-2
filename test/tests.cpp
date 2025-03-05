@@ -44,23 +44,65 @@ TEST(CircleTest, Test10Radius) {
     Circle c(-3.0);
     EXPECT_DOUBLE_EQ(c.getRadius(), -3.0);
 }
-TEST(CircleTest, Test1Ference) {
-    Circle c(-3.0);
-    EXPECT_DOUBLE_EQ(c.getFerence(), -3.0);
-}
-TEST(CircleTest, Test2Ference) {
-    Circle c(-1.0);
-    EXPECT_DOUBLE_EQ(c.getFerence(), -1.0);
-}
-TEST(CircleTest, Test3Ference) {
+TEST(CircleTest, TestSetFerencePositive) {
     Circle c(0.0);
-    EXPECT_DOUBLE_EQ(c.getFerence(), 0.0);
+    c.setFerence(10.0);
+    EXPECT_DOUBLE_EQ(c.getRadius(), 10.0 / (2 * M_PI));
+    EXPECT_DOUBLE_EQ(c.getArea(), M_PI * (c.getRadius() * c.getRadius()));
 }
-TEST(CircleTest, Test4Ference) {
-    Circle c(1.0);
-    EXPECT_DOUBLE_EQ(c.getFerence(), 1.0);
+TEST(CircleTest, TestSetFerenceZero) {
+    Circle c(0.0);
+    c.setFerence(0.0);
+    EXPECT_DOUBLE_EQ(c.getRadius(), 0.0);
+    EXPECT_DOUBLE_EQ(c.getArea(), 0.0);
 }
-TEST(CircleTest, Test5Ference) {
-    Circle c(5.0);
-    EXPECT_DOUBLE_EQ(c.getFerence(), 5.0);
+TEST(CircleTest, TestSetFerenceNegative) {
+    Circle c(0.0);
+    c.setFerence(-10.0);
+    EXPECT_DOUBLE_EQ(c.getRadius(), -10.0 / (2 * M_PI));
+}
+TEST(CircleTest, TestSetFerenceLargeValue) {
+    Circle c(0.0);
+    c.setFerence(1e6);
+    EXPECT_DOUBLE_EQ(c.getRadius(), 1e6 / (2 * M_PI));
+    EXPECT_DOUBLE_EQ(c.getArea(), M_PI * (c.getRadius() * c.getRadius()));
+}
+TEST(CircleTest, TestSetFerenceSmallPositive) {
+    Circle c(0.0);
+    c.setFerence(0.1);
+    EXPECT_DOUBLE_EQ(c.getRadius(), 0.1 / (2 * M_PI));
+    EXPECT_DOUBLE_EQ(c.getArea(), M_PI * (c.getRadius() * c.getRadius()));
+}
+TEST(CircleTest, TestSetFerenceVerySmallPositive) {
+    Circle c(0.0);
+    c.setFerence(1e-10);
+    EXPECT_DOUBLE_EQ(c.getRadius(), 1e-10 / (2 * M_PI));
+    EXPECT_DOUBLE_EQ(c.getArea(), M_PI * (c.getRadius() * c.getRadius()));
+}
+TEST(CircleTest, TestSetFerenceMaxDouble) {
+    Circle c(0.0);
+    c.setFerence(DBL_MAX);
+    EXPECT_DOUBLE_EQ(c.getRadius(), DBL_MAX / (2 * M_PI));
+    EXPECT_DOUBLE_EQ(c.getArea(), M_PI * (c.getRadius() * c.getRadius()));
+}
+TEST(CircleTest, TestSetFerenceMinDouble) {
+    Circle c(0.0);
+    c.setFerence(DBL_MIN);
+    EXPECT_DOUBLE_EQ(c.getRadius(), DBL_MIN / (2 * M_PI));
+    EXPECT_DOUBLE_EQ(c.getArea(), M_PI * (c.getRadius() * c.getRadius()));
+}
+TEST(CircleTest, TestSetFerenceChangeValue) {
+    Circle c(0.0);
+    c.setFerence(20.0);
+    double initialArea = c.getArea();
+    c.setFerence(30.0);
+    EXPECT_NE(c.getArea(), initialArea);
+}
+TEST(CircleTest, TestSetFerenceReuseObject) {
+    Circle c(0.0);
+    c.setFerence(15.0);
+    double radius1 = c.getRadius();
+    c.setFerence(25.0);
+    double radius2 = c.getRadius();
+    EXPECT_NE(radius1, radius2);
 }
