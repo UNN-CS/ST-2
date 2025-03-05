@@ -12,14 +12,8 @@ TEST(Circle, checkCreating1) {
 TEST(Circle, checkCreating2) {
     EXPECT_ANY_THROW(Circle(0.0));
 }
-TEST(Circle, checkCreating3) {
-    EXPECT_ANY_THROW(Circle(5.0));
-}
 TEST(Circle, checkCreating4) {
     EXPECT_ANY_THROW(Circle(-1.0));
-}
-TEST(Circle, checkCreatingWithZeroRadius5) {
-    EXPECT_ANY_THROW(Circle(1.0));
 }
 TEST(Circle, checkCreatingWithNegativeRadius6) {
     EXPECT_ANY_THROW(Circle(-5.0));
