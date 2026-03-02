@@ -9,7 +9,7 @@ double earthRopeGap(){
 
     Circle erth(earthRadius);
     double newFerence = earth.getFerence()+1.0;
-    
+
     Circle newEarth;
     newEarth.setFerence(newFerence);
     return newEarth.getRadius() - earth.getRadius();
