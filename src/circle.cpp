@@ -1,6 +1,7 @@
 // Copyright 2022 UNN-CS
 #include "circle.h"
 #include <cstdint>
+#include <cmath>
 
 void Circle::updateFromRadius() {
   ference = 2.0 * M_PI * radius;

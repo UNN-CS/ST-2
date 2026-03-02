@@ -1,6 +1,7 @@
 // Copyright 2022 UNN-CS
 #ifndef INCLUDE_CIRCLE_H_
 #define INCLUDE_CIRCLE_H_
+
 #include <cmath>
 #include <cstdint>
 
@@ -15,7 +16,7 @@ class Circle {
   void updateFromArea();
 
 public:
-  Circle(double radius = 0.0);
+  explicit Circle(double radius = 0.0);
   void setRadius(double r);
   void setFerence(double f);
   void setArea(double a);
