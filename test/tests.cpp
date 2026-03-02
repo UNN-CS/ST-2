@@ -160,14 +160,6 @@ TEST(Circle, SetFerenceZero) {
   EXPECT_DOUBLE_EQ(0.0, c.getArea());
 }
 
-TEST(Circle, SetFerenceUpdatesAreaRadius) {
-  Circle c(1.0);
-  c.setFerence(24.0);
-  EXPECT_DOUBLE_EQ(10.0, c.getRadius());
-  EXPECT_NEAR(20.0 * M_PI, c.getFerence(), EPS);
-  EXPECT_NEAR(100.0 * M_PI, c.getArea(), EPS);
-}
-
 TEST(Circle, SetFerenceUpdatesRadiusAndArea) {
   Circle c;
   c.setFerence(2.0 * M_PI);
