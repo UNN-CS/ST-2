@@ -1,9 +1,10 @@
 // Copyright 2025 UNN-CS Team
 
-#include "circle.h"
 #include <cmath>
 #include <cstdint>
-#include <gtest/gtest.h>
+#include <gtest/gtest.h>  
+#include "circle.h" 
+#include "tasks.h" 
 
 #ifndef M_PI
 #define M_PI 3.14159265358979323846
@@ -271,7 +272,6 @@ TEST(Tasks, EarthAndRopeNegativeAdded) {
 }
 
 TEST(Tasks, EarthAndRopeDifferentRadius) {
-
   double gap1 = earthAndRope(1000.0, 1.0);
   double gap2 = earthAndRope(10000.0, 1.0);
 
