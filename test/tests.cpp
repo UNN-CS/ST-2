@@ -2,14 +2,13 @@
 
 #include <cmath>
 #include <cstdint>
-#include <gtest/gtest.h>  
-#include "circle.h" 
-#include "tasks.h" 
+#include <gtest/gtest.h>
+#include "circle.h"
+#include "tasks.h"
 
 #ifndef M_PI
 #define M_PI 3.14159265358979323846
 #endif
-#include <tasks.h>
 const double EPS = 1e-9;
 
 TEST(Circle, DefaultConstructor) {
