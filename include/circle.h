@@ -15,7 +15,7 @@ class Circle {
   void updateFromFerence();
   void updateFromArea();
 
-public:
+ public:
   explicit Circle(double radius = 0.0);
   void setRadius(double r);
   void setFerence(double f);
