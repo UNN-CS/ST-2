@@ -3,5 +3,23 @@
 #define INCLUDE_CIRCLE_H_
 #include <cstdint>
 
+class Circle
+{
+public:
+    Circle(double radius);
+
+    void setRadius(double val);
+    void setFerence(double val);
+    void setArea(double val);
+
+    double getRadius() const;
+    double getFerence() const;
+    double getArea() const;
+
+    static const double PI = 3.14159265358979323846;
+    
+private:
+    double radius, ference, area;
+};
 
 #endif  // INCLUDE_CIRCLE_H_
