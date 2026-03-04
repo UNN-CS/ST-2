@@ -3,14 +3,14 @@
 #define INCLUDE_CIRCLE_H_
 
 class Circle {
-private:
+ private:
     double radius;
     double ference;
     double area;
 
     static constexpr double PI = 3.14159265358979323846;
 
-public:
+ public:
     explicit Circle(double _radius);
 
     void setRadius(double _radius);

@@ -1,3 +1,4 @@
+// Copyright 2026 UNN-CS
 #include <gtest/gtest.h>
 #include <cmath>
 #include "circle.h"
