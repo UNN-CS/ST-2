@@ -8,15 +8,15 @@ class Circle
 public:
     Circle(double radius);
 
-    void setRadius(double val);
-    void setFerence(double val);
-    void setArea(double val);
+    bool setRadius(double val);
+    bool setFerence(double val);
+    bool setArea(double val);
 
     double getRadius() const;
     double getFerence() const;
     double getArea() const;
 
-    static const double PI = 3.14159265358979323846;
+    static constexpr double PI = 3.14159265358979323846;
     
 private:
     double radius, ference, area;
