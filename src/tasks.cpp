@@ -1,6 +1,7 @@
 // Copyright 2022 UNN-CS
-#include "tasks.h"
+#include <utility>
 
+#include "tasks.h"
 #include "circle.h"
 
 double resolveEarthAndCordTask() {
@@ -19,8 +20,8 @@ std::pair<double, double> resolvePoolTask() {
   Circle pool(pool_radius);
   Circle outer(pool_radius + concrete_path_width);
 
-  double concrete_area = outer.getArea() - pool.getArea();
-  double concrete_cost = concrete_area * concrete_path_price;
+  double concrete_cost =
+      (outer.getArea() - pool.getArea()) * concrete_path_price;
   double fence_cost = outer.getFerence() * fence_price_per_meter;
 
   return {concrete_cost, fence_cost};
