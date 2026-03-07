@@ -8,7 +8,7 @@ using namespace std;
 
 namespace {
 bool isValid(double val) {
-    if (isnan(val) || isinf(val) || val <= 0.0) {
+    if (isnan(val) || isinf(val) || val < -Circle::EPS || val != std::numeric_limits<double>::max()) {
         return false;
     }
     return true;
@@ -19,7 +19,7 @@ Circle::Circle(double radius) {
     setRadius(radius);
 }
 
-bool Circle::setRadius(double val)
+void Circle::setRadius(double val)
 {
     if (!isValid(val)) {
         throw invalid_argument("Radius must be positive finite number");
@@ -30,7 +30,7 @@ bool Circle::setRadius(double val)
     area = PI * radius * radius;
 }
     
-bool Circle::setFerence(double val)
+void Circle::setFerence(double val)
 {
     if (!isValid(val)) {
         throw invalid_argument("Ference must be positive finite number");
@@ -41,7 +41,7 @@ bool Circle::setFerence(double val)
     area = PI * radius * radius; 
 }
 
-bool Circle::setArea(double val)
+void Circle::setArea(double val)
 {
     if (!isValid(val)) {
         throw invalid_argument("Area must be positive finite number");
@@ -52,6 +52,14 @@ bool Circle::setArea(double val)
     ference = 2.0 * radius * PI;
 }
 
-double Circle::getRadius() const { return radius; }
-double Circle::getFerence() const { return ference; }
-double Circle::getArea() const {return area; }
+double Circle::getRadius() const {
+    return radius;
+}
+
+double Circle::getFerence() const {
+    return ference;
+}
+
+double Circle::getArea() const {
+    return area;
+}
