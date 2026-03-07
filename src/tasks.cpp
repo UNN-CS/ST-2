@@ -1,8 +1,8 @@
+// Copyright 2022 UNN-CS
 #include "tasks.h"
 #include "circle.h"
 
-double calculateEarthGap()
-{
+double calculateEarthGap() {
     double earthRadius = 6378100.0;
     Circle earth(earthRadius);
 
@@ -14,8 +14,7 @@ double calculateEarthGap()
     return earth.getRadius() - earthRadius;
 }
 
-double calculatePoolCost()
-{
+double calculatePoolCost() {
     double poolRadius = 3.0;
     double pathWidth = 1.0;
 
