@@ -3,10 +3,9 @@
 #define INCLUDE_CIRCLE_H_
 #include <cstdint>
 
-class Circle
-{
-public:
-    Circle(double radius);
+class Circle {
+ public:
+    explicit Circle(double radius);
 
     void setRadius(double val);
     void setFerence(double val);
@@ -18,8 +17,8 @@ public:
 
     static constexpr double PI = 3.14159265358979323846;
     static constexpr double EPS = 10e-9;
-    
-private:
+
+ private:
     double radius, ference, area;
 };
 

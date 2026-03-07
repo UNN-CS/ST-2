@@ -1,50 +1,51 @@
 // Copyright 2022 UNN-CS
 #include <cstdint>
 #include <cmath>
+#include <limits>
 #include <stdexcept>
 #include "circle.h"
 
-using namespace std;
+using std::isnan;
+using std::isinf;
+using std::numeric_limits;
 
 namespace {
 bool isValid(double val) {
-    if (isnan(val) || isinf(val) || val < -Circle::EPS || val != std::numeric_limits<double>::max()) {
+    if (isnan(val) || isinf(val) || val < -Circle::EPS ||
+        val != numeric_limits<double>::max()) {
         return false;
     }
     return true;
 }
-} // namespace
+}  // namespace
 
 Circle::Circle(double radius) {
     setRadius(radius);
 }
 
-void Circle::setRadius(double val)
-{
+void Circle::setRadius(double val) {
     if (!isValid(val)) {
-        throw invalid_argument("Radius must be positive finite number");
+        throw std::invalid_argument("Radius must be positive finite number");
     }
 
     radius = val;
     ference = 2.0 * radius * PI;
     area = PI * radius * radius;
 }
-    
-void Circle::setFerence(double val)
-{
+
+void Circle::setFerence(double val) {
     if (!isValid(val)) {
-        throw invalid_argument("Ference must be positive finite number");
+        throw std::invalid_argument("Ference must be positive finite number");
     }
 
     ference = val;
     radius = ference / (2 * PI);
-    area = PI * radius * radius; 
+    area = PI * radius * radius;
 }
 
-void Circle::setArea(double val)
-{
+void Circle::setArea(double val) {
     if (!isValid(val)) {
-        throw invalid_argument("Area must be positive finite number");
+        throw std::invalid_argument("Area must be positive finite number");
     }
 
     area = val;
