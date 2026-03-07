@@ -11,7 +11,7 @@ using std::numeric_limits;
 
 namespace {
 bool isValid(double val) {
-    if (isnan(val) || isinf(val) || val < -Circle::EPS ||
+    if (isnan(val) || isinf(val) || val <= Circle::EPS ||
         val == numeric_limits<double>::max()) {
         return false;
     }
