@@ -2,6 +2,8 @@
 #include "circle.h"
 #include "tasks.h"
 
+#include <iostream>
+
 int main() {
     double radEarth = 6378100;
 

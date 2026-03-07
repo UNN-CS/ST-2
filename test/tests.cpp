@@ -68,7 +68,6 @@ TEST(CircleTest, SetRadiusUpdatesFerenceAndArea) {
     Circle c(2.0);
     double oldFerence = c.getFerence();
     double oldArea = c.getArea();
-    
     c.setRadius(4.0);
     EXPECT_NE(oldFerence, c.getFerence());
     EXPECT_NE(oldArea, c.getArea());
@@ -80,7 +79,6 @@ TEST(CircleTest, SetFerenceUpdatesRadiusAndArea) {
     Circle c(2.0);
     double oldRadius = c.getRadius();
     double oldArea = c.getArea();
-    
     c.setFerence(20.0);
     EXPECT_NE(oldRadius, c.getRadius());
     EXPECT_NE(oldArea, c.getArea());
@@ -91,7 +89,6 @@ TEST(CircleTest, SetAreaUpdatesRadiusAndFerence) {
     Circle c(2.0);
     double oldRadius = c.getRadius();
     double oldFerence = c.getFerence();
-    
     c.setArea(100.0);
     EXPECT_NE(oldRadius, c.getRadius());
     EXPECT_NE(oldFerence, c.getFerence());
@@ -128,16 +125,13 @@ TEST(CircleTest, FerenceConsistentWithArea) {
 
 TEST(CircleTest, MultipleUpdatesConsistency) {
     Circle c(1.0);
-    
     c.setRadius(2.0);
     EXPECT_DOUBLE_EQ(2.0, c.getRadius());
     EXPECT_DOUBLE_EQ(4 * PI, c.getArea());
-    
     c.setFerence(10.0);
     double r = 10.0 / (2 * PI);
     EXPECT_DOUBLE_EQ(r, c.getRadius());
     EXPECT_DOUBLE_EQ(PI * r * r, c.getArea());
-    
     c.setArea(20.0);
     r = std::sqrt(20.0 / PI);
     EXPECT_DOUBLE_EQ(r, c.getRadius());
@@ -155,13 +149,10 @@ TEST(EarthRopeTest, SubFunction) {
 TEST(PoolTest, PathAreaCalculation) {
     double poolRadius = 3.0;
     double pathWidth = 1.0;
-    
     Circle pool(poolRadius);
     Circle poolWithPath(poolRadius + pathWidth);
-    
     double pathArea = poolWithPath.getArea() - pool.getArea();
     double expectedPathArea = PI * (16.0 - 9.0);
-    
     EXPECT_DOUBLE_EQ(expectedPathArea, pathArea);
     EXPECT_NEAR(21.9911, pathArea, 1e-4);
 }
@@ -169,11 +160,9 @@ TEST(PoolTest, PathAreaCalculation) {
 TEST(PoolTest, FenceLengthCalculation) {
     double poolRadius = 3.0;
     double pathWidth = 1.0;
-    
     Circle poolWithPath(poolRadius + pathWidth);
     double fenceLength = poolWithPath.getFerence();
     double expectedFenceLength = 2 * PI * 4.0;
-    
     EXPECT_DOUBLE_EQ(expectedFenceLength, fenceLength);
     EXPECT_NEAR(25.1327, fenceLength, 1e-4);
 }
@@ -182,13 +171,10 @@ TEST(PoolTest, ConcreteCostCalculation) {
     double poolRadius = 3.0;
     double pathWidth = 1.0;
     double concretePrice = 1000.0;
-    
     Circle pool(poolRadius);
     Circle poolWithPath(poolRadius + pathWidth);
-    
     double pathArea = poolWithPath.getArea() - pool.getArea();
     double concreteCost = pathArea * concretePrice;
-    
     EXPECT_NEAR(21991.1, concreteCost, 1e-1);
 }
 
@@ -196,11 +182,9 @@ TEST(PoolTest, FenceCostCalculation) {
     double poolRadius = 3.0;
     double pathWidth = 1.0;
     double fencePrice = 2000.0;
-    
     Circle poolWithPath(poolRadius + pathWidth);
     double fenceLength = poolWithPath.getFerence();
     double fenceCost = fenceLength * fencePrice;
-    
     EXPECT_NEAR(50265.5, fenceCost, 1e-1);
 }
 
@@ -209,22 +193,17 @@ TEST(PoolTest, TotalCostCalculation) {
     double pathWidth = 1.0;
     double concretePrice = 1000.0;
     double fencePrice = 2000.0;
-    
     double totalCost = calculatePoolCost(poolRadius, pathWidth, concretePrice, fencePrice);
-    
     EXPECT_NEAR(72256.6, totalCost, 1e-1);
 }
 
 TEST(PoolTest, ZeroWidthPath) {
     double poolRadius = 3.0;
     double pathWidth = 0.0;
-    
     Circle pool(poolRadius);
     Circle poolWithPath(poolRadius);
-    
     double pathArea = poolWithPath.getArea() - pool.getArea();
     EXPECT_DOUBLE_EQ(0.0, pathArea);
-    
     double fenceLength = poolWithPath.getFerence();
     EXPECT_DOUBLE_EQ(2 * PI * 3.0, fenceLength);
 }
@@ -232,13 +211,10 @@ TEST(PoolTest, ZeroWidthPath) {
 TEST(PoolTest, NegativeWidthPath) {
     double poolRadius = 3.0;
     double pathWidth = -1.0;
-    
     Circle pool(poolRadius);
     Circle poolWithPath(poolRadius + pathWidth);
-    
     double pathArea = poolWithPath.getArea() - pool.getArea();
     double expectedArea = PI * (4.0 - 9.0);
-    
     EXPECT_DOUBLE_EQ(expectedArea, pathArea);
     EXPECT_LT(pathArea, 0.0);
 }
@@ -246,22 +222,18 @@ TEST(PoolTest, NegativeWidthPath) {
 TEST(PoolTest, DifferentPoolRadii) {
     double poolRadius = 5.0;
     double pathWidth = 2.0;
-    
     Circle pool(poolRadius);
     Circle poolWithPath(poolRadius + pathWidth);
-    
     double pathArea = poolWithPath.getArea() - pool.getArea();
-    double expectedPathArea = PI * ((poolRadius + pathWidth) * (poolRadius + pathWidth) - poolRadius * poolRadius);
-    
+    double expectedPathArea = PI * ((poolRadius + pathWidth) * 
+    (poolRadius + pathWidth) - poolRadius * poolRadius);
     EXPECT_DOUBLE_EQ(expectedPathArea, pathArea);
 }
 
 TEST(PoolTest, LargePoolRadius) {
     double poolRadius = 100.0;
     double pathWidth = 1.0;
-    
     double totalCost = calculatePoolCost(poolRadius, pathWidth, 1000.0, 2000.0);
-    
     EXPECT_GT(totalCost, 1.9e6);
     EXPECT_LT(totalCost, 1.91e6);
 }

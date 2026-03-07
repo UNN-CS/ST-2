@@ -1,8 +1,9 @@
 // Copyright 2022 UNN-CS
+#include "circle.h"
+
+#include <cmath>
 #include <iostream>
 #include <cstdint>
-#include <math.h>
-#include "circle.h"
 
 Circle::Circle() {
     this->ference = 0.0;
@@ -45,5 +46,3 @@ double Circle::getFerence() {
 double Circle::getArea() {
     return this->area;
 }
-
-

@@ -13,9 +13,7 @@ double calculatePoolCost(double poolRadius, double pathWidth,
                         double concretePrice, double fencePrice) {
     Circle pool(poolRadius);
     Circle poolWithPath(poolRadius + pathWidth);
-    
     double pathArea = poolWithPath.getArea() - pool.getArea();
     double fenceLength = poolWithPath.getFerence();
-    
     return pathArea * concretePrice + fenceLength * fencePrice;
 }
