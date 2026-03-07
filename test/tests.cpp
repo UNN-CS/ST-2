@@ -193,7 +193,8 @@ TEST(PoolTest, TotalCostCalculation) {
     double pathWidth = 1.0;
     double concretePrice = 1000.0;
     double fencePrice = 2000.0;
-    double totalCost = calculatePoolCost(poolRadius, pathWidth, concretePrice, fencePrice);
+    double totalCost = calculatePoolCost(poolRadius, pathWidth,
+        concretePrice, fencePrice);
     EXPECT_NEAR(72256.6, totalCost, 1e-1);
 }
 
@@ -225,7 +226,7 @@ TEST(PoolTest, DifferentPoolRadii) {
     Circle pool(poolRadius);
     Circle poolWithPath(poolRadius + pathWidth);
     double pathArea = poolWithPath.getArea() - pool.getArea();
-    double expectedPathArea = PI * ((poolRadius + pathWidth) * 
+    double expectedPathArea = PI * ((poolRadius + pathWidth) *
     (poolRadius + pathWidth) - poolRadius * poolRadius);
     EXPECT_DOUBLE_EQ(expectedPathArea, pathArea);
 }

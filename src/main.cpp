@@ -1,8 +1,8 @@
 // Copyright 2022 UNN-CS
+#include <iostream>
+
 #include "circle.h"
 #include "tasks.h"
-
-#include <iostream>
 
 int main() {
     double radEarth = 6378100;
@@ -21,7 +21,7 @@ int main() {
     double result = sub(val_1, val_2);
 
     const double CONCRETE_PRICE = 1000.0;
-    const double FENCE_PRICE = 2000.0; 
+    const double FENCE_PRICE = 2000.0;
 
     double bassein_rad = 3.0;
     Circle pool(bassein_rad);
