@@ -4,20 +4,20 @@
 #include <cstdint>
 
 class Circle {
-   double radius;
-   double ference;
-   double area;
+  double radius;
+  double ference;
+  double area;
 
-  public:
-   Circle(double _radius);
+ public:
+  explicit Circle(double _radius);
 
-   void setRadius(double _radius);
-   void setFerence(double _ference);
-   void setArea(double _area);
+  void setRadius(double _radius);
+  void setFerence(double _ference);
+  void setArea(double _area);
 
-   double getRadius();
-   double getFerence();
-   double getArea();
+  double getRadius();
+  double getFerence();
+  double getArea();
 };
 
 #endif  // INCLUDE_CIRCLE_H_
