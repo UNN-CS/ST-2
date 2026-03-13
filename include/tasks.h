@@ -1,7 +1,7 @@
+// Copyright 2022 UNN-CS
 #ifndef INCLUDE_TASKS_H_
 #define INCLUDE_TASKS_H_
 
-// Earth and rope task: returns the gap in meters after adding rope_extra_meters.
 double calculateEarthRopeGap(double earth_radius_km = 6378.1,
                              double rope_extra_meters = 1.0);
 
