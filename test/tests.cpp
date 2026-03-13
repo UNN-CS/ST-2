@@ -126,9 +126,12 @@ TEST(Tasks, ConcreteCostForDefaultValues) {
 }
 
 TEST(Tasks, ConcreteCostThrowsOnNegativeInput) {
-    EXPECT_THROW(calculateConcreteCost(-1.0, 1.0, 1000.0), std::invalid_argument);
-    EXPECT_THROW(calculateConcreteCost(3.0, -1.0, 1000.0), std::invalid_argument);
-    EXPECT_THROW(calculateConcreteCost(3.0, 1.0, -1000.0), std::invalid_argument);
+    EXPECT_THROW(calculateConcreteCost(-1.0, 1.0, 1000.0),
+    std::invalid_argument);
+    EXPECT_THROW(calculateConcreteCost(3.0, -1.0, 1000.0),
+    std::invalid_argument);
+    EXPECT_THROW(calculateConcreteCost(3.0, 1.0, -1000.0),
+    std::invalid_argument);
 }
 
 TEST(Tasks, ConcreteCostCanBeZero) {

@@ -16,7 +16,8 @@ double calculateEarthRopeGap(double earth_radius_km, double rope_extra_meters) {
 double calculateConcreteCost(double pool_radius_m,
                              double path_width_m,
                              double concrete_cost_per_sq_m) {
-    if (pool_radius_m < 0.0 || path_width_m < 0.0 || concrete_cost_per_sq_m < 0.0) {
+    if (pool_radius_m < 0.0 || path_width_m < 0.0
+        || concrete_cost_per_sq_m < 0.0) {
         throw std::invalid_argument("Input values cannot be negative");
     }
 
