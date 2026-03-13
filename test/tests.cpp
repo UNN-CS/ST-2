@@ -102,7 +102,7 @@ TEST(CircleTest, Large_Radius_Consistency) {
 
 TEST(CircleTest, Small_Radius_Consistency) {
     Circle c(0.0001);
-    EXPECT_TRUE(c.getArea() > 0);
+    EXPECT_GT(c.getArea(), 0);
 }
 
 TEST(CircleTest, Math_Consistency_Radius_Area) {
