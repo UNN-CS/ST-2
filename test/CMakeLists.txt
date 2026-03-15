@@ -1,3 +1,8 @@
+find_package(GTest CONFIG REQUIRED)
+target_link_libraries(test GTest::gtest GTest::gtest_main)
+
+add_executable(test test.cpp)
+target_link_libraries(test GTest::GTest GTest::Main)
 add_executable(${PROJECT_NAME}.test
   AllTests.cpp
   tests.cpp)
