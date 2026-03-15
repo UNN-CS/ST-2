@@ -8,10 +8,10 @@
 double calculateEarthRopeGap(double earthRadiusMeters,
                              double addedRopeLengthMeters) {
   if (earthRadiusMeters < 0.0) {
-    throw std::invalid_argument("Радиус Земли должен быть неотрицательным");
+    throw std::invalid_argument("Earth radius must be non-negative");
   }
   if (addedRopeLengthMeters < 0.0) {
-    throw std::invalid_argument("Добавленная длина веревки должна быть неотрицательной");
+    throw std::invalid_argument("Added rope length must be non-negative");
   }
 
   Circle earth(earthRadiusMeters);
@@ -26,16 +26,16 @@ PoolCosts calculatePoolCosts(double poolRadiusMeters,
                              double concreteCostPerSquareMeter,
                              double fenceCostPerMeter) {
   if (poolRadiusMeters < 0.0) {
-    throw std::invalid_argument("Радиус бассейна должен быть неотрицательным");
+    throw std::invalid_argument("Pool radius must be non-negative");
   }
   if (pathWidthMeters < 0.0) {
-    throw std::invalid_argument("Ширина дорожки должна быть неотрицательной");
+    throw std::invalid_argument("Path width must be non-negative");
   }
   if (concreteCostPerSquareMeter < 0.0) {
-    throw std::invalid_argument("Стоимость бетона должна быть неотрицательной");
+    throw std::invalid_argument("Concrete cost must be non-negative");
   }
   if (fenceCostPerMeter < 0.0) {
-    throw std::invalid_argument("Стоимость ограждения должна быть неотрицательной");
+    throw std::invalid_argument("Fence cost must be non-negative");
   }
 
   Circle pool(poolRadiusMeters);
