@@ -5,10 +5,10 @@
 #include <cstdint>
 
 class Circle {
-private:
+ private:
     double radius, ference, area;
 
-public:
+ public:
     explicit Circle(double radius);
     void setRadius(double radius);
     void setFerence(double ference);

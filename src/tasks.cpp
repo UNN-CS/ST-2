@@ -18,7 +18,7 @@ double findCost() {
 
     Circle pool(radiusPool);
     Circle track(radiusPool + widthTrack);
-    
+
     double pathArea = track.getArea() - pool.getArea();
     double fenceLength = track.getFerence();
 
