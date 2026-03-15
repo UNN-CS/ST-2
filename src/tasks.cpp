@@ -1,3 +1,4 @@
+// Copyright 2022 UNN-CS
 #include "tasks.h"
 const double PI = 3.14159265358979323846;
 
@@ -14,8 +15,12 @@ double findCost() {
     const double widthTrack = 1.0;
     const double costConcrete = 1000.0;
     const double costFence = 2000.0;
+
     Circle pool(radiusPool);
     Circle track(radiusPool + widthTrack);
-    track.setRadius(pool.getRadius() + 1);
-    return costConcrete * (track.getArea() - pool.getArea()) + costFence * track.getFerence();
+    
+    double pathArea = track.getArea() - pool.getArea();
+    double fenceLength = track.getFerence();
+
+    return costConcrete * pathArea + costFence * fenceLength;
 }

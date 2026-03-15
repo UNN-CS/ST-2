@@ -108,10 +108,10 @@ TEST(CircleTest, SmallRadius) {
 TEST(CircleTest, ConsistencyAfterMultipleSets) {
     Circle c(2.0);
     double originalRadius = c.getRadius();
-    
+
     c.setFerence(c.getFerence() * 2);
     EXPECT_NEAR(c.getRadius(), originalRadius * 2, EPSILON);
-    
+
     c.setArea(c.getArea() * 4);
     EXPECT_NEAR(c.getRadius(), originalRadius * 4, EPSILON);
 }
@@ -119,9 +119,9 @@ TEST(CircleTest, ConsistencyAfterMultipleSets) {
 // Тесты для задачи "Земля и верёвка"
 TEST(EarthRopeTest, GapCalculation) {
     double gap = findGap();
-    
+
     EXPECT_GT(gap, 0.0);
-    
+
     double expectedGap = 1.0 / (2 * PI);
     EXPECT_NEAR(gap, expectedGap, 1e-6);
 }
@@ -129,27 +129,28 @@ TEST(EarthRopeTest, GapCalculation) {
 TEST(EarthRopeTest, GapInCentimeters) {
     double gap = findGap();
     double gapCm = gap * 100;
-    
+
     EXPECT_NEAR(gapCm, 100.0 / (2 * PI), 1e-4);
     EXPECT_GT(gapCm, 15.0);
     EXPECT_LT(gapCm, 17.0);
 }
 
 TEST(EarthRopeTest, GapIndependenceFromRadius) {
-    Circle earth1(6378100.0);
-    Circle earth2(1000000.0);
-    
+    Circle earth1(6378100.0);  // радиус Земли в метрах
+    Circle earth2(1000000.0);   // другой радиус
+
     earth1.setFerence(earth1.getFerence() + 1.0);
     earth2.setFerence(earth2.getFerence() + 1.0);
-    
+
     double gap1 = earth1.getRadius() - 6378100.0;
     double gap2 = earth2.getRadius() - 1000000.0;
-    
+
+    // Используем больший допуск из-за вычислительной погрешности
     double EPSILON_GAP = 1e-9;
-    
     EXPECT_NEAR(gap1, gap2, EPSILON_GAP);
-    
-    double expectedGap = 1.0 / (2 * PI);
+
+    // Проверяем, что зазоры соответствуют теоретическому значению
+    double expectedGap = 1.0 / (2 * PI);  // примерно 0.15915494309189535 м
     EXPECT_NEAR(gap1, expectedGap, 1e-6);
     EXPECT_NEAR(gap2, expectedGap, 1e-6);
 }
@@ -157,15 +158,15 @@ TEST(EarthRopeTest, GapIndependenceFromRadius) {
 // Тесты для задачи "Бассейн"
 TEST(PoolTest, PathArea) {
     double cost = findCost();
-    
+
     Circle pool(3.0);
     Circle poolWithPath(4.0);
-    
+
     double pathArea = poolWithPath.getArea() - pool.getArea();
     double expectedConcreteCost = pathArea * 1000.0;
     double expectedFenceCost = poolWithPath.getFerence() * 2000.0;
     double expectedTotal = expectedConcreteCost + expectedFenceCost;
-    
+
     EXPECT_NEAR(cost, expectedTotal, 1e-6);
 }
 
@@ -177,7 +178,7 @@ TEST(PoolTest, PathAreaValue) {
 
 TEST(PoolTest, FenceLength) {
     double fenceLength = Circle(4.0).getFerence();
-    double expectedLength = 2 * PI * 4.0; 
+    double expectedLength = 2 * PI * 4.0;
     EXPECT_NEAR(fenceLength, expectedLength, 1e-6);
 }
 
@@ -186,7 +187,7 @@ TEST(PoolTest, ConcreteCost) {
     double pathArea = Circle(4.0).getArea() - Circle(3.0).getArea();
     double concreteCost = pathArea * 1000.0;
     double fenceCost = Circle(4.0).getFerence() * 2000.0;
-    
+
     EXPECT_NEAR(cost, concreteCost + fenceCost, 1e-6);
     EXPECT_GT(concreteCost, 20000.0);
     EXPECT_LT(concreteCost, 25000.0);
@@ -211,11 +212,11 @@ TEST(PoolTest, TotalCost) {
 // Интеграционные тесты
 TEST(IntegrationTest, CircleConsistency) {
     Circle c(2.5);
-    
+
     double r = c.getRadius();
     double f = c.getFerence();
     double a = c.getArea();
-    
+
     EXPECT_NEAR(f, 2 * PI * r, EPSILON);
     EXPECT_NEAR(a, PI * r * r, EPSILON);
     EXPECT_NEAR(r, sqrt(a / PI), EPSILON);
@@ -223,7 +224,7 @@ TEST(IntegrationTest, CircleConsistency) {
 
 TEST(IntegrationTest, UpdateChain) {
     Circle c(1.0);
-    
+
     for (int i = 1; i <= 5; i++) {
         c.setRadius(i);
         EXPECT_NEAR(c.getRadius(), i, EPSILON);
@@ -238,7 +239,7 @@ TEST(IntegrationTest, ZeroValues) {
     EXPECT_NEAR(c.getRadius(), 0.0, EPSILON);
     EXPECT_NEAR(c.getFerence(), 0.0, EPSILON);
     EXPECT_NEAR(c.getArea(), 0.0, EPSILON);
-    
+
     c.setFerence(10.0);
     EXPECT_GT(c.getRadius(), 0.0);
     EXPECT_GT(c.getArea(), 0.0);
@@ -262,7 +263,7 @@ TEST(CircleTest, PrecisionTest) {
     c.setFerence(2 * PI * 2.0);
     EXPECT_NEAR(c.getRadius(), 2.0, EPSILON);
     EXPECT_NEAR(c.getArea(), PI * 4.0, EPSILON);
-    
+
     c.setArea(PI * 4.0);
     EXPECT_NEAR(c.getRadius(), 2.0, EPSILON);
     EXPECT_NEAR(c.getFerence(), 2 * PI * 2.0, EPSILON);

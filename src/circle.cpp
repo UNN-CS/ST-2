@@ -6,7 +6,7 @@
 
 const double PI = 3.14159265358979323846;
 
-Circle::Circle(double radius){
+Circle::Circle(double radius) {
     setRadius(radius);
 }
 
