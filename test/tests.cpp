@@ -1,14 +1,8 @@
 // Copyright 2025 UNN-CS Team
-#define _USE_MATH_DEFINES
-#include <gtest/gtest.h>
-#include <cstdint>
-#include "circle.h"
-
-// Copyright 2025 UNN-CS Team
-
 #include <gtest/gtest.h>
 #include <cstdint>
 #include <cmath>
+
 #include "circle.h"
 #include "tasks.h"
 
@@ -170,12 +164,14 @@ TEST(PoolTest, PoolReturnsPositive) {
 
 TEST(PoolTest, PoolCalculateManually) {
     double poolArea = M_PI * RADIUS_OF_POOL * RADIUS_OF_POOL;
-    double roadArea = M_PI * (RADIUS_OF_POOL + WIDTH_OF_ROAD) * (RADIUS_OF_POOL + WIDTH_OF_ROAD) - poolArea;
+    double roadArea = M_PI * (RADIUS_OF_POOL + WIDTH_OF_ROAD) *
+        (RADIUS_OF_POOL + WIDTH_OF_ROAD) - poolArea;
     double fenceLength = 2 * M_PI * (RADIUS_OF_POOL + WIDTH_OF_ROAD);
-    
-    double expected = fenceLength * COST_OF_METER_FENCE + roadArea * COST_OF_CONCRETE_COATING;
+
+    double expected = fenceLength * COST_OF_METER_FENCE +
+        roadArea * COST_OF_CONCRETE_COATING;
     double actual = Pool();
-    
+
     EXPECT_DOUBLE_EQ(actual, expected);
 }
 
@@ -187,16 +183,18 @@ TEST(PoolTest, PoolWithDifferentValues) {
 
     Circle pool(RADIUS_OF_POOL);
     Circle poolWithRoad(RADIUS_OF_POOL + WIDTH_OF_ROAD);
-    
+
     double roadArea = poolWithRoad.getArea() - pool.getArea();
     double fenceLength = poolWithRoad.getFerence();
-    
-    double expected = fenceLength * COST_OF_METER_FENCE + roadArea * COST_OF_CONCRETE_COATING;
+
+    double expected = fenceLength * COST_OF_METER_FENCE +
+        roadArea * COST_OF_CONCRETE_COATING;
     double actual = Pool();
-    
+
     EXPECT_DOUBLE_EQ(actual, expected);
 }
 
+// Дополнительный тест для проверки типов данных
 TEST(CircleTest, ConstantsType) {
     EXPECT_EQ(typeid(RADIUS_OF_EARTH), typeid(int));
     EXPECT_EQ(typeid(RADIUS_OF_POOL), typeid(int));
