@@ -1,10 +1,10 @@
 // Copyright 2025 UNN-CS Team
 
+#include "tasks.h"
+#include "circle.h"
 #include <gtest/gtest.h>
 #include <cstdint>
-#include "circle.h"
 #include <cmath>
-#include "tasks.h"
 
 const double PI = 3.14;
 const double EPS = 0.000001;
