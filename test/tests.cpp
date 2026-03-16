@@ -3,8 +3,8 @@
 #include "tasks.h"
 #include "circle.h"
 #include <gtest/gtest.h>
-#include <cstdint>
 #include <cmath>
+#include <cstdint>
 
 const double PI = 3.14;
 const double EPS = 0.000001;
