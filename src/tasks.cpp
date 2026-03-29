@@ -11,7 +11,10 @@ constexpr double kFenceCostPerMeter = 2000.0;
 }  // namespace
 
 double solveEarthRopeTask() {
-  return 1.0 / (2.0 * 3.14159265358979323846);
+  Circle earth(6378100.0);
+  Circle newEarth;
+  newEarth.setFerence(earth.getFerence() + 1.0);
+  return newEarth.getRadius() - earth.getRadius();
 }
 
 PoolCosts solvePoolTask() {
