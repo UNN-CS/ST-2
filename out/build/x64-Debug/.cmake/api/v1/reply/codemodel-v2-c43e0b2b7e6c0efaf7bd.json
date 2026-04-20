@@ -1,0 +1,113 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"childIndexes" : 
+					[
+						1,
+						2
+					],
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-.-Debug-d0094a50bb2071803777.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.10.2"
+					},
+					"projectIndex" : 0,
+					"source" : "."
+				},
+				{
+					"build" : "src",
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-src-Debug-6ca90840bcbbe6b9c229.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.10.2"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "src",
+					"targetIndexes" : 
+					[
+						0,
+						1
+					]
+				},
+				{
+					"build" : "test",
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-test-Debug-f01a90cc33825aada4c6.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.10.2"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "test",
+					"targetIndexes" : 
+					[
+						2
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0,
+						1,
+						2
+					],
+					"name" : "ST-2",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 1,
+					"id" : "ST-2::@145eef247bfb46b6828c",
+					"jsonFile" : "target-ST-2-Debug-6c1f62d29f07ba31120d.json",
+					"name" : "ST-2",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "ST-2.info::@145eef247bfb46b6828c",
+					"jsonFile" : "target-ST-2.info-Debug-6ebd90128c173e531ced.json",
+					"name" : "ST-2.info",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "ST-2.test::@36f028580bb02cc8272a",
+					"jsonFile" : "target-ST-2.test-Debug-75b3f440fcff071637c1.json",
+					"name" : "ST-2.test",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "C:/Users/\u041a\u0438\u0440\u0438\u043b\u043b/Desktop/ST-2/out/build/x64-Debug",
+		"source" : "C:/Users/\u041a\u0438\u0440\u0438\u043b\u043b/Desktop/ST-2"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 8
+	}
+}
