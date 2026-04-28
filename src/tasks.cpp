@@ -23,7 +23,9 @@ double earthRopeGap(double earthRadiusKm, double addedRopeMeters) {
 double poolConcreteCost(double poolRadiusMeters,
                         double pathWidthMeters,
                         double costPerSquareMeter) {
-    if (poolRadiusMeters < 0.0 || pathWidthMeters < 0.0 || costPerSquareMeter < 0.0) {
+    if (poolRadiusMeters < 0.0 ||
+        pathWidthMeters < 0.0 ||
+        costPerSquareMeter < 0.0) {
         throw std::invalid_argument("Pool parameters cannot be negative");
     }
 
