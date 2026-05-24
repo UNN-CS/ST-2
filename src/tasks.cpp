@@ -6,15 +6,15 @@
 #include <stdexcept>
 
 double EarthAndRope() {
-    const double radius_earth = 6378.1 * 1000.0;  // метры
+    const double radius_earth = 6378.1 * 1000.0;
     const double added_length = 1.0;
 
     Circle earth(radius_earth);
 
-    // увеличиваем длину окружности на 1 метр через метод класса
+
     earth.setFerence(earth.getFerence() + added_length);
 
-    // зазор = новый радиус - старый радиус
+
     return earth.getRadius() - radius_earth;
 }
 
