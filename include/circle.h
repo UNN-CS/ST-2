@@ -1,3 +1,4 @@
+// Copyright 2026 Salykina Alena
 
 #ifndef INCLUDE_CIRCLE_H_
 #define INCLUDE_CIRCLE_H_

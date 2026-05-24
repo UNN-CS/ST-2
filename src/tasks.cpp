@@ -1,3 +1,5 @@
+// Copyright 2026 Salykina Alena
+
 #include "tasks.h"
 
 #include <cmath>

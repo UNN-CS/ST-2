@@ -8,14 +8,14 @@ set(src
 
 add_library(${PROJECT_NAME} STATIC
   ${src}
-)
+ "tasks.cpp")
 
 target_include_directories(${PROJECT_NAME}
   PUBLIC
     ${CMAKE_SOURCE_DIR}/include
 )
 
-add_executable(${PROJECT_NAME}.info main.cpp)
+add_executable(${PROJECT_NAME}.info main.cpp "tasks.cpp")
 
 target_include_directories(${PROJECT_NAME}.info
   PUBLIC
