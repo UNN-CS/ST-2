@@ -1,7 +1,7 @@
 // Copyright 2026 Klimov M.D.
 #include "tasks.h"
-#include "circle.h"
 #include <cmath>
+#include "circle.h"
 
 #ifndef M_PI
 #define M_PI 3.14159265358979323846
