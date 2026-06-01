@@ -8,7 +8,6 @@
 static constexpr double PI = 3.14159265358979323846;
 static constexpr double EPSILON = 1e-10;
 
-// ============ Basic Circle Constructor Tests ============
 
 TEST(CircleConstructor, RadiusSetCorrectly) {
   Circle circle(7.0);
@@ -27,7 +26,6 @@ TEST(CircleConstructor, AreaCalculatedAtConstruction) {
   EXPECT_DOUBLE_EQ(circle.getArea(), expected);
 }
 
-// ============ Set Radius Tests ============
 
 TEST(CircleSetRadius, ChangesRadiusValue) {
   Circle circle(1.0);
@@ -58,7 +56,6 @@ TEST(CircleSetRadius, MultipleUpdates) {
   EXPECT_DOUBLE_EQ(circle.getArea(), PI * 9.0);
 }
 
-// ============ Set Circumference Tests ============
 
 TEST(CircleSetFerence, ChangesCircumferenceValue) {
   Circle circle(1.0);
@@ -81,7 +78,6 @@ TEST(CircleSetFerence, UpdatesAreaCorrectly) {
   EXPECT_NEAR(circle.getArea(), PI * 9.0, EPSILON);
 }
 
-// ============ Set Area Tests ============
 
 TEST(CircleSetArea, ChangesAreaValue) {
   Circle circle(1.0);
@@ -104,7 +100,6 @@ TEST(CircleSetArea, UpdatesCircumferenceCorrectly) {
   EXPECT_NEAR(circle.getFerence(), 2.0 * PI * 4.0, EPSILON);
 }
 
-// ============ Special Cases ============
 
 TEST(CircleSpecial, VerySmallRadius) {
   Circle circle(0.0001);
@@ -125,7 +120,6 @@ TEST(CircleSpecial, UnitCircle) {
   EXPECT_DOUBLE_EQ(circle.getArea(), PI);
 }
 
-// ============ Earth and Rope Task Tests ============
 
 TEST(RopeTask, EarthExampleGap) {
   double gap = ropeGap(6378100.0, 1.0);
@@ -156,55 +150,43 @@ TEST(RopeTask, GapIndependentOfPlanetSize) {
   EXPECT_NEAR(gap1, gap2, EPSILON);
 }
 
-// ============ Pool Task Tests ============
 
 TEST(PoolTask, StandardPoolConcreteCost) {
-  // Pool radius 3m, walkway width 1m, price 1000 per sqm
   double cost = poolConcreteCost(3.0, 1.0, 1000.0);
   
-  // Expected: (pi * 4^2 - pi * 3^2) * 1000 = (16pi - 9pi) * 1000 = 7pi * 1000
   double expected = (7.0 * PI) * 1000.0;
   EXPECT_NEAR(cost, expected, 1e-6);
 }
 
 TEST(PoolTask, StandardPoolFenceCost) {
-  // Fence at outer radius (3 + 1 = 4m), price 2000 per meter
   double cost = poolFenceCost(3.0, 1.0, 2000.0);
   
-  // Expected: 2 * pi * 4 * 2000 = 16000 * pi
   double expected = 2.0 * PI * 4.0 * 2000.0;
   EXPECT_NEAR(cost, expected, 1e-6);
 }
 
 TEST(PoolTask, DifferentPoolSize) {
-  // Pool radius 5m, walkway 2m, price 500 per sqm
   double cost = poolConcreteCost(5.0, 2.0, 500.0);
   
-  // Expected: (pi * 7^2 - pi * 5^2) * 500 = (49pi - 25pi) * 500 = 24pi * 500
   double expected = (24.0 * PI) * 500.0;
   EXPECT_NEAR(cost, expected, 1e-6);
 }
 
 TEST(PoolTask, ZeroWalkwayWidth) {
-  // No walkway means no concrete cost
   double cost = poolConcreteCost(3.0, 0.0, 1000.0);
   EXPECT_NEAR(cost, 0.0, EPSILON);
 }
 
 TEST(PoolTask, SmallPool) {
-  // Small pool with larger price
   double cost = poolConcreteCost(1.0, 0.5, 5000.0);
   
-  // Expected: (pi * 1.5^2 - pi * 1.0^2) * 5000 = (2.25pi - pi) * 5000 = 1.25pi * 5000
   double expected = (1.25 * PI) * 5000.0;
   EXPECT_NEAR(cost, expected, 1e-5);
 }
 
 TEST(PoolTask, LargePoolFence) {
-  // Large pool fence calculation
   double cost = poolFenceCost(10.0, 1.0, 1500.0);
   
-  // Expected: 2 * pi * 11 * 1500
   double expected = 2.0 * PI * 11.0 * 1500.0;
   EXPECT_NEAR(cost, expected, 1e-5);
 }
