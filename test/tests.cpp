@@ -169,6 +169,7 @@ TEST(PoolTaskTest, TotalCostIsCorrect) {
 
 TEST(PoolTaskTest, TotalCostEqualsConcretePlusFence) {
     EXPECT_NEAR(poolTotalCost(), poolConcreteCost() + poolFenceCost(), EPS);
-}h"
+}
+
 
 
