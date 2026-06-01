@@ -1,30 +1,38 @@
-// Copyright 2022 UNN-CS
-#include <cstdint>
-#include <cmath>
+// Copyright 2025 UNN-CS
 #include "circle.h"
+#include <cmath>
 
-const double PI = 3.14159265358979323846;
+static constexpr double PI = 3.14159265358979323846;
 
-Circle::Circle(double r) {
-  setRadius(r);
+void Circle::updateCircumference() {
+  circumference = 2 * PI * radius;
 }
 
-void Circle::setRadius(double r) {
-  radius = r;
-  ference = 2.0 * PI * r;
-  area = PI * r * r;
+void Circle::updateArea() {
+  areaValue = PI * radius * radius;
 }
 
-void Circle::setFerence(double f) {
-  ference = f;
-  radius = f / (2.0 * PI);
-  area = PI * radius * radius;
+Circle::Circle(double initialRadius) : radius(initialRadius) {
+  updateCircumference();
+  updateArea();
 }
 
-void Circle::setArea(double a) {
-  area = a;
-  radius = sqrt(a / PI);
-  ference = 2.0 * PI * radius;
+void Circle::setRadius(double newRadius) {
+  radius = newRadius;
+  updateCircumference();
+  updateArea();
+}
+
+void Circle::setFerence(double newCircumference) {
+  circumference = newCircumference;
+  radius = circumference / (2 * PI);
+  updateArea();
+}
+
+void Circle::setArea(double newArea) {
+  areaValue = newArea;
+  radius = std::sqrt(areaValue / PI);
+  updateCircumference();
 }
 
 double Circle::getRadius() const {
@@ -32,9 +40,9 @@ double Circle::getRadius() const {
 }
 
 double Circle::getFerence() const {
-  return ference;
+  return circumference;
 }
 
 double Circle::getArea() const {
-  return area;
+  return areaValue;
 }

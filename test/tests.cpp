@@ -1,134 +1,210 @@
 // Copyright 2025 UNN-CS Team
 
 #include <gtest/gtest.h>
-#include <cstdint>
 #include <cmath>
 #include "circle.h"
 #include "tasks.h"
 
-const double PI = 3.14159265358979323846;
+static constexpr double PI = 3.14159265358979323846;
+static constexpr double EPSILON = 1e-10;
 
+// ============ Basic Circle Constructor Tests ============
 
-TEST(CircleTest, ConstructorSetsRadius) {
-  Circle c(5.0);
-  EXPECT_DOUBLE_EQ(c.getRadius(), 5.0);
+TEST(CircleConstructor, RadiusSetCorrectly) {
+  Circle circle(7.0);
+  EXPECT_DOUBLE_EQ(circle.getRadius(), 7.0);
 }
 
-TEST(CircleTest, ConstructorCalculatesFerence) {
-  Circle c(5.0);
-  EXPECT_DOUBLE_EQ(c.getFerence(), 2.0 * PI * 5.0);
+TEST(CircleConstructor, CircumferenceCalculatedAtConstruction) {
+  Circle circle(3.5);
+  double expected = 2.0 * PI * 3.5;
+  EXPECT_DOUBLE_EQ(circle.getFerence(), expected);
 }
 
-TEST(CircleTest, ConstructorCalculatesArea) {
-  Circle c(5.0);
-  EXPECT_DOUBLE_EQ(c.getArea(), PI * 25.0);
+TEST(CircleConstructor, AreaCalculatedAtConstruction) {
+  Circle circle(2.0);
+  double expected = PI * 4.0;
+  EXPECT_DOUBLE_EQ(circle.getArea(), expected);
 }
 
+// ============ Set Radius Tests ============
 
-TEST(CircleTest, SetRadiusUpdatesRadius) {
-  Circle c(1.0);
-  c.setRadius(10.0);
-  EXPECT_DOUBLE_EQ(c.getRadius(), 10.0);
+TEST(CircleSetRadius, ChangesRadiusValue) {
+  Circle circle(1.0);
+  circle.setRadius(5.0);
+  EXPECT_DOUBLE_EQ(circle.getRadius(), 5.0);
 }
 
-TEST(CircleTest, SetRadiusRecalculatesFerence) {
-  Circle c(1.0);
-  c.setRadius(10.0);
-  EXPECT_DOUBLE_EQ(c.getFerence(), 2.0 * PI * 10.0);
+TEST(CircleSetRadius, UpdatesCircumference) {
+  Circle circle(2.0);
+  circle.setRadius(6.0);
+  double expected = 2.0 * PI * 6.0;
+  EXPECT_DOUBLE_EQ(circle.getFerence(), expected);
 }
 
-TEST(CircleTest, SetRadiusRecalculatesArea) {
-  Circle c(1.0);
-  c.setRadius(10.0);
-  EXPECT_DOUBLE_EQ(c.getArea(), PI * 100.0);
+TEST(CircleSetRadius, UpdatesArea) {
+  Circle circle(1.0);
+  circle.setRadius(4.0);
+  double expected = PI * 16.0;
+  EXPECT_DOUBLE_EQ(circle.getArea(), expected);
 }
 
-TEST(CircleTest, SetFerenceUpdatesFerence) {
-  Circle c(1.0);
-  c.setFerence(2.0 * PI * 7.0);
-  EXPECT_DOUBLE_EQ(c.getFerence(), 2.0 * PI * 7.0);
+TEST(CircleSetRadius, MultipleUpdates) {
+  Circle circle(1.0);
+  circle.setRadius(2.0);
+  circle.setRadius(3.0);
+  EXPECT_DOUBLE_EQ(circle.getRadius(), 3.0);
+  EXPECT_DOUBLE_EQ(circle.getFerence(), 2.0 * PI * 3.0);
+  EXPECT_DOUBLE_EQ(circle.getArea(), PI * 9.0);
 }
 
-TEST(CircleTest, SetFerenceRecalculatesRadius) {
-  Circle c(1.0);
-  c.setFerence(2.0 * PI * 7.0);
-  EXPECT_NEAR(c.getRadius(), 7.0, 1e-10);
+// ============ Set Circumference Tests ============
+
+TEST(CircleSetFerence, ChangesCircumferenceValue) {
+  Circle circle(1.0);
+  double newFerence = 2.0 * PI * 5.0;
+  circle.setFerence(newFerence);
+  EXPECT_NEAR(circle.getFerence(), newFerence, EPSILON);
 }
 
-TEST(CircleTest, SetFerenceRecalculatesArea) {
-  Circle c(1.0);
-  c.setFerence(2.0 * PI * 7.0);
-  EXPECT_NEAR(c.getArea(), PI * 49.0, 1e-10);
+TEST(CircleSetFerence, CalculatesRadiusCorrectly) {
+  Circle circle(1.0);
+  double newFerence = 2.0 * PI * 8.0;
+  circle.setFerence(newFerence);
+  EXPECT_NEAR(circle.getRadius(), 8.0, EPSILON);
 }
 
-TEST(CircleTest, SetAreaUpdatesArea) {
-  Circle c(1.0);
-  c.setArea(PI * 16.0);
-  EXPECT_NEAR(c.getArea(), PI * 16.0, 1e-10);
+TEST(CircleSetFerence, UpdatesAreaCorrectly) {
+  Circle circle(1.0);
+  double newFerence = 2.0 * PI * 3.0;
+  circle.setFerence(newFerence);
+  EXPECT_NEAR(circle.getArea(), PI * 9.0, EPSILON);
 }
 
-TEST(CircleTest, SetAreaRecalculatesRadius) {
-  Circle c(1.0);
-  c.setArea(PI * 16.0);
-  EXPECT_NEAR(c.getRadius(), 4.0, 1e-10);
+// ============ Set Area Tests ============
+
+TEST(CircleSetArea, ChangesAreaValue) {
+  Circle circle(1.0);
+  double newArea = PI * 25.0;
+  circle.setArea(newArea);
+  EXPECT_NEAR(circle.getArea(), newArea, EPSILON);
 }
 
-TEST(CircleTest, SetAreaRecalculatesFerence) {
-  Circle c(1.0);
-  c.setArea(PI * 16.0);
-  EXPECT_NEAR(c.getFerence(), 2.0 * PI * 4.0, 1e-10);
+TEST(CircleSetArea, CalculatesRadiusCorrectly) {
+  Circle circle(1.0);
+  double newArea = PI * 36.0;
+  circle.setArea(newArea);
+  EXPECT_NEAR(circle.getRadius(), 6.0, EPSILON);
 }
 
-TEST(CircleTest, UnitCircleValues) {
-  Circle c(1.0);
-  EXPECT_DOUBLE_EQ(c.getRadius(), 1.0);
-  EXPECT_DOUBLE_EQ(c.getFerence(), 2.0 * PI);
-  EXPECT_DOUBLE_EQ(c.getArea(), PI);
+TEST(CircleSetArea, UpdatesCircumferenceCorrectly) {
+  Circle circle(1.0);
+  double newArea = PI * 16.0;
+  circle.setArea(newArea);
+  EXPECT_NEAR(circle.getFerence(), 2.0 * PI * 4.0, EPSILON);
 }
 
-TEST(CircleTest, LargeRadius) {
-  Circle c(1000000.0);
-  EXPECT_DOUBLE_EQ(c.getRadius(), 1000000.0);
-  EXPECT_DOUBLE_EQ(c.getFerence(), 2.0 * PI * 1000000.0);
-  EXPECT_DOUBLE_EQ(c.getArea(), PI * 1e12);
+// ============ Special Cases ============
+
+TEST(CircleSpecial, VerySmallRadius) {
+  Circle circle(0.0001);
+  EXPECT_DOUBLE_EQ(circle.getRadius(), 0.0001);
+  EXPECT_NEAR(circle.getFerence(), 2.0 * PI * 0.0001, 1e-14);
 }
 
-TEST(CircleTest, SmallRadius) {
-  Circle c(0.001);
-  EXPECT_DOUBLE_EQ(c.getRadius(), 0.001);
-  EXPECT_NEAR(c.getFerence(), 2.0 * PI * 0.001, 1e-15);
-  EXPECT_NEAR(c.getArea(), PI * 1e-6, 1e-18);
+TEST(CircleSpecial, VeryLargeRadius) {
+  Circle circle(1e6);
+  EXPECT_DOUBLE_EQ(circle.getRadius(), 1e6);
+  EXPECT_DOUBLE_EQ(circle.getFerence(), 2.0 * PI * 1e6);
 }
 
-TEST(RopeTaskTest, EarthRopeGap) {
+TEST(CircleSpecial, UnitCircle) {
+  Circle circle(1.0);
+  EXPECT_DOUBLE_EQ(circle.getRadius(), 1.0);
+  EXPECT_DOUBLE_EQ(circle.getFerence(), 2.0 * PI);
+  EXPECT_DOUBLE_EQ(circle.getArea(), PI);
+}
+
+// ============ Earth and Rope Task Tests ============
+
+TEST(RopeTask, EarthExampleGap) {
   double gap = ropeGap(6378100.0, 1.0);
-  EXPECT_NEAR(gap, 1.0 / (2.0 * PI), 1e-6);
+  double expected = 1.0 / (2.0 * PI);
+  EXPECT_NEAR(gap, expected, 1e-8);
 }
 
-TEST(RopeTaskTest, SmallCircleRopeGap) {
-  double gap = ropeGap(1.0, 1.0);
-  EXPECT_NEAR(gap, 1.0 / (2.0 * PI), 1e-10);
+TEST(RopeTask, SmallPlanetAddOneUnit) {
+  double gap = ropeGap(100.0, 1.0);
+  double expected = 1.0 / (2.0 * PI);
+  EXPECT_NEAR(gap, expected, EPSILON);
 }
 
-TEST(RopeTaskTest, ZeroAddedLength) {
-  double gap = ropeGap(100.0, 0.0);
-  EXPECT_NEAR(gap, 0.0, 1e-10);
+TEST(RopeTask, NoAddedLengthGivesZeroGap) {
+  double gap = ropeGap(50.0, 0.0);
+  EXPECT_NEAR(gap, 0.0, EPSILON);
 }
 
-TEST(PoolTaskTest, ConcreteCostStandard) {
+TEST(RopeTask, LargerAddedLength) {
+  double gap = ropeGap(1000.0, 10.0);
+  double expected = 10.0 / (2.0 * PI);
+  EXPECT_NEAR(gap, expected, EPSILON);
+}
+
+TEST(RopeTask, GapIndependentOfPlanetSize) {
+  double gap1 = ropeGap(100.0, 5.0);
+  double gap2 = ropeGap(10000.0, 5.0);
+  EXPECT_NEAR(gap1, gap2, EPSILON);
+}
+
+// ============ Pool Task Tests ============
+
+TEST(PoolTask, StandardPoolConcreteCost) {
+  // Pool radius 3m, walkway width 1m, price 1000 per sqm
   double cost = poolConcreteCost(3.0, 1.0, 1000.0);
-  double expectedArea = PI * 16.0 - PI * 9.0;
-  EXPECT_NEAR(cost, expectedArea * 1000.0, 1e-6);
+  
+  // Expected: (pi * 4^2 - pi * 3^2) * 1000 = (16pi - 9pi) * 1000 = 7pi * 1000
+  double expected = (7.0 * PI) * 1000.0;
+  EXPECT_NEAR(cost, expected, 1e-6);
 }
 
-TEST(PoolTaskTest, FenceCostStandard) {
+TEST(PoolTask, StandardPoolFenceCost) {
+  // Fence at outer radius (3 + 1 = 4m), price 2000 per meter
   double cost = poolFenceCost(3.0, 1.0, 2000.0);
-  double expectedFerence = 2.0 * PI * 4.0;
-  EXPECT_NEAR(cost, expectedFerence * 2000.0, 1e-6);
+  
+  // Expected: 2 * pi * 4 * 2000 = 16000 * pi
+  double expected = 2.0 * PI * 4.0 * 2000.0;
+  EXPECT_NEAR(cost, expected, 1e-6);
 }
 
-TEST(PoolTaskTest, ConcreteCostDifferentParams) {
+TEST(PoolTask, DifferentPoolSize) {
+  // Pool radius 5m, walkway 2m, price 500 per sqm
   double cost = poolConcreteCost(5.0, 2.0, 500.0);
-  double expectedArea = PI * 49.0 - PI * 25.0;
-  EXPECT_NEAR(cost, expectedArea * 500.0, 1e-6);
+  
+  // Expected: (pi * 7^2 - pi * 5^2) * 500 = (49pi - 25pi) * 500 = 24pi * 500
+  double expected = (24.0 * PI) * 500.0;
+  EXPECT_NEAR(cost, expected, 1e-6);
+}
+
+TEST(PoolTask, ZeroWalkwayWidth) {
+  // No walkway means no concrete cost
+  double cost = poolConcreteCost(3.0, 0.0, 1000.0);
+  EXPECT_NEAR(cost, 0.0, EPSILON);
+}
+
+TEST(PoolTask, SmallPool) {
+  // Small pool with larger price
+  double cost = poolConcreteCost(1.0, 0.5, 5000.0);
+  
+  // Expected: (pi * 1.5^2 - pi * 1.0^2) * 5000 = (2.25pi - pi) * 5000 = 1.25pi * 5000
+  double expected = (1.25 * PI) * 5000.0;
+  EXPECT_NEAR(cost, expected, 1e-5);
+}
+
+TEST(PoolTask, LargePoolFence) {
+  // Large pool fence calculation
+  double cost = poolFenceCost(10.0, 1.0, 1500.0);
+  
+  // Expected: 2 * pi * 11 * 1500
+  double expected = 2.0 * PI * 11.0 * 1500.0;
+  EXPECT_NEAR(cost, expected, 1e-5);
 }

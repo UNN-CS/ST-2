@@ -4,6 +4,8 @@ project (ST-2)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -O3 -g")
 
+# Find gtest
+find_package(GTest REQUIRED)
 
 set(tool_dest "bin")
 set(lib_dest "lib")
