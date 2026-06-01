@@ -153,21 +153,21 @@ TEST(RopeTask, GapIndependentOfPlanetSize) {
 
 TEST(PoolTask, StandardPoolConcreteCost) {
   double cost = poolConcreteCost(3.0, 1.0, 1000.0);
-  
+
   double expected = (7.0 * PI) * 1000.0;
   EXPECT_NEAR(cost, expected, 1e-6);
 }
 
 TEST(PoolTask, StandardPoolFenceCost) {
   double cost = poolFenceCost(3.0, 1.0, 2000.0);
-  
+
   double expected = 2.0 * PI * 4.0 * 2000.0;
   EXPECT_NEAR(cost, expected, 1e-6);
 }
 
 TEST(PoolTask, DifferentPoolSize) {
   double cost = poolConcreteCost(5.0, 2.0, 500.0);
-  
+
   double expected = (24.0 * PI) * 500.0;
   EXPECT_NEAR(cost, expected, 1e-6);
 }
@@ -179,14 +179,14 @@ TEST(PoolTask, ZeroWalkwayWidth) {
 
 TEST(PoolTask, SmallPool) {
   double cost = poolConcreteCost(1.0, 0.5, 5000.0);
-  
+
   double expected = (1.25 * PI) * 5000.0;
   EXPECT_NEAR(cost, expected, 1e-5);
 }
 
 TEST(PoolTask, LargePoolFence) {
   double cost = poolFenceCost(10.0, 1.0, 1500.0);
-  
+
   double expected = 2.0 * PI * 11.0 * 1500.0;
   EXPECT_NEAR(cost, expected, 1e-5);
 }
