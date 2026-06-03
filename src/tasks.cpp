@@ -1,48 +1,48 @@
-// Copyright 2026 UNN-CS
-#include <stdexcept>
+// Copyright 2024 Nazyrov A.A.
 
-#include "circle.h"
+
+#include <cmath>
+
 #include "tasks.h"
+#include "circle.h"
 
-double getEarthRopeGap(double earthRadiusKm, double addedRopeLengthMeters) {
-  if (earthRadiusKm <= 0.0) {
-    throw std::invalid_argument("Earth radius must be positive");
-  }
-  if (addedRopeLengthMeters <= 0.0) {
-    throw std::invalid_argument("Added rope length must be positive");
-  }
 
-  const double earthRadiusMeters = earthRadiusKm * 1000.0;
-  Circle earth(earthRadiusMeters);
-  const double initialFerence = earth.getFerence();
 
-  earth.setFerence(initialFerence + addedRopeLengthMeters);
-  return earth.getRadius() - earthRadiusMeters;
+
+namespace tasks {
+
+static const double EARTH_RADIUS_KM = 6378.1;
+static const double EARTH_RADIUS_M = EARTH_RADIUS_KM * 1000.0;
+
+double calculateRopeGap() {
+  using geometry::Circle;
+
+  Circle earth(EARTH_RADIUS_M);
+  double initialLength = earth.getCircumference();
+  double newLength = initialLength + 1.0;
+
+  Circle extendedCircle(0.0);
+  extendedCircle.setCircumference(newLength);
+
+  return extendedCircle.getRadius() - EARTH_RADIUS_M;
 }
 
-PoolCosts calculatePoolCosts(double poolRadius,
-                             double trackWidth,
-                             double concreteCostPerSqMeter,
-                             double fenceCostPerMeter) {
-  if (poolRadius <= 0.0) {
-    throw std::invalid_argument("Pool radius must be positive");
-  }
-  if (trackWidth <= 0.0) {
-    throw std::invalid_argument("Track width must be positive");
-  }
-  if (concreteCostPerSqMeter < 0.0) {
-    throw std::invalid_argument("Concrete cost cannot be negative");
-  }
-  if (fenceCostPerMeter < 0.0) {
-    throw std::invalid_argument("Fence cost cannot be negative");
-  }
+void calculatePoolCosts(double poolRadius, double pathWidth,
+                        double concretePrice, double fencePrice,
+                        double& concreteCost, double& fenceCost) {
+  using geometry::Circle;
 
   Circle pool(poolRadius);
-  Circle outer(poolRadius + trackWidth);
+  Circle withPath(poolRadius + pathWidth);
 
-  const double walkwayArea = outer.getArea() - pool.getArea();
-  const double concreteCost = walkwayArea * concreteCostPerSqMeter;
-  const double fenceCost = outer.getFerence() * fenceCostPerMeter;
+  double poolArea = pool.getArea();
+  double totalArea = withPath.getArea();
+  double pathArea = totalArea - poolArea;
 
-  return {concreteCost, fenceCost, concreteCost + fenceCost};
+  double fenceLength = withPath.getCircumference();
+
+  concreteCost = pathArea * concretePrice;
+  fenceCost = fenceLength * fencePrice;
 }
+
+}  // namespace tasks

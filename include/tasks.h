@@ -1,19 +1,16 @@
-// Copyright 2026 UNN-CS
+// Copyright 2024 Nazyrov A.A.
+
 #ifndef INCLUDE_TASKS_H_
 #define INCLUDE_TASKS_H_
 
-struct PoolCosts {
-  double concreteCost;
-  double fenceCost;
-  double totalCost;
-};
+namespace tasks {
 
-double getEarthRopeGap(double earthRadiusKm = 6378.1,
-                       double addedRopeLengthMeters = 1.0);
+double calculateRopeGap();
 
-PoolCosts calculatePoolCosts(double poolRadius = 3.0,
-                             double trackWidth = 1.0,
-                             double concreteCostPerSqMeter = 1000.0,
-                             double fenceCostPerMeter = 2000.0);
+void calculatePoolCosts(double poolRadius, double pathWidth,
+                        double concretePrice, double fencePrice,
+                        double& concreteCost, double& fenceCost);
+
+}  // namespace tasks
 
 #endif  // INCLUDE_TASKS_H_
