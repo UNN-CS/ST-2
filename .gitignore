@@ -1,9 +1,7 @@
-# Папка сборки
 build/
 CMakeCache.txt
 CMakeFiles/
 cmake_install.cmake
 
-# Папки зависимостей
 _build/
 _deps/

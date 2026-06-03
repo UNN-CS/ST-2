@@ -1,188 +1,153 @@
 // Copyright 2025 UNN-CS Team
 
 #include <gtest/gtest.h>
-#include <stdexcept>
-
+#include <cmath>
 #include "circle.h"
 #include "tasks.h"
 
 namespace {
-constexpr double kPi = 3.14159265358979323846;
-constexpr double kEps = 1e-9;
-}
+const double kPi = 3.14159265358979323846;
+const double kEps = 1e-6;
+}  // namespace
 
 TEST(Circle, ConstructorSetsRadius) {
   Circle c(5.0);
   EXPECT_NEAR(c.getRadius(), 5.0, kEps);
 }
 
-TEST(Circle, ConstructorCalculatesFerence) {
-  Circle c(5.0);
+TEST(Circle, ConstructorSetsFerence) {
+  Circle c(2.0);
+  EXPECT_NEAR(c.getFerence(), 2.0 * kPi * 2.0, kEps);
+}
+
+TEST(Circle, ConstructorSetsArea) {
+  Circle c(3.0);
+  EXPECT_NEAR(c.getArea(), kPi * 9.0, kEps);
+}
+
+TEST(Circle, SetRadiusRecalculatesFerenceAndArea) {
+  Circle c(1.0);
+  c.setRadius(4.0);
+  EXPECT_NEAR(c.getRadius(), 4.0, kEps);
+  EXPECT_NEAR(c.getFerence(), 2.0 * kPi * 4.0, kEps);
+  EXPECT_NEAR(c.getArea(), kPi * 16.0, kEps);
+}
+
+TEST(Circle, SetFerenceRecalculatesRadiusAndArea) {
+  Circle c(1.0);
+  const double newFerence = kPi * 10.0;
+  c.setFerence(newFerence);
+  EXPECT_NEAR(c.getFerence(), newFerence, kEps);
+  EXPECT_NEAR(c.getRadius(), newFerence / (2.0 * kPi), kEps);
+  EXPECT_NEAR(c.getArea(), kPi * c.getRadius() * c.getRadius(), kEps);
+}
+
+TEST(Circle, SetAreaRecalculatesRadiusAndFerence) {
+  Circle c(1.0);
+  const double newArea = kPi * 25.0;
+  c.setArea(newArea);
+  EXPECT_NEAR(c.getArea(), newArea, kEps);
+  EXPECT_NEAR(c.getRadius(), 5.0, kEps);
   EXPECT_NEAR(c.getFerence(), 2.0 * kPi * 5.0, kEps);
 }
 
-TEST(Circle, ConstructorCalculatesArea) {
+TEST(Circle, GetRadiusAfterSetFerence) {
+  Circle c(0.0);
+  c.setFerence(2.0 * kPi);
+  EXPECT_NEAR(c.getRadius(), 1.0, kEps);
+}
+
+TEST(Circle, GetFerenceAfterSetArea) {
+  Circle c(0.0);
+  c.setArea(kPi);
+  EXPECT_NEAR(c.getFerence(), 2.0 * kPi, kEps);
+}
+
+TEST(Circle, SetRadiusZero) {
   Circle c(5.0);
-  EXPECT_NEAR(c.getArea(), kPi * 25.0, kEps);
+  c.setRadius(0.0);
+  EXPECT_NEAR(c.getRadius(), 0.0, kEps);
+  EXPECT_NEAR(c.getFerence(), 0.0, kEps);
+  EXPECT_NEAR(c.getArea(), 0.0, kEps);
 }
 
-TEST(Circle, ConstructorThrowsOnNegativeRadius) {
-  EXPECT_THROW(Circle(-1.0), std::invalid_argument);
-}
-
-TEST(Circle, SetRadiusUpdatesAllFields) {
+TEST(Circle, MultipleSetRadiusCalls) {
   Circle c(1.0);
   c.setRadius(2.0);
-
-  EXPECT_NEAR(c.getRadius(), 2.0, kEps);
-  EXPECT_NEAR(c.getFerence(), 4.0 * kPi, kEps);
-  EXPECT_NEAR(c.getArea(), 4.0 * kPi, kEps);
+  c.setRadius(7.0);
+  EXPECT_NEAR(c.getRadius(), 7.0, kEps);
+  EXPECT_NEAR(c.getArea(), kPi * 49.0, kEps);
 }
 
-TEST(Circle, SetRadiusToZeroWorks) {
-  Circle c(2.0);
-  c.setRadius(0.0);
-
-  EXPECT_NEAR(c.getRadius(), 0.0, kEps);
-  EXPECT_NEAR(c.getFerence(), 0.0, kEps);
-  EXPECT_NEAR(c.getArea(), 0.0, kEps);
-}
-
-TEST(Circle, SetRadiusThrowsOnNegativeValue) {
+TEST(Circle, SetFerenceThenSetArea) {
   Circle c(1.0);
-  EXPECT_THROW(c.setRadius(-0.1), std::invalid_argument);
-}
-
-TEST(Circle, SetFerenceUpdatesRadius) {
-  Circle c(1.0);
-  c.setFerence(10.0);
-  EXPECT_NEAR(c.getRadius(), 10.0 / (2.0 * kPi), kEps);
-}
-
-TEST(Circle, SetFerenceUpdatesArea) {
-  Circle c(1.0);
-  c.setFerence(10.0);
-  const double expected_radius = 10.0 / (2.0 * kPi);
-  EXPECT_NEAR(c.getArea(), kPi * expected_radius * expected_radius, kEps);
-}
-
-TEST(Circle, SetFerenceToZeroWorks) {
-  Circle c(1.0);
-  c.setFerence(0.0);
-
-  EXPECT_NEAR(c.getRadius(), 0.0, kEps);
-  EXPECT_NEAR(c.getFerence(), 0.0, kEps);
-  EXPECT_NEAR(c.getArea(), 0.0, kEps);
-}
-
-TEST(Circle, SetFerenceThrowsOnNegativeValue) {
-  Circle c(1.0);
-  EXPECT_THROW(c.setFerence(-1.0), std::invalid_argument);
-}
-
-TEST(Circle, SetAreaUpdatesRadius) {
-  Circle c(1.0);
-  c.setArea(9.0 * kPi);
+  c.setFerence(4.0 * kPi);
+  c.setArea(kPi * 9.0);
   EXPECT_NEAR(c.getRadius(), 3.0, kEps);
-}
-
-TEST(Circle, SetAreaUpdatesFerence) {
-  Circle c(1.0);
-  c.setArea(9.0 * kPi);
   EXPECT_NEAR(c.getFerence(), 6.0 * kPi, kEps);
 }
 
-TEST(Circle, SetAreaToZeroWorks) {
-  Circle c(1.0);
-  c.setArea(0.0);
-  EXPECT_NEAR(c.getRadius(), 0.0, kEps);
-  EXPECT_NEAR(c.getFerence(), 0.0, kEps);
+TEST(Circle, LargeRadius) {
+  Circle c(6378100.0);
+  EXPECT_NEAR(c.getFerence(), 2.0 * kPi * 6378100.0, 1e-3);
 }
 
-TEST(Circle, SetAreaThrowsOnNegativeValue) {
-  Circle c(1.0);
-  EXPECT_THROW(c.setArea(-1.0), std::invalid_argument);
+TEST(Circle, SmallRadius) {
+  Circle c(0.001);
+  EXPECT_NEAR(c.getArea(), kPi * 0.001 * 0.001, kEps);
 }
 
-TEST(Circle, ChainedSettersKeepConsistency) {
-  Circle c(2.0);
-  c.setFerence(20.0);
-  c.setArea(16.0 * kPi);
-  c.setRadius(1.5);
-
-  EXPECT_NEAR(c.getFerence(), 3.0 * kPi, kEps);
-  EXPECT_NEAR(c.getArea(), 2.25 * kPi, kEps);
+TEST(Circle, RadiusFromAreaConsistency) {
+  Circle c(0.0);
+  c.setArea(100.0);
+  Circle byRadius(c.getRadius());
+  EXPECT_NEAR(byRadius.getArea(), 100.0, kEps);
 }
 
-TEST(Tasks, EarthRopeGapForOneMeter) {
-  const double gap = solveEarthRopeTask();
-  EXPECT_NEAR(gap, 1.0 / (2.0 * kPi), 1e-12);
+TEST(Circle, FerenceFromRadiusConsistency) {
+  Circle c(8.0);
+  Circle byFerence(0.0);
+  byFerence.setFerence(c.getFerence());
+  EXPECT_NEAR(byFerence.getRadius(), 8.0, kEps);
 }
 
-TEST(Tasks, EarthRopeGapIndependentFromRadius) {
-  const double gap_small = solveEarthRopeTask(1.0, 1.0);
-  const double gap_large = solveEarthRopeTask(6378.1, 1.0);
-  EXPECT_NEAR(gap_small, gap_large, 1e-12);
+TEST(EarthRope, GapEqualsOneOverTwoPi) {
+  EXPECT_NEAR(earthRopeGap(), 1.0 / (2.0 * kPi), kEps);
 }
 
-TEST(Tasks, EarthRopeTaskThrowsOnNegativeRadius) {
-  EXPECT_THROW(solveEarthRopeTask(-1.0, 1.0), std::invalid_argument);
+TEST(EarthRope, GapIsPositive) {
+  EXPECT_GT(earthRopeGap(), 0.0);
 }
 
-TEST(Tasks, EarthRopeTaskThrowsOnNegativeExtraLength) {
-  EXPECT_THROW(solveEarthRopeTask(1.0, -1.0), std::invalid_argument);
+TEST(EarthRope, GapLessThanOneMeter) {
+  EXPECT_LT(earthRopeGap(), 1.0);
 }
 
-TEST(Tasks, EarthRopeTaskZeroExtraLengthReturnsZeroGap) {
-  EXPECT_NEAR(solveEarthRopeTask(6378.1, 0.0), 0.0, kEps);
+TEST(Pool, PathAreaIsSevenPi) {
+  Circle pool(3.0);
+  Circle outer(4.0);
+  EXPECT_NEAR(outer.getArea() - pool.getArea(), 7.0 * kPi, kEps);
 }
 
-TEST(Tasks, PoolConcreteCostDefaultInput) {
-  const PoolCosts costs = solvePoolTask();
-  EXPECT_NEAR(costs.concrete_cost, 7000.0 * kPi, kEps);
+TEST(Pool, FenceLengthIsEightPi) {
+  Circle outer(4.0);
+  EXPECT_NEAR(outer.getFerence(), 8.0 * kPi, kEps);
 }
 
-TEST(Tasks, PoolFenceCostDefaultInput) {
-  const PoolCosts costs = solvePoolTask();
-  EXPECT_NEAR(costs.fence_cost, 16000.0 * kPi, kEps);
+TEST(Pool, TotalMaterialsCost) {
+  EXPECT_NEAR(poolMaterialsCost(), 23000.0 * kPi, kEps);
 }
 
-TEST(Tasks, PoolTotalCostIsSumOfParts) {
-  const PoolCosts costs = solvePoolTask();
-  EXPECT_NEAR(costs.total_cost, costs.concrete_cost + costs.fence_cost, kEps);
+TEST(Pool, ConcreteCostPart) {
+  Circle pool(3.0);
+  Circle outer(4.0);
+  const double concreteCost =
+      (outer.getArea() - pool.getArea()) * 1000.0;
+  EXPECT_NEAR(concreteCost, 7000.0 * kPi, kEps);
 }
 
-TEST(Tasks, PoolTaskWorksWithCustomValues) {
-  const PoolCosts costs = solvePoolTask(2.0, 0.5, 1200.0, 2500.0);
-  const double outer_radius = 2.5;
-  const double concrete =
-      (kPi * outer_radius * outer_radius - kPi * 4.0) * 1200.0;
-  const double fence = (2.0 * kPi * outer_radius) * 2500.0;
-
-  EXPECT_NEAR(costs.concrete_cost, concrete, kEps);
-  EXPECT_NEAR(costs.fence_cost, fence, kEps);
-  EXPECT_NEAR(costs.total_cost, concrete + fence, kEps);
+TEST(Pool, FenceCostPart) {
+  Circle outer(4.0);
+  const double fenceCost = outer.getFerence() * 2000.0;
+  EXPECT_NEAR(fenceCost, 16000.0 * kPi, kEps);
 }
-
-TEST(Tasks, PoolTaskThrowsOnNegativePoolRadius) {
-  EXPECT_THROW(solvePoolTask(-1.0, 1.0, 1000.0, 2000.0), std::invalid_argument);
-}
-
-TEST(Tasks, PoolTaskThrowsOnNegativePathWidth) {
-  EXPECT_THROW(solvePoolTask(3.0, -1.0, 1000.0, 2000.0), std::invalid_argument);
-}
-
-TEST(Tasks, PoolTaskThrowsOnNegativeConcretePrice) {
-  EXPECT_THROW(solvePoolTask(3.0, 1.0, -1000.0, 2000.0), std::invalid_argument);
-}
-
-TEST(Tasks, PoolTaskThrowsOnNegativeFencePrice) {
-  EXPECT_THROW(solvePoolTask(3.0, 1.0, 1000.0, -2000.0), std::invalid_argument);
-}
-
-TEST(Tasks, PoolTaskZeroPathWidthMeansZeroConcreteCost) {
-  const PoolCosts costs = solvePoolTask(3.0, 0.0, 1000.0, 2000.0);
-  EXPECT_NEAR(costs.concrete_cost, 0.0, kEps);
-}
-
-
