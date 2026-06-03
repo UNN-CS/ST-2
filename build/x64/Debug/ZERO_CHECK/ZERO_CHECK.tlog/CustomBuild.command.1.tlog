@@ -1,0 +1,10 @@
+^C:\USERS\SAFAR\ONEDRIVE\DESKTOP\TESTPROG\LAB2\ST-2\BUILD\CMAKEFILES\04B8ABAD425C97A931727982CB11ECAA\GENERATE.STAMP.RULE
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/safar/OneDrive/Desktop/TESTprog/lab2/ST-2 -BC:/Users/safar/OneDrive/Desktop/TESTprog/lab2/ST-2/build --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file C:/Users/safar/OneDrive/Desktop/TESTprog/lab2/ST-2/build/ST-2.sln
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

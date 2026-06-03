@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="C:\Users\safar\OneDrive\Desktop\TESTprog\lab2\ST-2\src\circle.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\safar\OneDrive\Desktop\TESTprog\lab2\ST-2\src\tasks.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="C:\Users\safar\OneDrive\Desktop\TESTprog\lab2\ST-2\include\circle.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\safar\OneDrive\Desktop\TESTprog\lab2\ST-2\include\tasks.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\safar\OneDrive\Desktop\TESTprog\lab2\ST-2\src\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{EB9084A0-C5F7-30EB-9505-A3BB28255BC8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{F7E18303-6E14-3012-9FC2-9169589B04D7}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
